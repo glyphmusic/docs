@@ -13,6 +13,7 @@
 
 * [Search and sources](using-glyph/search-and-sources.md)
 * [Library, playlists and queue](using-glyph/library-and-queue.md)
+* [Transfer music](using-glyph/transfer-music.md)
 * [Downloads and audio quality](using-glyph/downloads-and-quality.md)
 * [Sharing](using-glyph/sharing.md)
 * [Lyrics](using-glyph/lyrics.md)

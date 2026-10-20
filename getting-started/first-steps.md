@@ -1,8 +1,8 @@
 # First steps
 
 1. **Search.** Press `Ctrl+K` (or click Search) and type a song, an artist or
-   even a line of the lyrics. Pasting a Spotify, YouTube or Deezer playlist link
-   imports it.
+   even a line of the lyrics. Pasting a playlist link imports it.
+   Coming from another service? [Transfer your library](../using-glyph/transfer-music.md).
 2. **Play.** Click a song. Right-click it for more: play next, add to the
    queue, add to a playlist, download, go to the artist.
 3. **Like and collect.** The heart saves a song to *Liked songs*. Playlists,

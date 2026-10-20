@@ -1,0 +1,8 @@
+{
+  "name": "glyph-docs-preview",
+  "private": true,
+  "type": "module",
+  "description": "Local preview of docs.glyph.my from the Markdown in this repository.",
+  "scripts": { "start": "node server.mjs" },
+  "dependencies": { "marked": "12.0.2" }
+}

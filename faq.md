@@ -22,6 +22,14 @@ between devices.
 </details>
 
 <details>
+<summary>Can I bring my Spotify or YouTube Music library?</summary>
+
+Yes. **Settings › Transfer music** copies liked songs, playlists, albums and
+artists from Spotify, YouTube Music, SoundCloud, Deezer and Last.fm. See
+[Transfer music](using-glyph/transfer-music.md).
+</details>
+
+<details>
 <summary>Can I listen offline?</summary>
 
 Yes, for sources that allow downloads: songs, albums or whole playlists.

@@ -19,7 +19,9 @@ Order and on/off switches are under **Settings › Playback › Sources**.
   marked *In lyrics*.
 * Glyph waits until you stop typing before it searches, so typing fast does not
   send a request per key.
-* Paste a playlist link from Spotify, YouTube or Deezer to import it.
+* Paste a playlist, album or profile link from Spotify, Deezer, SoundCloud,
+  YouTube, Apple Music, Bandcamp or Last.fm to import it. See
+  [Transfer music](transfer-music.md).
 
 ## YouTube
 

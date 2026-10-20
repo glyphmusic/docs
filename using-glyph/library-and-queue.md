@@ -8,8 +8,9 @@ entry to hide it again.
 
 ## Playlists
 
-* Create one with **New playlist**, add songs from any right-click menu, or drag
-  music files from your computer into a playlist.
+* Create one with **New playlist**: type a name, or paste a link or open a
+  playlist file to [import](transfer-music.md) it. Add songs from any
+  right-click menu, or drag music files from your computer into a playlist.
 * Names can be up to 100 characters. A cover image is optional.
 * **Share**: copy a short `glyph.my` link (signed in) or a `glyph:playlist:` code.
 * **Download all** saves the playlist for offline use where the source allows it;
