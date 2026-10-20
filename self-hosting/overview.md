@@ -21,5 +21,6 @@ The server treats every app as untrusted: device limits, rate limits, sizes and
 access rules are enforced on the server only.
 {% endhint %}
 
-The detailed operator guide (trust model, limits, backups, passkeys and domains)
-is [SELF_HOSTING.md](https://github.com/glyphmusic/server/blob/main/docs/SELF_HOSTING.md).
+Next: [sources and API keys](providers-and-keys.md), [accounts](accounts.md) and
+[limits](limits.md). The full operator guide is
+[SELF_HOSTING.md](https://github.com/glyphmusic/server/blob/main/docs/SELF_HOSTING.md).
