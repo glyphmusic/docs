@@ -1,0 +1,11 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Glyph
+  structure:
+    - type: space
+      key: glyph-docs
+      title: Glyph Docs
+      path: docs
+      default: true
+      content:
+        directory: ./
