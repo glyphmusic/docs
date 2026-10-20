@@ -1,3 +1,7 @@
+---
+description: Where to find the release notes of the app, the server, the companion and r-dlp.
+---
+
 # What's new
 
 Every release of every part of Glyph, the desktop app, the server and CLI, the

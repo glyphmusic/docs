@@ -1,3 +1,7 @@
+---
+description: Crossfade, volume levels, normalization, equalizer, spatial audio and playing on MPD.
+---
+
 # Sound
 
 Everything here applies to songs Glyph plays itself, not to the embedded

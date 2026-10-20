@@ -1,3 +1,7 @@
+---
+description: Liked songs, playlists, sharing codes, the three-part queue and shuffle styles.
+---
+
 # Library, playlists and queue
 
 ## Library

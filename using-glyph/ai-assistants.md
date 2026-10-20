@@ -1,3 +1,7 @@
+---
+description: Let AI assistants such as Claude control Glyph through MCP, locally or through the server.
+---
+
 # AI assistants (MCP)
 
 Glyph includes a [Model Context Protocol](https://modelcontextprotocol.io) server,

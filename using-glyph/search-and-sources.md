@@ -1,3 +1,7 @@
+---
+description: Which legal sources Glyph searches, search tips, YouTube resolvers and artist pages.
+---
+
 # Search and sources
 
 Glyph only plays legal, free sources. A search asks all enabled sources at once

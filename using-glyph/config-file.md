@@ -1,3 +1,7 @@
+---
+description: Where config.toml lives, options that exist only in the file, and settings backup.
+---
+
 # Settings file
 
 Everything in the settings window is stored in `config.toml`:

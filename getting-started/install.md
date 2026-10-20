@@ -1,3 +1,7 @@
+---
+description: Download Glyph for Windows, macOS or Linux, keep it updated, or build it from source.
+---
+
 # Install
 
 Download the build for your system from the [download page](https://glyph.my/download)

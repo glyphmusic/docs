@@ -1,3 +1,7 @@
+---
+description: Every command of the glyph CLI: versions, own server, Cloudflare and remote management.
+---
+
 # CLI reference
 
 Install with `npm install --global glyph-server` (Node.js 22+). The package

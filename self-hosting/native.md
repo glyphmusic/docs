@@ -1,3 +1,7 @@
+---
+description: Run the Glyph server as one binary on Windows, macOS, Linux or a VPS, with automatic HTTPS.
+---
+
 # Own computer or VPS
 
 The server is one binary for Windows, macOS and Linux.

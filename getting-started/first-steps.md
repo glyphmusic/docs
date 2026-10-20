@@ -1,3 +1,7 @@
+---
+description: Search, play, like and collect songs, and the right-click menus of the player bar.
+---
+
 # First steps
 
 1. **Search.** Press `Ctrl+K` (or click Search) and type a song, an artist or

@@ -1,3 +1,7 @@
+---
+description: Synced lyrics from LRCLIB, choosing another version and fixing the timing.
+---
+
 # Lyrics
 
 Synced lyrics come from LRCLIB. The current line stays in the middle of the view,

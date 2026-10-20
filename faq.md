@@ -1,3 +1,7 @@
+---
+description: Short answers to common questions about Glyph.
+---
+
 # FAQ
 
 <details>

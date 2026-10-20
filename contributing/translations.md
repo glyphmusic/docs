@@ -1,3 +1,7 @@
+---
+description: Improve a translation of Glyph or add a new language.
+---
+
 # Translations
 
 Glyph's texts live in `assets/i18n/<code>.toml` in the

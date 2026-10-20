@@ -1,3 +1,7 @@
+---
+description: Deploy the Glyph server as a free Cloudflare Worker with accounts, sync and your own domain.
+---
+
 # Cloudflare
 
 You need a Cloudflare account and Node.js 22 or newer. No Rust and no checkout.

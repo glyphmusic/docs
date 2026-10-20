@@ -1,3 +1,7 @@
+---
+description: Optional accounts: what syncs between devices, profiles and listening statistics.
+---
+
 # Accounts, sync and stats
 
 An account is optional. With one, your liked songs, playlists, artists, albums,

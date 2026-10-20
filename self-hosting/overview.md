@@ -1,3 +1,7 @@
+---
+description: Run your own Glyph server on Cloudflare or on your own machine, and which to choose.
+---
+
 # Self-hosting overview
 
 The app works with the public Glyph server, but every part can run on your own.

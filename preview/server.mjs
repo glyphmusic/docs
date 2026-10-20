@@ -127,7 +127,7 @@ function slug(s) {
 function renderMarkdown(md, dir) {
   const [description, body] = frontMatter(md);
   let title = null;
-  const sections = [], used = new Set();
+  const sections = [], headings = [], used = new Set();
   const renderer = {
     html(token) { return sanitize(typeof token === "string" ? token : token.text); },
     heading(text, depth, raw) {
@@ -135,6 +135,7 @@ function renderMarkdown(md, dir) {
       const base = slug(raw); let id = base, n = 1;
       while (used.has(id)) id = `${base}-${++n}`;
       used.add(id);
+      if (depth <= 3) headings.push([id, raw]);
       if (depth === 2) sections.push([id, raw]);
       return `<h${depth} id="${id}"><a class="anchor" href="#${id}">${text}</a></h${depth}>\n`;
     },
@@ -144,7 +145,7 @@ function renderMarkdown(md, dir) {
   const m = new Marked({ gfm: true });
   m.use({ renderer });
   const html = m.parse(gitbookBlocks(body));
-  return { title: title ?? "Glyph docs", description, html, sections };
+  return { title: title ?? "Glyph docs", description, html, sections, headings };
 }
 
 function parseNav(summary) {
@@ -185,13 +186,13 @@ function brandCss() {
   return `nav .brand::before{content:"";display:inline-block;width:1.6em;height:1.6em;margin-right:.5em;vertical-align:-.45em;border-radius:.25em;background:${url} center/contain no-repeat}`;
 }
 
-function fill(title, desc, nav, body) {
+function fill(title, desc, md, nav, body) {
   return readFileSync(join(site, "docs.html"), "utf8")
     .replace("/*BASE*/", readFileSync(join(site, "base.css"), "utf8"))
     .replace("/*BRAND*/", brandCss())
     .replaceAll("{{TITLE}}", esc(title)).replaceAll("{{DESC}}", esc(desc))
     .replaceAll("{{CANON}}", "https://docs.glyph.my").replaceAll("{{SITE}}", "https://glyph.my")
-    .replaceAll("{{DOCS}}", "/").replace("{{NAV}}", nav).replace("{{BODY}}", body);
+    .replaceAll("{{DOCS}}", "/").replaceAll("{{BASE}}", "").replaceAll("{{MD}}", esc(md)).replace("{{NAV}}", nav).replace("{{BODY}}", body);
 }
 
 function page(path) {
@@ -207,11 +208,74 @@ function page(path) {
     if (doc.description) body += `<p class="lead">${esc(doc.description)}</p>`;
     if (doc.sections.length >= 3) body += `<nav class="onpage" aria-label="On this page"><ul>${doc.sections.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join("")}</ul></nav>`;
     body += doc.html;
-    body += `<div class="pager">${pager(nav, file)}</div><p class="edit"><a href="https://github.com/${REPO}/edit/main/${esc(file)}">edit this page on github</a></p>`;
-    return [200, fill(doc.title, doc.description || "Documentation for Glyph, the free music player.", renderNav(nav, file), body)];
+    body += `<div class="pager">${pager(nav, file)}</div><p class="edit"><a href="https://github.com/${REPO}/edit/main/${esc(file)}">edit this page on github</a> · <a href="/${esc(file)}">markdown</a></p>`;
+    return [200, fill(doc.title, doc.description || "Documentation for Glyph, the free music player.", `/${file}`, renderNav(nav, file), body)];
   }
-  return [404, fill("Not found", "Page not found.", renderNav(nav, ""), '<h1>not found</h1><p class="lead">This page does not exist (any more). Start at the <a href="/">docs home</a>.</p>')];
+  return [404, fill("Not found", "Page not found.", "/llms.txt", renderNav(nav, ""), '<h1>not found</h1><p class="lead">This page does not exist (any more). Start at the <a href="/">docs home</a>.</p>')];
 }
+
+// ---------------------------------------------------------------- search and LLMs (as docs.rs)
+
+function cleanMarkdown(md) {
+  const [description, body] = frontMatter(md.replace(/\r\n/g, "\n"));
+  let out = "", fence = null, quote = false, described = !description;
+  for (const line of body.split("\n")) {
+    const t = line.trim();
+    if (fence) { if (t.startsWith(fence)) fence = null; }
+    else if (t.startsWith("```") || t.startsWith("~~~")) fence = t.slice(0, 3);
+    else if (t.startsWith("{%") && t.endsWith("%}")) {
+      const tag = t.slice(2, -2).trim(), sp = tag.indexOf(" ");
+      const name = sp < 0 ? tag : tag.slice(0, sp), args = sp < 0 ? "" : tag.slice(sp + 1);
+      if (name === "hint") { out += `\n> **${{ warning: "Warning", danger: "Careful", success: "Tip" }[attr(args, "style")] || "Note"}:**\n`; quote = true; }
+      else if (name === "endhint") { quote = false; out += "\n"; }
+      else if (name === "tab") out += `\n**${attr(args, "title") || ""}**\n\n`;
+      continue;
+    }
+    if (quote) out += t ? "> " : ">";
+    out += line + "\n";
+    if (!described && line.startsWith("# ")) { out += `\n> ${description}\n`; described = true; }
+  }
+  return out.trim() + "\n";
+}
+
+function plainText(md) {
+  const [, body] = frontMatter(md);
+  const words = [];
+  for (const line of cleanMarkdown(body).split("\n")) {
+    const t = line.trim();
+    if (t.startsWith("```") || t.startsWith("~~~")) continue;
+    const s = t.replace(/\]\([^)]*\)/g, "").replace(/<[^>]*>/g, "").replace(/[#*>|`[\]]/g, " ");
+    for (const w of s.split(/\s+/)) if (w && !/^-+$/.test(w)) words.push(w);
+  }
+  return words.join(" ").slice(0, 30000);
+}
+
+function allPages(nav) {
+  const files = [...new Set(nav.filter(e => !e.group).map(e => e.file))];
+  return (files.length ? files : ["README.md"]).map(f => [f, read(f)]).filter(([, md]) => md !== null);
+}
+
+function searchIndex(pages) {
+  return JSON.stringify({ pages: pages.map(([file, md]) => {
+    const dir = file.includes("/") ? file.slice(0, file.lastIndexOf("/")) : "";
+    const doc = renderMarkdown(md, dir);
+    return { t: doc.title, u: pageUrl(file), d: doc.description || "", h: doc.headings, x: plainText(md) };
+  }) });
+}
+
+function llmsTxt(pages, nav, origin) {
+  let out = "# Glyph docs\n\n> Documentation for Glyph, a free, open-source desktop music player for Windows, macOS and Linux that searches many legal music sources at once, and for its self-hostable server and `glyph` CLI, the YouTube companion and r-dlp.\n\n";
+  out += `Every page is also available as Markdown: add \`.md\` to its address. All pages in one file: [llms-full.txt](${origin}/llms-full.txt). Source: https://github.com/${REPO}\n`;
+  const desc = f => { const p = pages.find(([x]) => x === f); const d = p && frontMatter(p[1])[0]; return d ? `: ${d}` : ""; };
+  let open = false;
+  for (const e of nav) {
+    if (e.group) { out += `\n## ${e.group}\n\n`; open = true; }
+    else { if (!open) { out += "\n## Start\n\n"; open = true; } out += `- [${e.title}](${origin}/${e.file})${desc(e.file)}\n`; }
+  }
+  return out;
+}
+
+const llmsFull = (pages, origin) => "# Glyph docs (all pages)\n" + pages.map(([f, md]) => `\n---\n\nSource: ${origin}/${f}\n\n${cleanMarkdown(md)}`).join("");
 
 const TYPES = { png: "image/png", jpg: "image/jpeg", jpeg: "image/jpeg", gif: "image/gif", webp: "image/webp", svg: "image/svg+xml" };
 
@@ -229,9 +293,16 @@ createServer((req, res) => {
     }
     res.writeHead(404); return res.end();
   }
+  const origin = `http://${req.headers.host || `127.0.0.1:${port}`}`;
+  const text = (status, type, body) => { res.writeHead(status, { "content-type": type, "cache-control": "no-store" }); res.end(body); };
+  if (["/search.json", "/llms.txt", "/llms-full.txt"].includes(path)) {
+    const nav = parseNav(read("SUMMARY.md")), pages = allPages(nav);
+    if (path === "/search.json") return text(200, "application/json", searchIndex(pages));
+    return text(200, "text/markdown; charset=utf-8", path === "/llms.txt" ? llmsTxt(pages, nav, origin) : llmsFull(pages, origin));
+  }
   if (path.endsWith(".md")) {
-    res.writeHead(301, { location: pageUrl(path.slice(1)) || "/" });
-    return res.end();
+    const file = path.slice(1), md = validFile(file) ? read(file) : null;
+    return md === null ? text(404, "text/plain", "not found\n") : text(200, "text/markdown; charset=utf-8", cleanMarkdown(md));
   }
   try {
     const [status, html] = page(path);

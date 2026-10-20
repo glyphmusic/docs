@@ -91,3 +91,17 @@ the `main` branch: a push is live within about a minute, no deploy needed.
   `warning`, `danger`). Tabs: `{% tabs %}{% tab title="…" %} … {% endtab %}{% endtabs %}`.
   Collapsible answers: `<details><summary>…</summary> … </details>`. Other HTML
   is shown as text.
+* Give every page a `description:`. It is the lead line, the search snippet
+  and the summary in `llms.txt`.
+
+Preview your changes locally with the real page template: see
+[`preview/`](https://github.com/glyphmusic/docs/tree/main/preview).
+
+### For search and LLMs
+
+| Address | Contents |
+| --- | --- |
+| `docs.glyph.my/search.json` | the index the search box (`Ctrl+K` or `/`) uses |
+| `docs.glyph.my/llms.txt` | every page with its description, as [llms.txt](https://llmstxt.org) |
+| `docs.glyph.my/llms-full.txt` | all pages as Markdown in one file |
+| `docs.glyph.my/<page>.md` | one page as clean Markdown, e.g. `/self-hosting/cli.md` |
