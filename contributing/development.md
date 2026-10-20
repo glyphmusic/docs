@@ -76,6 +76,18 @@ cargo build --release --locked
 
 ## Docs
 
-These pages live in [glyphmusic/docs](https://github.com/glyphmusic/docs) and are
-published with GitBook. Edit the Markdown and open a pull request; the
-navigation is `SUMMARY.md`.
+These pages live in [glyphmusic/docs](https://github.com/glyphmusic/docs). The
+Glyph server renders them at [docs.glyph.my](https://docs.glyph.my) straight from
+the `main` branch: a push is live within about a minute, no deploy needed.
+
+* Edit the Markdown and open a pull request. *Edit this page on GitHub* at the
+  bottom of every page opens the right file.
+* `SUMMARY.md` is the navigation: `## Group` headings and `* [Title](file.md)`
+  items, indented by two spaces for sub-pages.
+* A page's first `# Heading` is its title; `description:` in the front matter is
+  the line under it.
+* Link other pages by their file (`../self-hosting/cli.md#remote-management`).
+* Notes: `{% hint style="info" %} … {% endhint %}` (`info`, `success`,
+  `warning`, `danger`). Tabs: `{% tabs %}{% tab title="…" %} … {% endtab %}{% endtabs %}`.
+  Collapsible answers: `<details><summary>…</summary> … </details>`. Other HTML
+  is shown as text.
