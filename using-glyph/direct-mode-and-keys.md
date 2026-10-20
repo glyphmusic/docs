@@ -27,8 +27,8 @@ MusicBrainz and LRCLIB need none.
 | Key | Used for | Get it at |
 | --- | --- | --- |
 | `jamendo_client_id` | Jamendo search and full songs | [devportal.jamendo.com](https://devportal.jamendo.com) |
-| `soundcloud_client_id` | SoundCloud embedded player | [soundcloud.com/you/apps](https://soundcloud.com/you/apps) |
-| `spotify_client_id`, `spotify_client_secret` | Spotify metadata and public playlist import | [developer.spotify.com](https://developer.spotify.com/dashboard) |
+| `soundcloud_client_id` | SoundCloud embedded player; reading SoundCloud playlists without the server | [soundcloud.com/you/apps](https://soundcloud.com/you/apps) |
+| `spotify_client_id`, `spotify_client_secret` | Spotify metadata; full playlists over 100 songs by link (without it Glyph reads Spotify's public page) | [developer.spotify.com](https://developer.spotify.com/dashboard) |
 | `lastfm` | radio, similar artists, loved tracks import | [last.fm/api](https://www.last.fm/api/account/create) |
 | `youtube` | YouTube Data API, optional | Google Cloud console |
 

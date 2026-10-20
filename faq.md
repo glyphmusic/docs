@@ -28,9 +28,10 @@ between devices.
 <details>
 <summary>Can I bring my Spotify or YouTube Music library?</summary>
 
-Yes. **Settings › Transfer music** copies liked songs, playlists, albums and
-artists from Spotify, YouTube Music, SoundCloud, Deezer and Last.fm. See
-[Transfer music](using-glyph/transfer-music.md).
+Yes, without logging in anywhere. **Settings › Transfer music** copies liked
+songs and playlists from Spotify (copy the songs in the Spotify app and paste
+them), YouTube Music (playlist links or a Google Takeout file), SoundCloud,
+Deezer and Last.fm. See [Transfer music](using-glyph/transfer-music.md).
 </details>
 
 <details>

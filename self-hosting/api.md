@@ -30,7 +30,7 @@ Rate-limited answers are HTTP 429 with `retry_after_s` and `Retry-After`.
 | GET | `/v1/download/:provider/:id` | download stream |
 | GET | `/v1/lyrics?title=&artist=&album=&duration=` | lyrics from LRCLIB; duration in seconds |
 | GET | `/v1/similar?artist=&title=` | similar songs (Last.fm) |
-| POST | `/v1/import/spotify` | `{url}` of a public Spotify, Deezer or YouTube playlist |
+| POST | `/v1/import/spotify` | `{url}` of a public Spotify, Deezer or YouTube playlist, a SoundCloud link (set, likes, tracks, song) or a Last.fm profile |
 | POST | `/v1/cover` | track → cover URL |
 
 A search result keeps its `source` and `id`. If another source finds the same

@@ -1,5 +1,5 @@
 ---
-description: Bring your library from Spotify, YouTube Music, SoundCloud, Deezer or Last.fm, or import single playlists from links and files.
+description: Bring your library from Spotify, YouTube Music, SoundCloud, Deezer or Last.fm without logging in, or import single playlists from links and files.
 ---
 
 # Transfer music
@@ -10,15 +10,21 @@ list and are tried again when you play them.
 
 Open **Settings › Transfer music** or **Library › Transfer music**.
 
+{% hint style="info" %}
+No login, no API key, no app to register. Glyph only reads public pages and
+what you hand it (copied links, files). Nothing of yours goes to a Glyph
+server except public links it reads for you.
+{% endhint %}
+
 ## Whole libraries
 
-| From | What comes over | Needs |
+| From | What comes over | How |
 | --- | --- | --- |
-| Spotify | liked songs, playlists, saved albums, followed artists | your own Spotify app, browser login |
-| YouTube Music | liked music, playlists, subscribed artists | your own Google app, browser login |
-| SoundCloud | likes, playlists, followed artists | a public profile and a SoundCloud client ID |
-| Deezer | favourites, playlists, albums, artists | a public profile |
-| Last.fm | loved tracks, optionally your top tracks | your user name |
+| Spotify | liked songs, playlists | copy them in the Spotify app and paste |
+| YouTube Music | playlists, liked music | playlist links; private lists from a Google Takeout file |
+| SoundCloud | likes | link to your public profile |
+| Deezer | favourites, playlists, albums, artists | link to your public profile |
+| Last.fm | loved tracks | your user name |
 
 Pick what should come over, then **Transfer**. It runs in the background while
 you keep listening, and continues after a restart (*Unfinished › Continue*). A
@@ -27,40 +33,49 @@ list you transfer twice only gets its new songs.
 When it is done, Glyph shows **unsure matches** (found, but maybe a live or
 remastered version) and songs **not found yet**. Both stay in your lists.
 
-{% hint style="info" %}
-Logins are read-only, stay on this computer and are forgotten when Glyph closes.
-They never go to a Glyph server.
-{% endhint %}
-
 ### Spotify
 
-Spotify only lets apps you registered yourself read a library:
+1. Open **Liked Songs** (or any playlist) in the Spotify desktop app or the web
+   player.
+2. Click a song, press `Ctrl+A` (`Cmd+A` on a Mac), then `Ctrl+C`. That copies
+   one link per song, every song of the list.
+3. In Glyph press **Paste**. Repeat for more playlists: all links collect on the
+   page. Playlist links (right-click › *Share* › *Copy link*) work as well.
 
-1. Open the [Spotify developer dashboard](https://developer.spotify.com/dashboard)
-   and create an app (any name, *Web API*).
-2. Add the redirect address Glyph shows, `http://127.0.0.1:43117/callback`, and
-   save.
-3. Copy the app's client ID into Glyph. While the app is in development mode,
-   add your Spotify account under *User Management*.
-4. Click **Log in in the browser**.
+Copied songs become your **Liked Songs**, every playlist link its own playlist.
 
-Spotify's own mixes (Discover Weekly, Daily Mix, editorial playlists) are closed
-to other apps and do not come over.
+{% hint style="warning" %}
+Through a playlist link Spotify shows other apps only the first 100 songs
+(unless your Glyph server has a Spotify key). For longer playlists copy the
+songs themselves as above. Spotify's own mixes (Discover Weekly, Daily Mix)
+work the same way: open them and copy the songs.
+{% endhint %}
+
+You can also paste the copied songs straight into the search bar: Glyph opens
+*Transfer music* with them.
 
 ### YouTube Music
 
-1. In the [Google Cloud console](https://console.cloud.google.com) create a
-   project and enable the *YouTube Data API v3*.
-2. Create an OAuth client of type *Desktop app* and add yourself as a test user.
-3. Copy the client ID and client secret into Glyph and log in.
-
-From liked videos only music videos come over.
+* **Public or unlisted playlists:** copy the link (*Share › Copy*) and press
+  **Paste**.
+* **Liked music and private playlists:** export them with
+  [Google Takeout](https://takeout.google.com/settings/takeout/custom/youtube)
+  (*YouTube and YouTube Music*, only *playlists* is needed), unzip the download
+  and pick the CSV files from the `playlists` folder with **Choose files**.
+  Takeout only holds video IDs; Glyph looks up the titles itself.
 
 ### SoundCloud, Deezer, Last.fm
 
-Enter your profile link or name and click **Read profile**. Only what is public
-on the profile is visible. SoundCloud also needs a client ID, saved with your
-other [API keys](direct-mode-and-keys.md).
+Enter your profile link or name and click **Next**. Only what is public on the
+profile is visible.
+
+* **SoundCloud:** your likes come over. Sets come over by pasting their links
+  (see below). Reading SoundCloud uses the Glyph server's key; with an own
+  `soundcloud_client_id` in the [settings file](config-file.md) the app also
+  reads your playlists and followed artists itself.
+* **Deezer:** favourites, playlists, saved albums and followed artists.
+* **Last.fm:** loved tracks (through the server's Last.fm key). With an own
+  Last.fm key your top tracks can come over as a playlist too.
 
 ## Single playlists by link
 
@@ -71,20 +86,20 @@ Paste a link into **New playlist**, into search, or under *Playlist by link*:
 | Spotify | playlists, albums, artists (top songs), songs, `spotify.link` |
 | Deezer | playlists, albums, artists, profiles, songs, `deezer.page.link` |
 | SoundCloud | sets, likes, a user's tracks, songs, `on.soundcloud.com` |
-| YouTube | playlists, videos |
+| YouTube | playlists (also YouTube Music) |
 | Apple Music | public playlists and albums |
-| Bandcamp | albums |
+| Bandcamp | albums and songs |
 | Last.fm | profiles (loved tracks) |
 
-No key or login is needed. Spotify links show at most 100 songs this way. For
-longer lists or *Liked Songs*, select all songs in the Spotify app (`Ctrl+A`,
-`Ctrl+C`) and paste them: that is one link per song.
+None needs a key. Glyph tries the Glyph server first, then your own
+[API keys](direct-mode-and-keys.md) if you set any, then the public pages.
+Short links are only followed to the service they belong to.
 
 Tidal and Apple Music libraries: paste public playlist links or use a file.
 
 ## Playlist files
 
-*Playlist file › Choose file* reads:
+*Playlist file › Choose file* (or **Import file** in *New playlist*) reads:
 
 * **CSV** from Exportify, TuneMyMusic and similar tools
 * the **Spotify data export** (JSON)

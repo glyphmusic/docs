@@ -18,6 +18,7 @@
 * [Sharing](using-glyph/sharing.md)
 * [Lyrics](using-glyph/lyrics.md)
 * [Sound](using-glyph/sound.md)
+* [Play on speakers and TVs](using-glyph/devices.md)
 * [Accounts, sync and stats](using-glyph/accounts.md)
 * [AI assistants (MCP)](using-glyph/ai-assistants.md)
 * [Integrations](using-glyph/integrations.md)

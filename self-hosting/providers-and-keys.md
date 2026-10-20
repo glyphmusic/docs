@@ -13,7 +13,7 @@ are switched off; `GET /v1/health` lists the active ones.
 | YouTube search and audio | yt-dlp/r-dlp (native) or the [companion](companion.md) (Cloudflare) | `YTDLP_PATH` (native); `YTDLP_SERVICE_URL`, `YTDLP_SERVICE_TOKEN` (Worker) |
 | YouTube playlist import | API key | `YOUTUBE_API_KEY` |
 | Jamendo | client id | `JAMENDO_CLIENT_ID` |
-| SoundCloud | client credentials | `SOUNDCLOUD_CLIENT_ID`, `SOUNDCLOUD_CLIENT_SECRET` |
+| SoundCloud | client credentials (search, and SoundCloud links for *Transfer music*) | `SOUNDCLOUD_CLIENT_ID`, `SOUNDCLOUD_CLIENT_SECRET` |
 | Spotify (metadata only) | client credentials | `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET` |
 | Last.fm | API key | `LASTFM_API_KEY` |
 
