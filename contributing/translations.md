@@ -5,7 +5,7 @@ description: Improve a translation of Glyph or add a new language.
 # Translations
 
 Glyph's texts live in `assets/i18n/<code>.toml` in the
-[desktop repository](https://github.com/glyphmusic/desktop/tree/main/assets/i18n),
+[desktop repository](https://github.com/glyphmusic/apps/tree/main/assets/i18n),
 one `"key" = "text"` per line. English (`en.toml`) is the reference; a missing
 key falls back to English.
 

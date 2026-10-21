@@ -57,7 +57,7 @@ Yes, on Cloudflare or your own machine. Start with the
 <details>
 <summary>How do I report a bug?</summary>
 
-Open an issue on [GitHub](https://github.com/glyphmusic/desktop/issues/new).
+Open an issue on [GitHub](https://github.com/glyphmusic/apps/issues/new).
 **Settings › Support › Copy diagnostic info** adds version and system details
 without keys or personal data.
 </details>

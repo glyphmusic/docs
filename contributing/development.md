@@ -10,7 +10,7 @@ are welcome in each repository.
 ## Desktop app
 
 ```bash
-git clone https://github.com/glyphmusic/desktop.git
+git clone https://github.com/glyphmusic/apps.git
 cd desktop
 cargo build --release -p glyph
 ```

@@ -1,5 +1,5 @@
 ---
-description: Play on speakers, TVs and other devices in your network (Chromecast, UPnP/DLNA, Sonos, MPD) and what to do when a device is missing.
+description: Play on speakers, TVs and other devices in your network (Chromecast, UPnP/DLNA, Sonos, AirPlay, MPD), control your other Glyph devices, and what to do when a device is missing.
 ---
 
 # Play on speakers and TVs
@@ -15,7 +15,7 @@ skip, seek, volume).
 | UPnP / DLNA | smart TVs (Sony, Samsung, LG …), AV receivers, many Wi-Fi speakers | yes |
 | Sonos | all Sonos speakers, also in groups | yes |
 | MPD | Music Player Daemon on a Raspberry Pi or server | yes |
-| AirPlay | HomePod, Apple TV, AirPlay speakers | listed, not yet |
+| AirPlay | AirPort Express, AV receivers, AirPlay speakers, shairport-sync | yes, except devices that require pairing |
 
 Songs that only exist on your computer (downloads, imported files) are sent to
 the device by Glyph itself, so the computer must stay on while they play.
@@ -23,6 +23,32 @@ YouTube and SoundCloud songs that play in their embedded player cannot go to a
 device; they keep playing on the computer and Glyph tells you so.
 
 Turn the search off under **Settings › Playback › Network devices**.
+
+### AirPlay
+
+Glyph plays to AirPlay speakers with classic AirPlay (RAOP): it decodes the song
+itself and streams it lossless at 44.1 kHz, so the computer must stay on while
+it plays. Volume, pause, seek and the song title on the device work. The speaker
+buffers about two seconds, so pressing play or seeking takes that long to be
+heard.
+
+Devices that require AirPlay pairing or a password (newer HomePods, Apple TV
+with *Require password* or *Only people sharing this home*) refuse the
+connection; Glyph shows that message. On an Apple TV, set *AirPlay › Allow
+access* to **Everyone** to try anyway.
+
+## Your other Glyph devices
+
+Signed in, the Connect panel also lists **Your Glyph devices**: every other
+computer or phone where Glyph is open with the same account. No network
+search is involved, so they can be anywhere.
+
+* Click a device to control it from here: play, pause, skip, seek and volume
+  act on that device, and the player bar shows what it plays.
+* **Play here** under a device moves the current song and the next 99 queued
+  songs there, at the same position, and this computer becomes the remote.
+* A device that is in a [Jam](jam.md) or controlling another device shows
+  *Currently in a Jam or controlling another device* and cannot be picked.
 
 ## Your device is not showing?
 

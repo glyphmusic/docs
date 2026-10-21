@@ -24,7 +24,7 @@ telemetry. An account is optional.
 
 | Part | What it does | Repository |
 | --- | --- | --- |
-| Desktop app | The player you install | [glyphmusic/desktop](https://github.com/glyphmusic/desktop) |
+| Desktop app | The player you install | [glyphmusic/apps](https://github.com/glyphmusic/apps) |
 | Server and CLI | Search, accounts, sync, sharing; the `glyph` command | [glyphmusic/server](https://github.com/glyphmusic/server) |
 | Companion | Optional helper that gives a Cloudflare server YouTube | [glyphmusic/companion](https://github.com/glyphmusic/companion) |
 | r-dlp | Fast YouTube audio resolver used by the app and companion | [glyphmusic/r-dlp](https://github.com/glyphmusic/r-dlp) |

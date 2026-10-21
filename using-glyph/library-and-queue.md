@@ -1,5 +1,5 @@
 ---
-description: Liked songs, playlists, sharing codes, the three-part queue and shuffle styles.
+description: Liked songs, playlists, sorting, sharing codes, the three-part queue, radio, shuffle styles and the sleep timer.
 ---
 
 # Library, playlists and queue
@@ -19,6 +19,14 @@ entry to hide it again.
 * **Share**: copy a short `glyph.my` link (signed in) or a `glyph:playlist:` code.
 * **Download all** saves the playlist for offline use where the source allows it;
   *Automatically download new songs* keeps it complete.
+* **Sort** (the arrows on a list page): title, artist, album, length or the
+  list's own order. Glyph remembers it per list, and *Play* follows the shown
+  order. Songs can only be dragged into a new order while a playlist shows its
+  own order.
+* **Where it is stored** (signed in; right-click a playlist): *Local playlist*
+  stays on this computer only, *Account playlist* syncs to all your devices,
+  *Account + offline* also downloads it. The playlist page shows which one it
+  is. Without an account every playlist is local.
 
 ## Queue
 
@@ -33,6 +41,19 @@ The queue has three parts:
 Click any song in the queue to continue from there. When the queue ends, radio
 can continue with similar songs (needs a Last.fm key on the server or in your
 settings).
+
+## Radio
+
+**Start radio** in the right-click menu of a song, playlist, album or artist
+(or the radio button on list and artist pages) plays songs similar to it. For a
+list Glyph takes up to five songs spread over it, so the radio fits the whole
+list; songs already in it are left out and artists are spread out.
+
+## Sleep timer
+
+The timer button (player bar and Now Playing) pauses playback after 15, 30, 45,
+60 or 90 minutes, or at the end of the current song. Click it again to see the
+time left or turn it off. The timer is not kept across restarts.
 
 ## Shuffle
 

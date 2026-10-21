@@ -23,7 +23,7 @@ download_adaptive = true   # follow your connection speed
 
 An empty `server_url` switches to direct mode: the app asks the sources itself
 with your own API keys. See
-[config.example.toml](https://github.com/glyphmusic/desktop/blob/main/config.example.toml)
+[config.example.toml](https://github.com/glyphmusic/apps/blob/main/config.example.toml)
 for every option.
 
 ## Backup and sharing

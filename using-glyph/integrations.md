@@ -11,7 +11,7 @@ keys.
 
 | System | Where |
 | --- | --- |
-| Windows | media overlay, lock screen and taskbar buttons (like, previous, play, next) |
+| Windows | media overlay, lock screen, taskbar buttons (like, previous, play, next) and the taskbar jump list (right-click: recently played songs, play/pause, next, previous) |
 | macOS | Now Playing in Control Center |
 | Linux | MPRIS, used by GNOME, KDE and most panels |
 

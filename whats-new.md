@@ -10,7 +10,7 @@ companion and r-dlp, is listed newest first at
 
 Each repository also keeps its own `CHANGELOG.md`:
 
-* [Desktop app](https://github.com/glyphmusic/desktop/blob/main/CHANGELOG.md)
+* [Desktop app](https://github.com/glyphmusic/apps/blob/main/CHANGELOG.md)
 * [Server and CLI](https://github.com/glyphmusic/server/blob/main/CHANGELOG.md)
 * [Companion](https://github.com/glyphmusic/companion/blob/main/CHANGELOG.md)
 * [r-dlp](https://github.com/glyphmusic/r-dlp/blob/main/CHANGELOG.md)

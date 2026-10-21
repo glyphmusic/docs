@@ -5,7 +5,7 @@ description: The HTTP API the app uses, for custom clients and tools.
 # API reference
 
 All routes are under `/v1`. Request and response types come from the shared
-[`glyph-protocol`](https://github.com/glyphmusic/desktop/tree/main/crates/glyph-protocol)
+[`glyph-protocol`](https://github.com/glyphmusic/apps/tree/main/crates/glyph-protocol)
 crate. Errors are JSON `ApiError` objects with a `code`.
 
 ## Headers
@@ -59,6 +59,33 @@ song later, the track is sent again with more ids; replace it by
 | GET | `/v1/sync/export` | all items as JSON |
 | GET / PATCH | `/v1/profile` | own profile settings |
 | GET | `/v1/profiles/:handle` | another user's public profile (signed in) |
+
+## Jam
+
+All signed in. The host's app owns the queue and playback; the server only
+relays (see [Jam](../using-glyph/jam.md)).
+
+| Method | Path | Does |
+| --- | --- | --- |
+| POST | `/v1/jam` | start a jam (ends the host's older one) |
+| GET / DELETE | `/v1/jam/:code?rev=` | state, waits up to 15 s for a newer revision; the host ends it |
+| GET | `/v1/jam/:code/time` | server clock (clock sync) |
+| POST | `/v1/jam/:code/join`, `/v1/jam/:code/leave` | join (the state, or `202` waiting for the host), leave |
+| POST | `/v1/jam/:code/op` | a member's request: add, vote, remove, control |
+| GET | `/v1/jam/:code/ops` | host: waiting requests (waits up to 15 s; `?wait=0` answers at once) |
+| GET | `/v1/jam/:code/live` | WebSocket: the server pushes new states, requests for the host and whether the host is online |
+| POST | `/v1/jam/:code/state` | host: publish what plays and the queue |
+| POST | `/v1/jam/:code/now` | host: publish only the position (seeks, heartbeat); a few hundred bytes |
+| POST | `/v1/jam/:code/kick` | host: remove a member (banned by account) |
+| POST | `/v1/jam/:code/admit` | host: let someone in who is waiting, or not |
+| POST | `/v1/jam/:code/claim` | member: take over after the host was gone for 2 minutes |
+| GET | `/jam/:code` | invite page (no sign-in); opens `glyph://jam/:code` |
+
+`/live` runs on the Cloudflare Worker only (Durable Object `JAM_ROOM`, created
+on deploy). It stays within the free plan: at most 70,000 pushes and
+connections per UTC day; after that the apps get one `fallback` message and
+ask with the requests above until the next day. Other servers answer
+`404 jam_push_off`, and the apps ask the same way.
 
 ### Sync items
 

@@ -7,7 +7,6 @@
 * [Install](getting-started/install.md)
 * [First steps](getting-started/first-steps.md)
 * [Keyboard shortcuts](getting-started/keyboard-shortcuts.md)
-* [Troubleshooting](getting-started/troubleshooting.md)
 
 ## Using Glyph
 
@@ -19,11 +18,22 @@
 * [Lyrics](using-glyph/lyrics.md)
 * [Sound](using-glyph/sound.md)
 * [Play on speakers and TVs](using-glyph/devices.md)
+* [Jam: listen together](using-glyph/jam.md)
 * [Accounts, sync and stats](using-glyph/accounts.md)
 * [AI assistants (MCP)](using-glyph/ai-assistants.md)
 * [Integrations](using-glyph/integrations.md)
 * [Direct mode and API keys](using-glyph/direct-mode-and-keys.md)
 * [Settings file](using-glyph/config-file.md)
+
+## Help
+
+* [Overview](help/README.md)
+  * [Playback](help/playback.md)
+  * [Jam](help/jam.md)
+  * [Accounts and sync](help/accounts-and-sync.md)
+  * [Search, links and transfer](help/search-and-transfer.md)
+  * [Install and updates](help/install-and-updates.md)
+  * [Your own server](help/server.md)
 
 ## Self-hosting
 
