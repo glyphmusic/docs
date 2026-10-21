@@ -29,12 +29,15 @@ background, with controls in the notification.
 2. Open the file and allow your browser or file manager to install apps when
    Android asks.
 
-Glyph is not in the Play Store yet. To update, install the APK of the new
-version over the old one; your library and settings stay.
+Glyph is not in the Play Store yet. Since 0.6.0 the app updates itself:
+**Settings › About** downloads the new APK, checks it and hands it to Android's
+installer. The first time, Android asks you to allow Glyph to install apps.
+You can also install the APK of the new version over the old one by hand; your
+library and settings stay.
 
 ## Updates
 
-The desktop app checks GitHub for new versions and can install them for you
+The desktop and Android apps check GitHub for new versions and can install them for you
 (**Settings › About**). Pre-releases are opt-in under the same page. If you
 installed Glyph with a package manager, update it there instead.
 
