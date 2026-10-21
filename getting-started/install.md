@@ -29,9 +29,8 @@ background, with controls in the notification.
 2. Open the file and allow your browser or file manager to install apps when
    Android asks.
 
-Glyph is not in the Play Store yet and the preview builds are not signed with a
-fixed key: to update, uninstall the old version first, then install the new one.
-Your library comes back when you sign in to your account.
+Glyph is not in the Play Store yet. To update, install the APK of the new
+version over the old one; your library and settings stay.
 
 ## Updates
 
