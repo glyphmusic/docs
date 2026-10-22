@@ -40,7 +40,15 @@ The queue has three parts:
 
 Click any song in the queue to continue from there. When the queue ends, radio
 can continue with similar songs (needs a Last.fm key on the server or in your
-settings).
+settings). They are based on the last few songs, join the end of the queue (so
+*Previous* still goes back into the list) and leave out what just played.
+
+A song that cannot play is skipped with a short note; after five in a row Glyph
+stops and says so.
+
+Removing a song from a playlist, *Liked songs*, *Recently played* or
+*Downloads*, or deleting a playlist, shows a toast with **Undo** for a few
+seconds.
 
 ## Radio
 
@@ -52,8 +60,9 @@ list; songs already in it are left out and artists are spread out.
 ## Sleep timer
 
 The timer button (player bar and Now Playing) pauses playback after 15, 30, 45,
-60 or 90 minutes, or at the end of the current song. Click it again to see the
-time left or turn it off. The timer is not kept across restarts.
+60 or 90 minutes, or at the end of the current song. Over the last 30 seconds
+the music fades out; the volume is back when you play again. Click the button
+again to see the time left or turn it off. The timer is not kept across restarts.
 
 ## Shuffle
 
@@ -62,3 +71,6 @@ Two shuffle styles (**Settings › Playback** or right-click the shuffle button)
 * **Smart** feels random: songs by the same artist are spread out and songs you
   just heard move to the end.
 * **Fully random** gives every order the same chance, repeats included.
+
+With *Repeat all*, every round is shuffled anew and never starts with the song
+that just ended.
