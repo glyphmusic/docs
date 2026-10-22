@@ -5,7 +5,7 @@ description: Build, test and change the app, the server and r-dlp.
 # Development
 
 Every part is Rust, dual-licensed MIT or Apache-2.0 (r-dlp: MIT). Pull requests
-are welcome in each repository.
+are welcome in each repository; read [Pull requests](pull-requests.md) first.
 
 ## Desktop app
 

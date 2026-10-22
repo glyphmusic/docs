@@ -57,4 +57,5 @@
 * [Privacy](privacy.md)
 * [What's new](whats-new.md)
 * [Development](contributing/development.md)
+* [Pull requests](contributing/pull-requests.md)
 * [Translations](contributing/translations.md)
