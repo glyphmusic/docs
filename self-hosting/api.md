@@ -49,14 +49,15 @@ song later, the track is sent again with more ids; replace it by
 
 | Method | Path | Does |
 | --- | --- | --- |
-| POST | `/v1/account/login/start`, `/v1/account/login/poll` | browser sign-in for apps |
+| POST | `/v1/account/login/start`, `/v1/account/login/poll` | browser sign-in and pairing codes for apps |
+| POST | `/v1/account/login/approve` | a signed-in device approves a pairing code (and gets the new device's key-exchange message) |
 | POST | `/v1/account/token/refresh` | new access token |
 | GET | `/v1/account/handle/:h` | is a handle free |
 | GET / PATCH / DELETE | `/v1/account` | read, change handle, delete account |
 | GET / PATCH / DELETE | `/v1/devices`, `/v1/devices/:id` | list, rename, remove devices |
 | POST | `/v1/sync/push` | send changed items |
 | GET | `/v1/sync/pull?since=&limit=` | items newer than a revision |
-| GET | `/v1/sync/export` | all items as JSON |
+| GET | `/v1/sync/export` | all items as JSON (end-to-end encrypted items stay encrypted) |
 | GET / PATCH | `/v1/profile` | own profile settings |
 | GET | `/v1/profiles/:handle` | another user's public profile (signed in) |
 

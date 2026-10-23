@@ -1,5 +1,5 @@
 ---
-description: Fixes for sign-in, the device limit, a forgotten password, API keys that do not sync and sync that looks out of date.
+description: Fixes for sign-in, the device limit, a forgotten password, a library that is locked on a new device, privacy alerts and sync that looks out of date.
 ---
 
 # Accounts and sync problems
@@ -44,8 +44,16 @@ limit itself is set by the server owner.
 
 Pairing codes are short-lived and only work once. Start the sign-in again on the
 new device and approve the new code on the signed-in device
-(**Settings › Account**). The code shown on both sides must match; if it does
-not, cancel.
+(**Settings › Account**). Type the whole code, including the last four
+characters: they hand your library's key to the new device. The code shown on
+both sides must match; if it does not, cancel.
+
+### Where is "Sign in with your browser"?
+
+On a server other than the official one, Glyph signs you in in the app: with
+your password or a pairing code. That server's own sign-in page is still
+there under *Use this server's own sign-in page*, after a warning: a modified
+server could read your password on its own page.
 
 ## Forgot your password
 
@@ -62,12 +70,34 @@ Without any of these, the account cannot be recovered. Keep the recovery code
 voids the old.
 {% endhint %}
 
-## API keys do not sync to a new device
+Your library is encrypted with a key only your devices have. If you forgot the
+password, keep one signed-in device until the new device has your library: that
+device holds the key and passes it on. If no signed-in device is left and the
+password is gone, the server cannot open the library for you.
 
-API keys sync encrypted with your password. On a new device, enter the password
-once when Glyph asks for it (**Settings › Account**). If you signed in with a
-passkey only and have no password yet, **Set a password** first; until then
-settings sync, keys do not.
+## My library is locked on a new device
+
+Your library is end-to-end encrypted. A new device gets the key when you sign in
+with your password, through the pairing code, or (on the official server) from
+another device of yours as soon as that one is online. Otherwise enter your
+password once under **Settings › Account** (Library & API keys).
+
+## "Server holds the key"
+
+Your account has no password, so the server keeps your library's key: nothing is
+lost if a device breaks, and the server could read your library. Set a password
+under **Settings › Account › Security**; your library then gets a new key the
+server never sees. Accounts with a password from before end-to-end encryption
+show **Activate**: enter the password once.
+
+API keys sync only once the server no longer holds the key.
+
+## A privacy alert appeared
+
+Glyph shows an alert when the server did something that only makes sense to
+read your data, and lists it under **Settings › Server › Transparency**. Glyph
+did not send anything readable because of it. If you do not run the server
+yourself, ask its operator, or sign out and use another server.
 
 ## Sync looks out of date
 

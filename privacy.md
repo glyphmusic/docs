@@ -28,13 +28,25 @@ bans.
 | passkey public keys, recovery-code hash | user agents |
 | device name, platform, first and last seen, approximate country | listening history |
 | per device, for bans: a salted hash of the IP address last used and the hardware id | |
-| synced items: liked songs, playlists, artists, albums, searches, download list | audio |
-| settings, and API keys **end-to-end encrypted** | |
+| synced items: liked songs, playlists, artists, albums, searches, download list, settings and API keys, **end-to-end encrypted** | audio |
+| playlists you show on your profile, readable (the server shows them) | |
 | profile picture, banner and what you chose to show | |
 | listening statistics, only if you turned them on | |
 
 Not synced: recently played, play counts, lyrics offsets, downloaded files, the
 server address and other device-specific settings.
+
+Your devices encrypt the synced items with a key only they hold. While your
+account has no password the server keeps that key, so a lost device never
+loses the library; the server could then read it. Setting a password replaces
+the key with one the server never sees.
+
+**Settings › Server › Transparency** shows what the server you use can see:
+your library, API keys, what you search and play (the server needs it to
+answer), your profile, control between your devices, Jam, AI assistant requests
+and technical data such as your IP address. Glyph works this out from what it
+sends, never from what the server says about itself, and warns when a server
+does something that only makes sense to read your data.
 
 ## Profiles
 
@@ -55,4 +67,6 @@ A server keeps an IP address in the clear only when its operator bans that
 address or range by hand.
 
 On a [self-hosted server](self-hosting/overview.md) the operator holds this data.
-On the public server that is the Glyph project.
+On the public server that is the Glyph project. On a server other than the
+official one, Glyph signs you in in the app; that server's own sign-in page
+opens only after a warning, because it could read your password.

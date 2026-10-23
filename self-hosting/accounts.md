@@ -88,6 +88,21 @@ Every `/v1/*` route then needs a valid account token; guests get HTTP 401
 * **Tokens**: per device an access token (1 hour) and a refresh token (90 days,
   rotated on every use). Only hashes are stored.
 * **Sync**: last writer wins per item; deletions are kept for 180 days.
+* **Encryption**: the apps encrypt synced items before they send them
+  (`sealed`, `sealed_playlist`); your server stores what it cannot read. The
+  data key reaches new devices through the account password, a pairing code or
+  another device of the user. While an account has no password the key is
+  stored on your server, readable, so users cannot lose their library; the app
+  tells them. Playlists shown on a profile stay readable. Nothing to configure.
+* **Sign-in page**: on a server other than the official one, the apps sign in
+  in the app (password or pairing code). Your `/account/login/...` page opens
+  only after a warning, because a modified server could read passwords there.
+
+{% hint style="info" %}
+Users see under **Settings › Server › Transparency** what your server can read,
+worked out by the app from what it sends. Searches, playback and other requests
+are always visible to the server, because it needs them to answer.
+{% endhint %}
 
 ## Backups
 
