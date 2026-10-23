@@ -49,6 +49,7 @@ one file: `https://docs.glyph.my/llms-full.txt`.
 | Let only signed-in apps use the server | `glyph config set require_account true --server <url>` |
 | Allow fewer requests per client | `glyph config set rate_limit_per_min 30 --server <url>` |
 | Limit YouTube songs per user and day | `glyph remote limits --youtube-per-day 200` |
+| Keep YouTube for signed-in accounts | `glyph remote limits --youtube-require-account true` |
 | Ban an account, its addresses and its devices | `glyph remote ban account somehandle` |
 | Ban an address or a range | `glyph remote ban ip 203.0.113.0/24` |
 | Ban one device (survives reinstalling the app) | `glyph remote ban device somehandle <device-id>` |
@@ -233,6 +234,7 @@ Key names: `youtube_api_key`, `jamendo_client_id`, `soundcloud_client_id`,
 | `--rate <n>` | requests per minute per client |
 | `--youtube-budget <units>` | YouTube API units per day |
 | `--youtube-per-day <n>` | YouTube songs per account (guests: per address) and day; `0` = no limit |
+| `--youtube-require-account true\|false` | YouTube audio and downloads only for signed-in accounts (Worker with accounts) |
 | `--import-pages <n>` | max pages per playlist import |
 | `--playlist-max-tracks <n>` | max songs per playlist (1-50000) |
 | `--audio-days <n>` | days companion audio stays in R2 (Worker) |

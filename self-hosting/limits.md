@@ -75,6 +75,7 @@ Cloudflare's own plan limits apply on top: 100,000 requests a day, D1 5 GB, R2
 | `glyph remote mcp off` | no AI assistant access through this server |
 | `glyph remote limits --require-account true` | only signed-in apps |
 | `glyph remote limits --youtube-per-day 200` | at most 200 YouTube songs per account (guests: per address) and day |
+| `glyph remote limits --youtube-require-account true` | YouTube audio and downloads only for signed-in accounts; guests keep every other source (Worker with accounts) |
 
 ## Bans
 

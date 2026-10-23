@@ -22,7 +22,7 @@ Rate-limited answers are HTTP 429 with `retry_after_s` and `Retry-After`.
 
 | Method | Path | Does |
 | --- | --- | --- |
-| GET | `/v1/health` | version, protocol, active sources, `accounts`, `account_required`, `server_auth_required` |
+| GET | `/v1/health` | version, protocol, active sources, `accounts`, `account_required`, `server_auth_required`, `capabilities` (feature names such as `jam`, `mcp_relay`, `youtube_audio`, `youtube_account_required`) |
 | GET | `/v1/search?q=` | NDJSON stream of `results`, `provider_error` and `done` events |
 | POST | `/v1/resolve` | `ResolveRequest` → playback source |
 | GET | `/v1/audio/:provider/:id` | audio stream with byte ranges; `?quality=low\|standard\|high` |
@@ -108,3 +108,22 @@ wins; deletions are tombstones.
 
 A push takes at most 500 items and 2 MB. A pull with a revision older than 180
 days answers `{reset: true}`; the client then pulls everything again.
+
+### What the server trusts
+
+The app is open source, so the server treats every request body as a claim
+made by whoever sent it:
+
+* `/v1/resolve`, `/v1/download` and shared playlists may name a provider id
+  (`source`/`id`, `external_ids`). The requesting client gets an answer built
+  on it, but the shared resolver cache keeps only matches the server's own
+  provider search made, without covers, links or ids the client supplied.
+* `/v1/youtube/hint` looks the song up in the server's catalog (Deezer) and
+  checks the video against that, not against the client's title or length:
+  title, the artist's own channel and a length within six seconds must fit.
+  An artist's "- Topic" upload replaces any other one.
+* `/v1/cover` answers only covers from known image hosts.
+* Malformed ids, links outside known music sites and overlong texts are
+  dropped before any lookup (`glyph_protocol::trust`). The apps apply the
+  same rules to what other people send them (Jam, shared playlists, public
+  profiles).
