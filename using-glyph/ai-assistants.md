@@ -9,6 +9,23 @@ so assistants such as Claude can control it: play, pause and skip, search,
 manage the queue, create and edit playlists, like songs, read lyrics and more.
 It is off until you turn it on under **Settings › Integrations › AI assistants**.
 
+## What assistants may do
+
+Under the same settings you choose, per area, whether assistants get
+**None**, **Read** or **Write** (write includes read):
+
+| Area | Read | Write |
+| --- | --- | --- |
+| Playback and search | what plays, the queue, lyrics, search | play, pause, skip, seek, volume, shuffle, repeat, add to the queue |
+| Playlists and likes | your playlists and their songs | create, rename, delete and edit playlists, like and unlike songs |
+| Listening statistics | your statistics (when they are on) | – |
+
+New installs start with *Write* for playback and search, *Read* for playlists
+and likes and *None* for statistics. Assistants only see the tools you allow,
+and Glyph refuses every other call, locally and through the server. Song titles
+and lyrics come from other people; with *Read* for playlists, text in a song
+title cannot make an assistant delete or change them.
+
 ## On this computer
 
 The MCP server listens on `127.0.0.1` only and needs a token. *Copy configuration*

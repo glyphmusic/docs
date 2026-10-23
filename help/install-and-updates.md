@@ -59,7 +59,32 @@ Start it from a terminal to see the error:
 Versions before 0.2.2 cannot read the new checksum file and need one manual
 update this way. If you installed Glyph with a package manager, update it there.
 
+If the message says the release is not signed, or not signed by the Glyph
+release key, Glyph did not install it on purpose: install the release by hand
+only if you trust where it came from.
+
 ## Is my download genuine?
 
 Every release lists the SHA-256 of each file in `SHA256SUMS.txt`. Compare it
 with `Get-FileHash` (Windows) or `shasum -a 256` (macOS, Linux).
+
+## Signed releases
+
+`SHA256SUMS.txt` comes with `SHA256SUMS.txt.minisig`, a
+[minisign](https://jedisct1.github.io/minisign/) signature by the Glyph
+release key. Its trusted comment names the repository and the version
+(`glyph-release repo=glyphmusic/apps tag=v1.2.3`), so a signature for one
+release does not fit another. The app, `glyph update`, the npm installer and
+the companion's r-dlp updater install nothing without it; access to the GitHub
+account alone is not enough to ship code to your devices.
+
+Check a download yourself with the public key from `release-key.pub` in each
+repository:
+
+```bash
+minisign -Vm SHA256SUMS.txt -P RWQ2xWZMYa2l251YUhrekvWRC+kaD698lXz0itKGjvNYAauLRTWCzg9o
+sha256sum --check --ignore-missing SHA256SUMS.txt
+```
+
+Releases published before signing started carry no signature; Glyph installs
+them only by hand.

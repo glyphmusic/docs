@@ -33,24 +33,48 @@ You only need the companion with a [Cloudflare server](cloudflare.md). A
    tunnel* (cloudflared) and copy its token. Under *Routes* add a published
    application, for example `ytdlp.example.com`, with service
    `http://companion:8787`.
-2. **Token.** Create a random secret of at least 32 characters:
+2. **Tokens.** Create two different random secrets of at least 32 characters,
+   one for search and audio, one for status and updates:
    ```bash
-   openssl rand -hex 32
+   openssl rand -hex 32   # YTDLP_SERVICE_TOKEN
+   openssl rand -hex 32   # COMPANION_ADMIN_TOKEN
    ```
 3. **Start the companion** on a machine with Docker:
    ```bash
    git clone https://github.com/glyphmusic/companion.git
    cd companion
-   cp .env.example .env   # set YTDLP_SERVICE_TOKEN and TUNNEL_TOKEN
+   cp .env.example .env   # set YTDLP_SERVICE_TOKEN, COMPANION_ADMIN_TOKEN and TUNNEL_TOKEN
    docker compose up -d
    ```
 4. **Connect the Worker:**
    ```bash
    glyph cloudflare set YTDLP_SERVICE_URL https://ytdlp.example.com
-   glyph cloudflare secret YTDLP_SERVICE_TOKEN   # the same secret as in .env
+   glyph cloudflare secret YTDLP_SERVICE_TOKEN     # the same secret as in .env
+   glyph cloudflare secret COMPANION_ADMIN_TOKEN   # the same secret as in .env
    ```
 5. **Check:** `https://ytdlp.example.com/v1/health` answers, and a YouTube search
    in the app returns YouTube results.
+
+## How the Worker talks to it
+
+* The Worker signs every request with `YTDLP_SERVICE_TOKEN` instead of sending
+  it: an HMAC over the method, the path, a timestamp and the body. The
+  companion refuses changed requests, requests older than one minute and a
+  signature it has already seen, so a recorded request is useless.
+* Status and updates (`glyph remote companion ...`) need the second secret,
+  `COMPANION_ADMIN_TOKEN`. Without it on the companion they are switched off;
+  the search-and-audio secret can never install anything.
+* Older Workers send the plain token. The companion still accepts that until
+  you set `GLYPH_COMPANION_SIGNED_ONLY=1` in `.env`; do that once your Worker
+  is up to date (update the companion first, then the Worker).
+* Optional: put the tunnel's hostname behind
+  [Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/identity/service-tokens/)
+  with a service token, and give the Worker its two values:
+  `glyph cloudflare secret COMPANION_ACCESS_CLIENT_ID` and
+  `glyph cloudflare secret COMPANION_ACCESS_CLIENT_SECRET`. Then nothing but
+  the Worker even reaches the companion.
+* r-dlp updates at startup are installed only with a valid signature by the
+  Glyph release key (see [Signed releases](../help/install-and-updates.md#signed-releases)).
 
 ## How it behaves
 
