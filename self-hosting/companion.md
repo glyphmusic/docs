@@ -64,11 +64,11 @@ You only need the companion with a [Cloudflare server](cloudflare.md). A
 
 ## Switch it off and on
 
-From any computer, through the Worker:
+From any computer, through the Worker (the Worker stops using it):
 
 ```bash
-glyph remote companion off
-glyph remote companion on
+glyph companion off --server https://glyph.example.com
+glyph companion on --server https://glyph.example.com
 ```
 
 Or directly on the companion machine. While off, it answers every request with

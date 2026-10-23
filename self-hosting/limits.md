@@ -71,16 +71,34 @@ Cloudflare's own plan limits apply on top: 100,000 requests a day, D1 5 GB, R2
 
 | Command | Effect |
 | --- | --- |
-| `glyph remote companion off` | stop YouTube at once; every other source keeps working |
+| `glyph companion off --server <url>` | stop YouTube at once; every other source keeps working |
 | `glyph remote mcp off` | no AI assistant access through this server |
 | `glyph remote limits --require-account true` | only signed-in apps |
+| `glyph remote limits --youtube-per-day 200` | at most 200 YouTube songs per account (guests: per address) and day |
+
+## Bans
+
+Operator bans last until lifted (or `--days`), unlike the automatic 15-minute
+ones above:
+
+```bash
+glyph remote ban account somehandle        # account, its addresses and hardware
+glyph remote ban ip 203.0.113.0/24
+glyph remote ban device somehandle d_1a2b  # one device, survives reinstalling
+glyph remote ban list
+glyph remote unban somehandle
+```
+
+Banned clients get HTTP 403 `banned` on every request. Addresses of accounts
+are kept only as salted hashes; see the [CLI reference](cli.md#bans) for the
+details.
 
 ## Private server
 
 Require a shared access token from every app, independent of accounts:
 
 ```bash
-glyph access              # native: asks for a 32–256 character token twice
+glyph access              # native: asks for a 32–256 character token twice, applies within seconds
 glyph access --disable
 glyph cloudflare secret GLYPH_SERVER_BEARER   # Cloudflare
 ```

@@ -56,8 +56,8 @@ These change without a deploy, with the admin password:
 
 ```bash
 glyph remote login https://glyph.example.com
-glyph remote limits --rate 120
-glyph remote companion off
+glyph config set rate_limit_per_min 120 --server https://glyph.example.com
+glyph companion off --server https://glyph.example.com
 glyph remote mcp off
 glyph remote accounts default-limit 5
 ```

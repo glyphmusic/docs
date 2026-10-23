@@ -22,8 +22,26 @@
 * [Accounts, sync and stats](using-glyph/accounts.md)
 * [AI assistants (MCP)](using-glyph/ai-assistants.md)
 * [Integrations](using-glyph/integrations.md)
+* [Plugins](using-glyph/plugins.md)
 * [Direct mode and API keys](using-glyph/direct-mode-and-keys.md)
 * [Settings file](using-glyph/config-file.md)
+
+## Make plugins
+
+* [Overview](plugins/README.md)
+  * [Quickstart](plugins/quickstart.md)
+  * [Extensions](plugins/extensions.md)
+  * [API reference](plugins/api.md)
+  * [Services and keys](plugins/services.md)
+  * [Settings, menus and texts](plugins/settings-ui.md)
+  * [How plugins work](plugins/how-it-works.md)
+  * [Manifest reference](plugins/manifest.md)
+  * [Designing a theme](plugins/themes.md)
+  * [Test your plugin](plugins/testing.md)
+  * [Publish and update](plugins/publishing.md)
+  * [Troubleshooting](plugins/troubleshooting.md)
+  * [Trust and safety](plugins/security.md)
+  * [What's next](plugins/roadmap.md)
 
 ## Help
 
