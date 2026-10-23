@@ -70,6 +70,13 @@ extractor**). *Local* resolves on your computer; *Server* lets your Glyph server
 (and its companion) do it. *Use YouTube only* never falls back to other sources
 or previews.
 
+## Explicit-content ratings
+
+An **E** marks a song rated explicit. YouTube does not provide this rating, so
+Glyph looks up otherwise unrated YouTube results in Deezer. A matching song
+uses its explicit or clean rating; a **?** means no rating was found.
+**Hide explicit songs** also hides songs with an unknown rating.
+
 ## Artists and albums
 
 Artist pages show popular songs, the full discography (albums, EPs and singles),
