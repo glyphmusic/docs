@@ -37,6 +37,20 @@ A search result keeps its `source` and `id`. If another source finds the same
 song later, the track is sent again with more ids; replace it by
 (`source`, `id`).
 
+## Docs
+
+Every server shows these docs (from [glyphmusic/docs](https://github.com/glyphmusic/docs)
+on GitHub). On a `docs.` host the paths have no `/docs` prefix
+(`https://docs.glyph.my/mcp`).
+
+| Method | Path | Does |
+| --- | --- | --- |
+| GET | `/docs/<page>` | a docs page as HTML |
+| GET | `/docs/<page>.md` | the same page as Markdown |
+| GET | `/docs/llms.txt`, `/docs/llms-full.txt` | every page with its description, all pages in one file |
+| GET | `/docs/search.json` | the index the search box uses |
+| POST | `/docs/mcp` | MCP server (Streamable HTTP, JSON answers, no sign-in) with the tools `search_docs`, `read_doc` and `list_docs`; see [Ask an AI](../getting-started/ask-an-ai.md) |
+
 ## Sharing
 
 | Method | Path | Does |

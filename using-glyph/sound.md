@@ -13,7 +13,23 @@ YouTube or SoundCloud players.
 | Volume level | Loud, Normal or Quiet overall |
 | Normalize volume | every song at the same loudness |
 | Equalizer | 10 bands, presets, your own curves; share them as code or file |
+| Bass | extra bass below about 90 Hz on top of the equalizer curve |
+| Headroom | lowers the level before the equalizer so strong boosts do not clip |
 | Output | the system default or a chosen device |
+
+## Bass and headroom
+
+Both are on the **Settings › Equalizer** page and work while the equalizer is
+on.
+
+* **Bass** (−12 to +12 dB) lifts or lowers everything below about 90 Hz, on
+  top of the curve. The curve's own 32 Hz and 64 Hz bands still work.
+* **Headroom** (0 to −12 dB) turns the level down before the equalizer. Boosted
+  bands can push loud songs past the maximum and distort (clipping); a few dB
+  of headroom prevent that. Glyph already leaves some room for boosts by
+  itself; this setting adds to it.
+
+**Reset to flat** puts the curve, bass and headroom back to 0 dB.
 
 ## Mono, stereo and spatial
 
@@ -35,4 +51,5 @@ embedded player keep playing on this computer.
 ## Background animation
 
 The glowing background drops to 10 fps while Glyph is not the active window.
-Turn *Save energy in the background* off to keep full speed.
+Turn *Save power in the background* off to keep full speed. Its shape and
+strength are under [Appearance](appearance.md).

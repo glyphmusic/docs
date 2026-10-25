@@ -17,7 +17,8 @@ skip, seek, volume).
 | MPD | Music Player Daemon on a Raspberry Pi or server | yes |
 | AirPlay | AirPort Express, AV receivers, AirPlay speakers, shairport-sync | yes, except devices that require pairing |
 
-Songs that only exist on your computer (downloads, imported files) are sent to
+Songs that only exist on your computer (downloads, imported files,
+[local files](local-files.md)) are sent to
 the device by Glyph itself, so the computer must stay on while they play.
 YouTube and SoundCloud songs that play in their embedded player cannot go to a
 device; they keep playing on the computer and Glyph tells you so.

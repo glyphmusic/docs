@@ -17,7 +17,9 @@ glyph <command> --help     # one command, e.g. glyph remote ban --help
 ```
 
 This page as Markdown: `https://docs.glyph.my/self-hosting/cli.md`. All docs in
-one file: `https://docs.glyph.my/llms-full.txt`.
+one file: `https://docs.glyph.my/llms-full.txt`. Agents can also search them
+through the docs MCP server at `https://docs.glyph.my/mcp`
+([Ask an AI](../getting-started/ask-an-ai.md)).
 
 ## For AI agents
 

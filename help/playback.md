@@ -65,6 +65,22 @@ Radio needs a Last.fm key, on the server or in your own
 [API keys](../using-glyph/direct-mode-and-keys.md). Hover the switch to see why
 it is off.
 
+## A local file does not play or is missing
+
+* **Library › Local files › Rescan** reads new and changed files.
+* The file must be MP3, FLAC, OGG, M4A, AAC, WAV or MKA.
+* A file that was moved or renamed outside Glyph shows up again after a
+  rescan.
+* On another device the file does not exist; Glyph then plays the same song
+  from your online sources. See [Local files](../using-glyph/local-files.md).
+
+## An artist page shows no songs
+
+Popular songs come from a search for the artist's name. If no source credits a
+song to exactly that name, Glyph shows the songs of the artist's latest
+releases instead. When the page still shows *No songs found*, open an album
+below: albums play even then.
+
 ## Lyrics are missing or wrong
 
 Open the lyrics options and pick another version; Glyph keeps the choice for

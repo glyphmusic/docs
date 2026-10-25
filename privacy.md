@@ -34,7 +34,13 @@ bans.
 | listening statistics, only if you turned them on | |
 
 Not synced: recently played, play counts, lyrics offsets, downloaded files, the
-server address and other device-specific settings.
+server address and other device-specific settings, such as shortcuts and your
+music folders.
+
+[Local files](using-glyph/local-files.md) are read on your computer only and
+never uploaded. As for any song, their title and artist are used to look up
+lyrics, a cover when the file has none, and the song on a device that does not
+have the file.
 
 Your devices encrypt the synced items with a key only they hold. While your
 account has no password the server keeps that key, so a lost device never

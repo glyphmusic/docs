@@ -11,8 +11,13 @@ description: Search, play, like and collect songs, and the right-click menus of 
    queue, add to a playlist, download, go to the artist.
 3. **Like and collect.** The heart saves a song to *Liked songs*. Playlists,
    followed artists and saved albums live in the *Library* and in the sidebar.
+   Your own music files are under **Library › Local files**.
 4. **Now playing.** Open the full-screen view for the cover, synced lyrics and the
-   queue.
+   queue. Press `Z` for zen mode: only the cover and the player bar. See
+   [Now Playing](../using-glyph/now-playing.md).
+5. **Make it yours.** Change any [keyboard shortcut](keyboard-shortcuts.md),
+   the [text size and background](../using-glyph/appearance.md), or scroll
+   over the seek and volume bars with the mouse wheel.
 
 ## Handy controls
 
@@ -30,6 +35,6 @@ Right-clicking an entry in the sidebar lets you pin it or hide it.
 
 ## Languages
 
-Glyph speaks English, Deutsch, Español, Français, Italiano, Polski, Português,
-Русский, Türkçe and Українська. It follows your system language; change it under
+Glyph speaks English, Afrikaans, Deutsch, Español, Français, Italiano, Polski,
+Português, Русский, Türkçe and Українська. It follows your system language; change it under
 **Settings › Appearance**. Want to add one? See [Translations](../contributing/translations.md).

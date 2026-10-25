@@ -16,13 +16,19 @@ and merges the answers into one list, ranked by what you listen to.
 
 Order and on/off switches are under **Settings › Playback › Sources**.
 
-The **Search** setting on that page chooses **Server** (default) or **Local**.
-Local searches contact enabled providers directly from your device, including
-when the Glyph server is rate-limited or blocked by a provider. Providers that
-require API keys use your own configured keys. This choice stays on this device
-and applies to further result pages too. Results use the normal playback and
-library actions. YouTube playback is configured separately: select **Local**
-for YouTube as well to resolve its audio without the Glyph server.
+The **Online search via** setting on that page chooses **Glyph server**
+(default) or **This device**. *This device* contacts enabled providers directly
+from your device, including when the Glyph server is rate-limited or blocked by
+a provider. Providers that require API keys use your own configured keys. This
+choice stays on this device and applies to further result pages too. Results
+use the normal playback and library actions. YouTube playback is configured
+separately: select **Local** for YouTube as well to resolve its audio without
+the Glyph server.
+
+{% hint style="info" %}
+This setting is about online sources. Music files on your computer are under
+**Library › Local files**; see [Local files](local-files.md).
+{% endhint %}
 
 ## Tips
 
@@ -82,6 +88,11 @@ uses its explicit or clean rating; a **?** means no rating was found.
 Artist pages show popular songs, the full discography (albums, EPs and singles),
 similar artists and a verified badge next to verified names. Playing an artist
 adds the artist itself to *Recently played*.
+
+Popular songs are the search results credited to the artist, also as a
+featured artist or as a YouTube *Artist - Topic* channel. When the search finds
+none (for example for names in another script), the page shows the songs of
+the artist's latest releases instead.
 
 Follow an artist with the button on their page. **Home** then shows *New from
 artists you follow*: their albums, EPs and singles from the last eight weeks

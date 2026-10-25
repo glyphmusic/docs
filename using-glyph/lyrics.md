@@ -20,4 +20,7 @@ panel. *Reset* returns to the original timing.
 
 ## Views
 
-*Song + lyrics* shows the cover next to the lyrics; *Lyrics* fills the window.
+*Song + lyrics* shows the cover next to the lyrics; *Lyrics* fills the window;
+*Zen* shows only the cover and the player bar. `Ctrl+L` hides or shows the
+lyrics, and Glyph keeps that choice. See
+[Now Playing and the player bar](now-playing.md).

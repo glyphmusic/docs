@@ -7,7 +7,8 @@ description: Offline downloads, streaming quality and saving data.
 ## Download for offline
 
 Right-click a song, album or playlist and choose **Download**. Only sources that
-allow downloads can be saved.
+allow downloads can be saved. The playing song downloads with the button in
+[Now Playing](now-playing.md) or `Ctrl+D`.
 
 * Playlists can **download new songs automatically**.
 * The download button's tooltip shows how many songs of a list are saved and how
@@ -17,6 +18,27 @@ allow downloads can be saved.
   verified download.
 * Signed in, the *list* of downloads syncs; each device downloads the files
   itself.
+* When a download is done, its message has a **Show in folder** button that
+  opens your file manager at the file. Switch it off under **Settings › Cache &
+  Storage › “Show in folder” after downloads**.
+
+## Download folder
+
+Downloads are saved as `Artist - Title.mp3` (or `.m4a`, `.flac`, ...) in
+Glyph's data folder. To use another folder, for example your music folder:
+
+1. **Settings › Cache & Storage › Download folder › Change…**
+2. Pick the folder.
+
+Glyph moves the songs you already downloaded into the new folder. Files that
+were in that folder before are never overwritten: a song whose name is taken
+gets a number, `Artist - Title (2).mp3`. **Default** moves the downloads back
+into Glyph's data folder. Wait until running downloads have finished before
+you switch.
+
+The folder belongs to this device and is not synced. In a folder you picked,
+**Clear** under *Cache & Storage* only deletes the songs Glyph downloaded,
+never your own files.
 
 ## Quality
 

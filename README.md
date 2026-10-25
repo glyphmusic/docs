@@ -16,6 +16,10 @@ telemetry. An account is optional.
 ## Where to start
 
 * [Install Glyph](getting-started/install.md) and take the [first steps](getting-started/first-steps.md).
+* Look up any option in the [settings reference](using-glyph/settings-reference.md) and any key in
+  [keyboard shortcuts](getting-started/keyboard-shortcuts.md).
+* [Ask an AI](getting-started/ask-an-ai.md): connect your assistant to these docs at
+  `https://docs.glyph.my/mcp`.
 * Learn how [search and sources](using-glyph/search-and-sources.md) work.
 * Run [your own server](self-hosting/overview.md) at home, on a VPS or on Cloudflare.
 * See [what's new](whats-new.md) in every release.

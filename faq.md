@@ -37,7 +37,23 @@ Deezer and Last.fm. See [Transfer music](using-glyph/transfer-music.md).
 <details>
 <summary>Can I listen offline?</summary>
 
-Yes, for sources that allow downloads: songs, albums or whole playlists.
+Yes, for sources that allow downloads: songs, albums or whole playlists. Choose
+where they are saved under **Settings › Cache & Storage › Download folder**.
+</details>
+
+<details>
+<summary>Can Glyph play the music files on my computer?</summary>
+
+Yes. Add your music folders under **Library › Local files**. Glyph plays MP3,
+FLAC, OGG, M4A, AAC, WAV and MKA files from where they are and never uploads
+them. See [Local files](using-glyph/local-files.md).
+</details>
+
+<details>
+<summary>Can I change the keyboard shortcuts?</summary>
+
+Yes, every one of them: **Settings › About › Shortcuts**, click a shortcut and
+press the new key. See [Keyboard shortcuts](getting-started/keyboard-shortcuts.md).
 </details>
 
 <details>

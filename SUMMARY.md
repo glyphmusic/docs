@@ -7,16 +7,20 @@
 * [Install](getting-started/install.md)
 * [First steps](getting-started/first-steps.md)
 * [Keyboard shortcuts](getting-started/keyboard-shortcuts.md)
+* [Ask an AI about Glyph](getting-started/ask-an-ai.md)
 
 ## Using Glyph
 
 * [Search and sources](using-glyph/search-and-sources.md)
 * [Library, playlists and queue](using-glyph/library-and-queue.md)
+* [Local files](using-glyph/local-files.md)
+* [Now Playing and the player bar](using-glyph/now-playing.md)
 * [Transfer music](using-glyph/transfer-music.md)
 * [Downloads and audio quality](using-glyph/downloads-and-quality.md)
 * [Sharing](using-glyph/sharing.md)
 * [Lyrics](using-glyph/lyrics.md)
 * [Sound](using-glyph/sound.md)
+* [Appearance](using-glyph/appearance.md)
 * [Play on speakers and TVs](using-glyph/devices.md)
 * [Jam: listen together](using-glyph/jam.md)
 * [Accounts, sync and stats](using-glyph/accounts.md)
@@ -24,6 +28,7 @@
 * [Integrations](using-glyph/integrations.md)
 * [Plugins](using-glyph/plugins.md)
 * [Direct mode and API keys](using-glyph/direct-mode-and-keys.md)
+* [Settings reference](using-glyph/settings-reference.md)
 * [Settings file](using-glyph/config-file.md)
 
 ## Make plugins

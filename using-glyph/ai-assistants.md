@@ -26,6 +26,11 @@ and Glyph refuses every other call, locally and through the server. Song titles
 and lyrics come from other people; with *Read* for playlists, text in a song
 title cannot make an assistant delete or change them.
 
+Two tools are always there: `docs_search` and `docs_read` look things up in
+these docs (through the [docs MCP server](../getting-started/ask-an-ai.md)), so
+an assistant can explain how something in Glyph works. They read nothing of
+yours.
+
 ## On this computer
 
 The MCP server listens on `127.0.0.1` only and needs a token. *Copy configuration*
