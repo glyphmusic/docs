@@ -45,11 +45,11 @@ marked *device* stay on this computer; the others
 | Option | What it does |
 | --- | --- |
 | Online search via | *Glyph server* (default) or *This device*: who asks the online sources. Not about your own files: those are in [Local files](local-files.md). *Device* |
-| YouTube playback | *Local* finds YouTube audio on this computer, *Server* lets the server's companion do it. *Device* |
-| Use YouTube only | Never fall back to another source or a preview. *Device* |
-| YouTube & SoundCloud | Use their official embedded players as a fallback. |
+| YouTube playback | *Local* finds YouTube audio on this device, *Server* lets the Glyph server do it; when the server finds nothing, this device tries itself. *Device* |
 | YouTube extractor | r-dlp (built in, fast) or yt-dlp. *Device* |
-| yt-dlp | Install or update yt-dlp, see its version. *Device* |
+| yt-dlp (optional) | Install or update yt-dlp, see its version. Not needed with r-dlp. *Device* |
+| Use YouTube and SoundCloud | Full songs from both. When YouTube audio cannot be loaded, and for SoundCloud, their official player appears in Now Playing (on Linux in the browser). Off: only the free sources and previews. |
+| Use YouTube only | Never fall back to another source or a preview. *Device* |
 | Source priority | Drag sources into the order Glyph prefers them; switch sources on or off. |
 
 ### Player
@@ -106,7 +106,7 @@ passkey or a pairing code). Signed in, it has three tabs. See
 
 | Tab | Options |
 | --- | --- |
-| Overview | Handle (change once every 30 days), sync status and *Sync now*, *Library & API keys* (end-to-end encryption status), device limit, *Sign out*. |
+| Overview | Handle (change once every 30 days), sync status and *Sync now*, *Library & API keys* (end-to-end encryption status), device limit, *Glyph links when sharing* (see [Sharing](sharing.md)), *Sign out*. |
 | Devices | Pairing code (approve a new device), every signed-in device with *Remove*. |
 | Security | Set or change the password, add a passkey, make a recovery code, delete the account. |
 

@@ -11,7 +11,12 @@ Right-click and choose **Share**.
 | You are | You get |
 | --- | --- |
 | signed in | a short `glyph.my/p/...` link with a preview card that opens Glyph directly |
-| not signed in | a `glyph:playlist:...` code you can send as text |
+| not signed in, or *Glyph links when sharing* off | the song's own link on its platform; playlists as a `glyph:playlist:...` code you can send as text |
+
+A `glyph.my/p/...` link also plays in the browser, and its songs are plain audio
+files: `yt-dlp <link>` downloads them, and other players can add them. Whoever
+opens the link needs no account. Turn Glyph links off under
+**Settings › Account › Overview › Glyph links when sharing**.
 
 A shared playlist opens as a preview. Nothing is added to your library until you
 click **Add to library**. The owner can delete a short link at any time, and all
