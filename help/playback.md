@@ -13,16 +13,21 @@ Work through these in order and try the song again after each step.
    the sources directly (see [Direct mode](../using-glyph/direct-mode-and-keys.md)).
 2. **Another song.** If other songs play, only this one is the problem: try the
    same song from another result in search.
-3. **YouTube songs.** They need a resolver. Under **Settings › Playback ›
-   YouTube extractor** switch between *Local* and *Server*, or between r-dlp and
-   yt-dlp. yt-dlp can be installed and updated on the same page.
+3. **YouTube songs.** Under **Settings › Playback › Sources › YouTube** check
+   that **Use YouTube and SoundCloud** is on. **YouTube playback** chooses where
+   the audio is looked up: *Local* on this computer, or *Server*; when the server
+   finds nothing, this computer tries itself. **YouTube extractor** switches
+   between the built-in r-dlp and yt-dlp, which can be installed and updated on
+   the same page.
 4. **Audio output.** If Glyph says the output does not respond, or the song
    loads forever, right-click the volume button and pick another output or
    *System default*.
 5. **Update Glyph** under **Settings › About**. YouTube changes often, and new
    versions follow.
 
-A toast **Playback error · …** or **Could not resolve: …** names the reason.
+A toast **Playback error · …** or **Could not load the song: …** names the
+reason. **Not found on YouTube** means **Use YouTube only** is on and YouTube
+had no match: turn it off to allow other sources and previews.
 Mention it when you [ask for help](README.md#still-stuck).
 
 ## It stops, pauses or stutters
@@ -39,10 +44,11 @@ Mention it when you [ask for help](README.md#still-stuck).
 
 ## Only 30-second previews
 
-The song was only found on Deezer, which gives previews. Turn on YouTube under
-**Settings › Playback › Sources** and move it above Deezer. On a Cloudflare
-server YouTube needs the [companion](../self-hosting/companion.md); if the
-server has none, choose *Local* for YouTube so this computer resolves it.
+The song was only found on Deezer, which gives previews. Turn on **Use YouTube
+and SoundCloud** under **Settings › Playback › Sources** and move YouTube above
+Deezer. On a Cloudflare server YouTube needs the
+[companion](../self-hosting/companion.md); without it, this computer looks the
+song up itself, or choose *Local* for YouTube so it always does.
 
 ## No sound, but the song is running
 
