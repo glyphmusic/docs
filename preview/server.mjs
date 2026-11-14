@@ -130,7 +130,10 @@ function renderMarkdown(md, dir) {
   const sections = [], headings = [], used = new Set();
   const renderer = {
     html(token) { return sanitize(typeof token === "string" ? token : token.text); },
-    heading(text, depth, raw) {
+    // marked >= 13 hands each renderer one token; inline HTML comes from
+    // `this.parser.parseInline(tokens)`.
+    heading({ tokens, depth, text: raw }) {
+      const text = this.parser.parseInline(tokens);
       if (depth === 1 && title === null) { title = raw; return ""; }
       const base = slug(raw); let id = base, n = 1;
       while (used.has(id)) id = `${base}-${++n}`;
@@ -139,8 +142,8 @@ function renderMarkdown(md, dir) {
       if (depth === 2) sections.push([id, raw]);
       return `<h${depth} id="${id}"><a class="anchor" href="#${id}">${text}</a></h${depth}>\n`;
     },
-    link(href, linkTitle, text) { return `<a href="${esc(link(href, dir))}"${linkTitle ? ` title="${esc(linkTitle)}"` : ""}>${text}</a>`; },
-    image(href, imgTitle, text) { return `<img src="${esc(image(href, dir))}" alt="${esc(text)}"${imgTitle ? ` title="${esc(imgTitle)}"` : ""}>`; },
+    link({ href, title: linkTitle, tokens }) { const text = this.parser.parseInline(tokens); return `<a href="${esc(link(href, dir))}"${linkTitle ? ` title="${esc(linkTitle)}"` : ""}>${text}</a>`; },
+    image({ href, title: imgTitle, text }) { return `<img src="${esc(image(href, dir))}" alt="${esc(text)}"${imgTitle ? ` title="${esc(imgTitle)}"` : ""}>`; },
   };
   const m = new Marked({ gfm: true });
   m.use({ renderer });
