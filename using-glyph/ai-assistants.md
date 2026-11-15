@@ -16,8 +16,8 @@ Under the same settings you choose, per area, whether assistants get
 
 | Area | Read | Write |
 | --- | --- | --- |
-| Playback and search | what plays, the queue, lyrics, search | play, pause, skip, seek, volume, shuffle, repeat, add to the queue |
-| Playlists and likes | your playlists and their songs | create, rename, delete and edit playlists, like and unlike songs |
+| Playback and search | what plays, the queue, recent songs, online/network devices, lyrics, search | play, pause, skip, seek, volume, shuffle, repeat, edit queue, start radio, sleep timer, switch or play on another device |
+| Playlists and likes | your playlists, followed artists and liked songs | create, rename, delete and edit playlists, like/unlike songs, follow/unfollow artists |
 | Listening statistics | your statistics (when they are on) | – |
 
 New installs start with *Write* for playback and search, *Read* for playlists
