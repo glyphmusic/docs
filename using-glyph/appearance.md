@@ -1,5 +1,5 @@
 ---
-description: Language, text size, colour themes, the background visualizer, ASCII effects and the mini player.
+description: Language, text size, colour themes, the background visualizer, ASCII effects, performance mode and the mini player.
 ---
 
 # Appearance
@@ -17,6 +17,7 @@ Everything here is under **Settings › Appearance**.
 | Colour theme | accent colour and background while no song brings its own colours; [plugins](plugins.md) add more |
 | ASCII effects | text and pictures decode in, loading placeholders shimmer as ASCII |
 | Mini player | a slim bar or a card with a big cover |
+| Performance | **Full effects** or **Performance mode** (see below) |
 | Save power in the background | the glow runs at 10 fps while Glyph is not the active window |
 | Startup animation | streams of light form the logo when Glyph starts |
 
@@ -31,3 +32,17 @@ each song.
 
 Text size changes the text, not the layout: buttons, covers and spacing keep
 their size. Each device keeps its own text size; it is not synced.
+
+## Performance mode
+
+**Performance mode** makes Glyph lighter on older computers, laptops on
+battery and phones:
+
+* the background moves at half the frame rate and is drawn on a coarser grid,
+* the ASCII characters in the background are redrawn less often,
+* text and pictures no longer decode in, loading placeholders are plain boxes,
+* panels and dialogs no longer blur what is behind them.
+
+The colours and shapes stay the same. With full effects the characters of the
+background are drawn by the graphics card where it can, so the processor has
+less to do in both modes. Each device keeps its own choice; it is not synced.
