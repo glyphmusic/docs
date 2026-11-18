@@ -1,5 +1,5 @@
 ---
-description: Language, text size, colour themes, the background visualizer, ASCII effects, performance mode and the mini player.
+description: Language, text size, colour themes, the background visualizer, ASCII effects, performance mode, animations (GPU or CPU) and the mini player.
 ---
 
 # Appearance
@@ -18,6 +18,7 @@ Everything here is under **Settings › Appearance**.
 | ASCII effects | text and pictures decode in, loading placeholders shimmer as ASCII |
 | Mini player | a slim bar or a card with a big cover |
 | Performance | **Full effects** or **Performance mode** (see below) |
+| Animations | **Graphics card (GPU)** or **Processor (CPU)** draws the background (see below) |
 | Save power in the background | the glow runs at 10 fps while Glyph is not the active window |
 | Startup animation | streams of light form the logo when Glyph starts |
 
@@ -43,6 +44,20 @@ battery and phones:
 * text and pictures no longer decode in, loading placeholders are plain boxes,
 * panels and dialogs no longer blur what is behind them.
 
-The colours and shapes stay the same. With full effects the characters of the
-background are drawn by the graphics card where it can, so the processor has
-less to do in both modes. Each device keeps its own choice; it is not synced.
+The colours and shapes stay the same. Each device keeps its own choice; it is
+not synced.
+
+## Animations
+
+**Animations** chooses who draws the moving background:
+
+* **Graphics card (GPU)**, the default: the graphics card draws the glow and
+  its characters, so the processor stays almost free. A device whose graphics
+  card cannot do it (no WebGL 2) uses the processor instead, and the setting
+  says so.
+* **Processor (CPU)**: the processor draws everything, without the graphics
+  card. Pick this when the background flickers, stays black or looks wrong. It
+  uses more power.
+
+Both look the same, and the change takes effect at once. It works together
+with performance mode. Each device keeps its own choice; it is not synced.
