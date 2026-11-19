@@ -49,6 +49,15 @@ folder it searches that folder and every folder below it.
 **Play** and **Shuffle** play what the page lists; while it lists folders,
 artists or albums they play all your local songs.
 
+## Open with Glyph
+
+Choose **Open with › Glyph** on a music file (MP3, FLAC, OGG, M4A, AAC, WAV or
+MKA) on Windows, macOS, Linux or Android. On the computer it plays at once;
+several selected files play as one list. **Send to › Glyph** works too, also for
+a link dragged out of the browser. On the phone a small window asks whether the
+song goes to Liked Songs or a playlist. A song added this way keeps playing from
+the file.
+
 ## Playlists, likes and other devices
 
 Local songs work like any other song: like them, add them to playlists or the

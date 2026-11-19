@@ -164,38 +164,56 @@ function parseNav(summary) {
   return out;
 }
 
+const CHEV = '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6.5L13.44 10.44Q15 12 13.44 13.56L9.5 17.5"/></svg>';
+
+// As docs.rs Nav::render: group labels, top pages, deeper pages as sub-tabs.
 function renderNav(nav, current) {
-  let html = "<ul>";
-  for (const e of nav) {
-    if (e.group) html += `</ul><p class="grp">${esc(e.group)}</p><ul>`;
-    else html += `<li class="d${Math.min(e.depth, 3)}"><a href="${esc(e.href)}"${e.file === current ? ' aria-current="page"' : ""}>${esc(e.title)}</a></li>`;
+  let html = "";
+  for (let i = 0; i < nav.length;) {
+    const e = nav[i];
+    if (e.group) { html += `<div class="gl">${esc(e.group)}</div>`; i++; continue; }
+    let end = i + 1;
+    while (end < nav.length && !nav[end].group && nav[end].depth > e.depth) end++;
+    const kids = nav.slice(i + 1, end).map(k => ({ ...k, rel: k.depth - e.depth }));
+    const cur = f => f === current ? ' aria-current="page"' : "";
+    const open = e.file === current || kids.some(k => k.file === current);
+    const chev = kids.length ? `<span class="chev${open ? " open" : ""}">${CHEV}</span>` : "";
+    html += `<a class="pg" href="${esc(e.href)}"${cur(e.file)}><span class="nm">${esc(e.title)}</span>${chev}</a>`;
+    if (kids.length) {
+      html += open ? '<div class="subs">' : '<div class="subs" hidden>';
+      for (const k of kids) html += `<a class="sub${k.rel > 1 ? " deep" : ""}" href="${esc(k.href)}"${cur(k.file)}>${esc(k.title)}</a>`;
+      html += "</div>";
+    }
+    i = end;
   }
-  return (html + "</ul>").replaceAll("<ul></ul>", "");
+  return html;
+}
+
+function group(nav, current) {
+  let g = null;
+  for (const e of nav) {
+    if (e.group) g = e.group;
+    else if (e.file === current) return g;
+  }
+  return null;
 }
 
 function pager(nav, current) {
   const items = nav.filter(e => !e.group), i = items.findIndex(e => e.file === current);
   if (i < 0) return "";
   let html = "";
-  if (items[i - 1]) html += `<a class="prev" href="${esc(items[i - 1].href)}"><span>previous</span>${esc(items[i - 1].title)}</a>`;
-  if (items[i + 1]) html += `<a class="next" href="${esc(items[i + 1].href)}"><span>next</span>${esc(items[i + 1].title)}</a>`;
+  if (items[i - 1]) html += `<a class="prev" href="${esc(items[i - 1].href)}"><span>Previous</span>${esc(items[i - 1].title)}</a>`;
+  if (items[i + 1]) html += `<a class="next" href="${esc(items[i + 1].href)}"><span>Next</span>${esc(items[i + 1].title)}</a>`;
   return html;
 }
 
-function brandCss() {
-  const icon = join(site, "icon-64.png");
-  if (!existsSync(icon)) return "";
-  const url = `url(data:image/png;base64,${readFileSync(icon).toString("base64")})`;
-  return `nav .brand::before{content:"";display:inline-block;width:1.6em;height:1.6em;margin-right:.5em;vertical-align:-.45em;border-radius:.25em;background:${url} center/contain no-repeat}`;
-}
-
-function fill(title, desc, md, nav, body) {
+function fill(title, desc, md, nav, body, onpage = "") {
   return readFileSync(join(site, "docs.html"), "utf8")
-    .replace("/*BASE*/", readFileSync(join(site, "base.css"), "utf8"))
-    .replace("/*BRAND*/", brandCss())
+    .replace("/*PANEL*/", readFileSync(join(site, "panel.css"), "utf8"))
+    .replace("/*GLOW*/", readFileSync(join(site, "glow.js"), "utf8"))
     .replaceAll("{{TITLE}}", esc(title)).replaceAll("{{DESC}}", esc(desc))
     .replaceAll("{{CANON}}", "https://docs.glyph.my").replaceAll("{{SITE}}", "https://glyph.my")
-    .replaceAll("{{DOCS}}", "/").replaceAll("{{BASE}}", "").replaceAll("{{MD}}", esc(md)).replace("{{NAV}}", nav).replace("{{BODY}}", body);
+    .replaceAll("{{DOCS}}", "/").replaceAll("{{BASE}}", "").replaceAll("{{MD}}", esc(md)).replace("{{NAV}}", nav).replace("{{ONPAGE}}", onpage).replace("{{BODY}}", body);
 }
 
 function page(path) {
@@ -207,12 +225,18 @@ function page(path) {
     if (md === null) continue;
     const dir = file.includes("/") ? file.slice(0, file.lastIndexOf("/")) : "";
     const doc = renderMarkdown(md, dir);
-    let body = `<h1>${esc(doc.title)}</h1>`;
+    const g = group(nav, file);
+    let body = g ? `<h1><span class="crumb">${esc(g)}</span><span class="sep">›</span>${esc(doc.title)}</h1>` : `<h1>${esc(doc.title)}</h1>`;
     if (doc.description) body += `<p class="lead">${esc(doc.description)}</p>`;
-    if (doc.sections.length >= 3) body += `<nav class="onpage" aria-label="On this page"><ul>${doc.sections.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join("")}</ul></nav>`;
+    let onpage = "";
+    if (doc.sections.length >= 3) {
+      const list = doc.sections.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join("");
+      body += `<nav class="onpage" aria-label="On this page"><ul>${list}</ul></nav>`;
+      onpage = `<div class="gl">On this page</div><ul>${list}</ul>`;
+    }
     body += doc.html;
-    body += `<div class="pager">${pager(nav, file)}</div><p class="edit"><a href="https://github.com/${REPO}/edit/main/${esc(file)}">edit this page on github</a> · <a href="/${esc(file)}">markdown</a></p>`;
-    return [200, fill(doc.title, doc.description || "Documentation for Glyph, the free music player.", `/${file}`, renderNav(nav, file), body)];
+    body += `<div class="pager">${pager(nav, file)}</div><p class="edit"><a href="https://github.com/${REPO}/edit/main/${esc(file)}">Edit this page on GitHub</a> · <a href="/${esc(file)}">Markdown</a></p>`;
+    return [200, fill(doc.title, doc.description || "Documentation for Glyph, the free music player.", `/${file}`, renderNav(nav, file), body, onpage)];
   }
   return [404, fill("Not found", "Page not found.", "/llms.txt", renderNav(nav, ""), '<h1>not found</h1><p class="lead">This page does not exist (any more). Start at the <a href="/">docs home</a>.</p>')];
 }

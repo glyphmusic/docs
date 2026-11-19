@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Document the share menu on phones, sending songs to Glyph, copied music links and "Open with Glyph" (app 0.12.9).
+- The local docs preview shows the navigation like the site (group labels, sub-pages).
+
 ## 0.10.0 - 2026-11-15
 
 - Update playback help and settings reference for Sources settings, Glyph links when sharing, and audio behind short links.

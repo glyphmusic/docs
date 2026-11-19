@@ -135,6 +135,7 @@ Desktop only, all *device*.
 | --- | --- |
 | Start with your computer | Opens Glyph when you sign in to the computer. |
 | On autostart | *Window* opens Glyph as usual; *Background* waits in the system tray (macOS: hidden, open it from the Dock). |
+| Offer copied music links | When you copy a song or playlist link in another app, Glyph asks if it should add it. |
 
 ## Integrations
 

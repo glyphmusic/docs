@@ -22,6 +22,26 @@ A shared playlist opens as a preview. Nothing is added to your library until you
 click **Add to library**. The owner can delete a short link at any time, and all
 of them disappear when the account is deleted.
 
+### On a phone
+
+On the phone app and the web player on a phone, **Share** opens a menu from the
+bottom: a card with the cover and title, the link, and buttons for **Copy link**,
+**WhatsApp**, **Telegram**, **SMS**, **E-mail** and **More** (the phone's own
+share menu). On the computer the link is copied right away.
+
+## Send songs to Glyph
+
+Share a song link from another app to Glyph (Android: the share menu; computer:
+**Send to › Glyph**, or `glyph <link>`). A small window asks where it goes:
+**Liked Songs** (ticked at the start), one or more playlists, or a new playlist.
+**Play** plays it first.
+
+### Copied music links
+
+On the computer: copy a Spotify, YouTube or other song or playlist link in any
+app, switch to Glyph, and a message offers **Add**. Turn it off under
+**Settings › System › Offer copied music links**.
+
 ## Profile
 
 Signed-in users see each other's picture and banner under `@handle`. Playlists
