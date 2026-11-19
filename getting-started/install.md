@@ -40,7 +40,7 @@ library and settings stay.
 The desktop and Android apps check GitHub for new versions and can install them for you
 (**Settings › About**). They install only releases signed with the Glyph
 release key ([Signed releases](../help/install-and-updates.md#signed-releases)).
-Pre-releases are opt-in under the same page. If you installed Glyph with a
+The **Latest** channel on the same page gets every new version first; **Stable** gets tested ones. If you installed Glyph with a
 package manager, update it there instead.
 
 ## Build from source

@@ -55,6 +55,11 @@ Removing a song from a playlist, *Liked songs*, *Recently played* or
 *Downloads*, or deleting a playlist, shows a toast with **Undo** for a few
 seconds.
 
+To remove many songs at once, open *Liked songs* or one of your playlists and
+press the select button (a circle with a check). Tap the songs, then
+**Remove**; **Select all** picks every song. In *Liked songs*, **Clear Liked
+Songs** empties it after asking you first.
+
 ## Radio
 
 **Start radio** in the right-click menu of a song, playlist, album or artist

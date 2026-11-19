@@ -29,6 +29,10 @@ The glow behind Glyph has four shapes: **Beam**, **Band**, **Sunrise** and
 to keep your favourite for every song and page. The colours still change with
 each song.
 
+**Solid** shows one plain colour instead of a glow. When it is picked, a
+**Colour** row lets you choose it: the theme's own colour, a few dark ones, or
+any colour you like.
+
 ## Text size
 
 Text size changes the text, not the layout: buttons, covers and spacing keep

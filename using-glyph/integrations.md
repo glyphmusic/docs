@@ -28,7 +28,8 @@ ID from the [Discord Developer Portal](https://discord.com/developers/applicatio
 
 A small window that stays on top. Right-click its button in the player bar to
 open it as a **card** with a big cover or as a slim **bar**. The default style is
-under **Settings › Appearance › Mini player**.
+under **Settings › Appearance › Mini player**. Right-click the mini player
+itself to switch between card and bar, or to close it.
 
 ## AI assistants
 

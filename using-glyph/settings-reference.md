@@ -38,6 +38,7 @@ marked *device* stay on this computer; the others
 | Listening statistics | Off by default. Counts listening time, plays, top artists and songs; turning it off deletes them. See [Accounts, sync and stats](accounts.md). |
 | Hide explicit songs | Leaves out songs marked explicit and YouTube songs without a rating (**?**). |
 | Radio when the queue ends | Keeps playing similar songs (needs Last.fm on the server or your own key). |
+| Song suggestions | Shows *Recommended* songs under your playlists and on the home page. Off: no suggestions. |
 | Hidden artists | Artists you hid with *Don't show this artist* (artist page menu); they do not show in search and radio. Show them again here. |
 
 ### Sources
@@ -194,7 +195,7 @@ API keys, the server address and *device* options are never included. See
 
 | Tab | Options |
 | --- | --- |
-| Version & updates | Version, *Check for updates*, *Install updates automatically*, Channel (Stable or Pre-release). See [Install and updates](../help/install-and-updates.md). |
+| Version & updates | Version, *Check for updates*, *Install updates automatically*, Channel (**Stable** gets tested versions, **Latest** gets every new version first). See [Install and updates](../help/install-and-updates.md). |
 | Support | Report a problem (GitHub), Copy diagnostic info (no keys, no personal data), Docs, Data folder. |
 | Shortcuts | Every keyboard shortcut and mouse gesture; click one to change its key. See [Keyboard shortcuts](../getting-started/keyboard-shortcuts.md). |
 
