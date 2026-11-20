@@ -66,6 +66,15 @@ Changes apply at once. Lowering a limit keeps existing devices signed in; new
 ones must wait until the account is below it. At the limit the sign-in page lets
 the user remove a device first.
 
+## Admins in the app
+
+`glyph remote accounts admin alice` lets `@alice` open the **Server** dashboard
+in the app sidebar while signed in. She sees all accounts with their storage,
+how much space the server uses, charts over time, and can change limits, sign
+out devices and ban people. Keys, updates, logs and handing out the role stay
+with you (the admin password). An admin cannot touch another admin's account.
+`--off` takes the role away; banning the account does too.
+
 ## Only signed-in users
 
 ```bash

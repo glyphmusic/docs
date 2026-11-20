@@ -62,6 +62,7 @@ through the docs MCP server at `https://docs.glyph.my/mcp`
 | Set storage limit per account | `glyph remote accounts storage-limit 50` (in MB) |
 | Lock a self-hosted server with a shared token | `glyph access` |
 | Give one account more devices | `glyph remote accounts limit somehandle 10` |
+| Let an account use the admin dashboard in the app | `glyph remote accounts admin somehandle` (`--off` takes it away) |
 | Stop AI assistants from controlling apps through the server | `glyph remote mcp off` |
 | Watch the server log | `glyph remote logs --follow` |
 | Switch between servers | `glyph remote list`, `glyph remote use <url>` |
@@ -231,6 +232,7 @@ The last login is the default server. `glyph remote use <url>` picks another,
 | `glyph remote accounts show <handle>` | limit, storage, devices: id, platform, last seen, hardware hash |
 | `glyph remote accounts limit <handle> <n\|default>` | one account's own device limit |
 | `glyph remote accounts revoke <handle> [device]` | sign out one device, or all of them |
+| `glyph remote accounts admin <handle> [--off]` | admin role: the account sees the server dashboard in the app |
 | `glyph remote logs [-n 100] [--follow]` | recent log lines |
 | `glyph remote update [--apply]` | look for a server update, `--apply` installs it |
 
@@ -255,6 +257,8 @@ Key names: `youtube_api_key`, `jamendo_client_id`, `soundcloud_client_id`,
 | `--account-max-mb <n>` | space per account in MB: synced data and pictures (default 50) |
 | `--max-accounts <n>` | maximum total accounts allowed on this server (`0` = no limit) |
 | `--min-app-version <ver\|none>` | oldest Glyph app version still accepted (`none` = every version) |
+| `--stable-version <ver\|none>` | app release the Stable update channel offers (`none` = GitHub's normal releases) |
+| `--latest-version <ver\|none>` | app release the Latest update channel offers (`none` = the newest release) |
 
 ## Bans
 
