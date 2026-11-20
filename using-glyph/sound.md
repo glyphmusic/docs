@@ -11,11 +11,19 @@ YouTube or SoundCloud players.
 | --- | --- |
 | Crossfade | 0–20 seconds between songs |
 | Volume level | Loud, Normal or Quiet overall |
-| Normalize volume | every song at the same loudness |
+| Normalize volume | gives every song one steady loudness across its whole length |
 | Equalizer | 10 bands, presets, your own curves; share them as code or file |
 | Bass | extra bass below about 90 Hz on top of the equalizer curve |
 | Headroom | lowers the level before the equalizer so strong boosts do not clip |
 | Output | the system default or a chosen device |
+
+## Volume levelling (Normalize volume)
+
+With **Normalize volume** turned on, Glyph measures each song once in the
+background (the way streaming services do: deep bass counts less, and quiet
+parts or silence are left out) and remembers the result. Every song then gets
+one fixed gain for its whole length, so a loud chorus, scream or bass drop does
+not turn the rest of the song down.
 
 ## Bass and headroom
 
@@ -23,7 +31,10 @@ Both are on the **Settings › Equalizer** page and work while the equalizer is
 on.
 
 * **Bass** (−12 to +12 dB) lifts or lowers everything below about 90 Hz, on
-  top of the curve. The curve's own 32 Hz and 64 Hz bands still work.
+  top of the curve. The curve's own 32 Hz and 64 Hz bands still work. The
+  equalizer does not change how loud a song is levelled: with volume levelling
+  on, a bass boost uses the headroom levelling already created and only catches
+  momentary bass peaks without turning the rest of the song down.
 * **Headroom** (0 to −12 dB) turns the level down before the equalizer. Boosted
   bands can push loud songs past the maximum and distort (clipping); a few dB
   of headroom prevent that. Glyph already leaves some room for boosts by

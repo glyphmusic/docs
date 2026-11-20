@@ -42,6 +42,10 @@ keys are never printed. Restart the server after a change.
 | `require_account` | false | only signed-in apps |
 | `proxy_audio` | true | stream audio through the server |
 | `ytdlp_path` | PATH | yt-dlp executable |
+| `web_dir` | – | folder of a built [web player](../using-glyph/web-player.md) to serve at `/web` (env `GLYPH_WEB_DIR`) |
+| `account_max_mb` | 50 | space per account in MB (synced data and pictures) |
+| `max_accounts` | 0 | maximum total accounts allowed on this server; `0` = no limit (env `GLYPH_MAX_ACCOUNTS`) |
+| `min_app_version` | – | oldest app version accepted; older apps get `426 app_outdated` (env `GLYPH_MIN_APP_VERSION`) |
 | `tls.domain`, `tls.email` | – | automatic HTTPS |
 | `keys.*` | – | provider API keys |
 

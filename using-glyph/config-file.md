@@ -22,9 +22,23 @@ download_adaptive = true   # follow your connection speed
 ```
 
 Settings that belong to one device stay in its file and are never synced:
-shortcuts, mouse wheel steps, text size, music folders and the download folder.
+shortcuts, mouse wheel steps, text size, performance and animation modes,
+background pictures, notifications, music folders and the download folder.
 
 ```toml
+[visuals]
+glow_shape = ""            # "", "strahl", "band", "sonnenaufgang", "horizont", "solid"
+solid_color = ""           # hex colour for "solid" background, empty = theme default
+performance_mode = false   # lighter background and effects on this device
+render_mode = "gpu"        # "gpu" or "cpu"
+bg_image = ""              # chosen background picture id, empty = glow
+bg_dim = 0.45              # darken background picture (0.0 .. 1.0)
+bg_blur = 0.0              # blur background picture
+
+[notifications]            # Android only
+app_updates = true
+new_releases = true
+
 [ui]
 wheel_seek_s = 5          # seek bar: seconds per wheel notch, 0 = off
 wheel_volume_pct = 5      # volume: percent per wheel notch, 0 = off

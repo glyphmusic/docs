@@ -1,46 +1,73 @@
 ---
-description: Build, test and change the app, the server and r-dlp.
+description: Build, test and change the apps (desktop, Android, web), the server and r-dlp.
 ---
 
 # Development
 
-Every part is Rust, dual-licensed MIT or Apache-2.0 (r-dlp: MIT). Pull requests
-are welcome in each repository; read [Pull requests](pull-requests.md) first.
+The backend, audio engine and server are Rust, and the shared interface is
+Svelte 5 + TypeScript; everything is dual-licensed MIT or Apache-2.0 (r-dlp:
+MIT). See [Architecture](architecture.md) for how the repositories and crates
+fit together, and read [Pull requests](pull-requests.md) before opening a PR.
 
 ## Desktop app
 
 ```bash
 git clone https://github.com/glyphmusic/apps.git
-cd desktop
-cargo build --release -p glyph
+cd apps
+npm --prefix glyph-ui ci
+npm --prefix glyph-ui run build
+cargo build --release -p glyph-tauri
 ```
 
-Rust 1.85 or newer. Linux also needs (Debian/Ubuntu names):
+Requires Rust 1.85 or newer and Node.js 22 or newer. Linux also needs these
+development packages (Debian/Ubuntu names):
 
 ```bash
-sudo apt-get install libxkbcommon-dev libxkbcommon-x11-dev libwayland-dev libvulkan-dev libx11-xcb-dev libxcb1-dev libfontconfig-dev libfreetype-dev libasound2-dev libdbus-1-dev libssl-dev pkg-config libwebkit2gtk-4.1-dev libgtk-3-dev libsoup-3.0-dev libjavascriptcoregtk-4.1-dev
+sudo apt-get install libwebkit2gtk-4.1-dev libsoup-3.0-dev librsvg2-dev libayatana-appindicator3-dev libgtk-3-dev libasound2-dev libdbus-1-dev libssl-dev pkg-config
 ```
 
 | Path | Contents |
 | --- | --- |
-| `src/` | the app and its UI ([GPUI](https://www.gpui.rs)) |
-| `crates/glyph-core` | sources, search, library, settings, sync |
-| `crates/glyph-audio` | playback, crossfade, equalizer, loudness |
+| `crates/glyph-tauri` | Tauri 2 desktop shell (binary `glyph`) |
+| `crates/glyph-app` | shared controller, commands, plugins, Jam, Connect, MCP |
+| `crates/glyph-android` + `mobile/android` | Android shell and native media service |
+| `glyph-ui` | Svelte 5 frontend shared across desktop, Android and `/web` |
+| `crates/glyph-core` | sources, search, library, settings, E2E sync |
+| `crates/glyph-audio` | playback, crossfade, equalizer, loudness, spatial |
 | `crates/glyph-protocol` | types shared with the server |
 | `assets/` | fonts, icons, [translations](translations.md) |
 
-Quick feedback without linking: `cargo check -p glyph`. The `fast` profile gives
-release speed without LTO for local tests: `cargo build --profile fast -p glyph`.
+Quick feedback without linking: `cargo check -p glyph-tauri` and
+`npm --prefix glyph-ui run check`. The `fast` profile gives release speed
+without LTO for local tests: `cargo build --profile fast -p glyph-tauri`.
 
 On Windows, `./scripts/run-dev.ps1` builds and opens the dev app,
 `./scripts/dev-watch.ps1` rebuilds after every edit.
 
+### Web player
+
+To work on the UI in a browser with sample data, run `npm --prefix glyph-ui run dev`.
+To build the production web player bundle served at `/web`:
+
+```bash
+npm --prefix glyph-ui run build:web
+```
+
+To copy the built web bundle into the server repository (`glyph-web/`), run
+`node scripts/snapshot-web.mjs --build` inside `glyphmusic/server`.
+
+### Android
+
+The Android APK is built from `mobile/android` with the Rust library from
+`crates/glyph-android` (`./scripts/build-android.ps1` on Windows or the
+`.github/workflows/android.yml` workflow steps on Linux/macOS).
+
 ### Rules
 
-* Every feature must work on Linux, macOS and Windows; no platform-only crate
-  without a fallback.
+* Every desktop feature must work on Linux, macOS and Windows; no platform-only
+  crate without a fallback.
 * Official APIs only, keys only from settings, environment or secrets.
-* The server never sees audio the app plays from local yt-dlp.
+* The server never sees audio the app plays from local r-dlp or yt-dlp.
 
 ## Server
 

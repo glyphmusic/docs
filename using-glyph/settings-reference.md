@@ -14,6 +14,22 @@ marked *device* stay on this computer; the others
 [sync with your account](accounts.md) and travel in
 [shared settings](sharing.md).
 
+{% hint style="info" %}
+**Advanced switch:** by default Glyph hides pages and options most people rarely
+need (`Server`, `Integrations`, `Backup & share`, the `Playback › Sources` tab,
+and options such as Spatial audio, Equalizer headroom, Cache size limit, Update
+channel, Startup animation, Background power saving and mouse-wheel steps). Turn
+on the **Advanced** switch in the settings sidebar to show everything. It stays
+on this device.
+{% endhint %}
+
+## Overview
+
+A quick summary of the most-used controls: account card, Equalizer and Data
+saver switches, colour theme, text size, language, streaming quality, output
+device, volume levelling, YouTube extractor, shuffle style, radio and explicit
+filter.
+
 ## Playback
 
 ### General
@@ -35,6 +51,8 @@ marked *device* stay on this computer; the others
 | Option | What it does |
 | --- | --- |
 | Shuffle | *Smart* spreads artists and plays songs you just heard last; *True random* gives every order the same chance. |
+| Skip songs that can't play | Automatically skips a song that cannot be played instead of stopping (on by default). |
+| Search longer | Tries more videos and alternate search wordings before marking a song as not found (app only). |
 | Listening statistics | Off by default. Counts listening time, plays, top artists and songs; turning it off deletes them. See [Accounts, sync and stats](accounts.md). |
 | Hide explicit songs | Leaves out songs marked explicit and YouTube songs without a rating (**?**). |
 | Radio when the queue ends | Keeps playing similar songs (needs Last.fm on the server or your own key). |
@@ -87,13 +105,16 @@ More in [Sound](sound.md).
 | --- | --- |
 | Language | Interface language; empty follows the system. |
 | Text size | Small, Normal, Large or Extra large. *Device* |
-| Background visualizer | *Automatic (per song)* or always Beam, Band, Sunrise or Horizon. |
+| Background visualizer | *Automatic (per song)*, Beam, Band, Sunrise, Horizon, or **Solid** (with its own colour picker). |
+| Background picture | Your own picture (or one from a plugin) instead of the glow, with *Darken* and *Blur*. *Device* |
 | Glow strength | How strongly the glow shows. |
 | Music reaction | How strongly the glow moves with the music. |
 | Show covers as ASCII art | Draws covers through the ASCII ramp. |
 | Colour theme | Accent and background colours; [plugins](plugins.md) add more. |
 | ASCII effects | Text and pictures decode in, placeholders shimmer. |
 | Mini player | Bar or Card. |
+| Performance | **Full effects** or **Performance mode** (lighter background and effects). *Device* |
+| Animations | **Graphics card (GPU)** or **Processor (CPU)** for the moving background, with *Try again* after a GPU fallback. *Device* |
 | Save power in the background | 10 fps glow while Glyph is not the active window. |
 | Startup animation | Light streams form the logo at start. |
 
@@ -102,23 +123,15 @@ More in [Appearance](appearance.md).
 ## Account
 
 Signed out, this page signs you in or creates an account (browser, password,
-passkey or a pairing code). Signed in, it has three tabs. See
+passkey or a pairing code). Signed in, it has four tabs. See
 [Accounts, sync and stats](accounts.md).
 
 | Tab | Options |
 | --- | --- |
-| Overview | Handle (change once every 30 days), sync status and *Sync now*, *Library & API keys* (end-to-end encryption status), device limit, *Glyph links when sharing* (see [Sharing](sharing.md)), *Sign out*. |
-| Devices | Pairing code (approve a new device), every signed-in device with *Remove*. |
+| Overview | Handle (change once every 30 days), sync status and *Sync now*, *Library & API keys* (end-to-end encryption status), account storage usage bar, *Glyph links when sharing* (see [Sharing](sharing.md)), *Sign out*. |
+| Profile | Profile picture (square), banner (3:1), *Public profile*, *Show recently played*, profile section order, and which playlists appear on your profile. |
+| Devices | Pairing code (approve a new device), every signed-in device with *Remove* and *Sign out all*, device limit. |
 | Security | Set or change the password, add a passkey, make a recovery code, delete the account. |
-
-## Profile & privacy
-
-Signed in only.
-
-| Tab | Options |
-| --- | --- |
-| Profile | Profile picture (square), banner (3:1). |
-| Privacy | Public profile, Show recently played, which playlists appear on your profile. |
 
 ## Server
 
@@ -137,6 +150,15 @@ Desktop only, all *device*.
 | Start with your computer | Opens Glyph when you sign in to the computer. |
 | On autostart | *Window* opens Glyph as usual; *Background* waits in the system tray (macOS: hidden, open it from the Dock). |
 | Offer copied music links | When you copy a song or playlist link in another app, Glyph asks if it should add it. |
+
+## Notifications
+
+Android only, all *device*. See [Android app](mobile.md#notifications).
+
+| Option | What it does |
+| --- | --- |
+| App updates | Notify when a new version of Glyph is ready to install. |
+| New releases | Notify when an artist you follow puts out a new album, EP or single. |
 
 ## Integrations
 
@@ -195,7 +217,7 @@ API keys, the server address and *device* options are never included. See
 
 | Tab | Options |
 | --- | --- |
-| Version & updates | Version, *Check for updates*, *Install updates automatically*, Channel (**Stable** gets tested versions, **Latest** gets every new version first). See [Install and updates](../help/install-and-updates.md). |
+| Version & updates | Version, *Check for updates*, *Install updates automatically*, Channel (**Stable** gets tested versions, **Latest** gets every new version first), *Introduction* (reopen the welcome tour). See [Install and updates](../help/install-and-updates.md). |
 | Support | Report a problem (GitHub), Copy diagnostic info (no keys, no personal data), Docs, Data folder. |
 | Shortcuts | Every keyboard shortcut and mouse gesture; click one to change its key. See [Keyboard shortcuts](../getting-started/keyboard-shortcuts.md). |
 

@@ -53,7 +53,7 @@ pull request:
 
 | Repository | Commands |
 | --- | --- |
-| apps | `cargo test -p glyph-protocol -p glyph-core -p glyph-audio`, `cargo check -p glyph` |
+| apps | `cargo test -p glyph-protocol -p glyph-core -p glyph-audio`, `npm --prefix glyph-ui run check`, `npm --prefix glyph-ui run build`, `cargo check -p glyph-tauri` |
 | server | `cargo test --workspace`, `cargo check -p glyph-server-worker --target wasm32-unknown-unknown`, `npm test` in `crates/glyph-server-worker` |
 | r-dlp | `cargo test --locked` |
 | companion | `python3 -m unittest discover -s tests -v` |

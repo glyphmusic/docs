@@ -29,8 +29,8 @@ through the docs MCP server at `https://docs.glyph.my/mcp`
 - Read-only commands are safe to run any time: `glyph status`,
   `glyph version all`, `glyph check all`, `glyph doctor`, `glyph config list`,
   `glyph remote status`, `glyph remote stats`, `glyph remote ban list`,
-  `glyph remote accounts show <handle>`, `glyph companion status`,
-  `glyph remote keys list`, `glyph remote logs`.
+  `glyph remote accounts list`, `glyph remote accounts show <handle>`,
+  `glyph companion status`, `glyph remote keys list`, `glyph remote logs`.
 - Changes to a live server take effect at once and affect every user of it.
   Run them with `--dry-run` first, show the operator what would change, and
   only then run them for real. On a terminal they ask before changing
@@ -57,6 +57,9 @@ through the docs MCP server at `https://docs.glyph.my/mcp`
 | Ban one device (survives reinstalling the app) | `glyph remote ban device somehandle <device-id>` |
 | Lift a ban | `glyph remote unban somehandle` (or the ban id, IP, hash) |
 | Sign out the devices of an account | `glyph remote accounts revoke somehandle` |
+| List all accounts on the server | `glyph remote accounts list` (optional `--search <text>`) |
+| Cap total accounts on the server | `glyph remote accounts max-accounts 100` (`0` = no limit) |
+| Set storage limit per account | `glyph remote accounts storage-limit 50` (in MB) |
 | Lock a self-hosted server with a shared token | `glyph access` |
 | Give one account more devices | `glyph remote accounts limit somehandle 10` |
 | Stop AI assistants from controlling apps through the server | `glyph remote mcp off` |
@@ -126,9 +129,10 @@ For a Cloudflare server: `glyph update server --worker-config wrangler.json`.
 | `glyph config path` | path of `server.toml` |
 
 Live settings (`--server`): `require_account`, `rate_limit_per_min`,
-`youtube_daily_budget_units`, `youtube_per_day`, `import_max_pages`,
-`playlist_max_tracks`, `companion_enabled`, `mcp_relay`, `audio_cache_days`,
-`audio_cache_max_gb`, `d1_max_mb` and `keys.<name>`.
+`youtube_daily_budget_units`, `youtube_per_day`, `youtube_require_account`,
+`import_max_pages`, `playlist_max_tracks`, `companion_enabled`, `mcp_relay`,
+`audio_cache_days`, `audio_cache_max_gb`, `d1_max_mb`, `account_max_mb`,
+`max_accounts`, `min_app_version` and `keys.<name>`.
 
 ## Own server
 
@@ -183,8 +187,11 @@ These commands come with the npm package; the native binary lists them as
 | `glyph cloudflare domain <host>` | serve on your own domain |
 
 Values: `RATE_LIMIT_PER_MIN`, `YOUTUBE_DAILY_BUDGET_UNITS`, `REQUIRE_ACCOUNT`,
+`YOUTUBE_REQUIRE_ACCOUNT`, `ACCOUNT_MAX_MB`, `MAX_ACCOUNTS`, `MIN_APP_VERSION`,
 `PUBLIC_ORIGIN`, `SHARE_ORIGIN`, `YTDLP_SERVICE_URL`. Secrets: provider keys
-such as `YOUTUBE_API_KEY`, `YTDLP_SERVICE_TOKEN` and `GLYPH_SERVER_BEARER`;
+such as `YOUTUBE_API_KEY`,
+`YTDLP_SERVICE_TOKEN`, `COMPANION_ADMIN_TOKEN`, `COMPANION_ACCESS_CLIENT_ID`,
+`COMPANION_ACCESS_CLIENT_SECRET` and `GLYPH_SERVER_BEARER`;
 `glyph cloudflare --help` lists them all. `glyph cloudflare secret
 GLYPH_SERVER_BEARER` locks every page the Worker serves except `/v1/health`:
 the apps, but also its site, docs, `/p/` links and jam invites.
@@ -217,8 +224,11 @@ The last login is the default server. `glyph remote use <url>` picks another,
 | `glyph remote cache [stats\|clear]` | cache statistics or clear it |
 | `glyph remote limits [flags]` | show limits, or change them with the flags below |
 | `glyph remote mcp [on\|off\|status]` | AI assistants (MCP) through this server |
+| `glyph remote accounts [list] [--search <q>] [--limit <n>] [--offset <n>]` | list accounts: handle, devices, sync size, last seen, ban state |
+| `glyph remote accounts max-accounts [n]` | maximum total accounts on this server (`0` = no limit) |
+| `glyph remote accounts storage-limit [mb]` | space per account in MB: synced data and pictures (1-10000) |
 | `glyph remote accounts default-limit [n]` | device limit for accounts without their own (1-100) |
-| `glyph remote accounts show <handle>` | limit and devices: id, platform, last seen, hardware hash |
+| `glyph remote accounts show <handle>` | limit, storage, devices: id, platform, last seen, hardware hash |
 | `glyph remote accounts limit <handle> <n\|default>` | one account's own device limit |
 | `glyph remote accounts revoke <handle> [device]` | sign out one device, or all of them |
 | `glyph remote logs [-n 100] [--follow]` | recent log lines |
@@ -242,6 +252,9 @@ Key names: `youtube_api_key`, `jamendo_client_id`, `soundcloud_client_id`,
 | `--audio-days <n>` | days companion audio stays in R2 (Worker) |
 | `--r2-max-gb <n>` | total R2 storage ceiling (Worker) |
 | `--d1-max-mb <n>` | D1 database ceiling (Worker) |
+| `--account-max-mb <n>` | space per account in MB: synced data and pictures (default 50) |
+| `--max-accounts <n>` | maximum total accounts allowed on this server (`0` = no limit) |
+| `--min-app-version <ver\|none>` | oldest Glyph app version still accepted (`none` = every version) |
 
 ## Bans
 

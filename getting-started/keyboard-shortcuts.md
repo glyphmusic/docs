@@ -60,6 +60,7 @@ The A-B loop repeats one part of a song, for example to learn a passage.
 | Default | Does |
 | --- | --- |
 | `Ctrl+Q` | quit |
+| `Ctrl+Alt+P` | open **Settings › Plugins**, where plugin looks are paused: works even when a look hides the rest |
 
 ## Fixed keys
 

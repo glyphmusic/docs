@@ -67,6 +67,28 @@ install. The link behind it is `glyph://plugin/<id>`, so you can share it too.
   If you pick a plugin theme and sync your settings, devices without that
   plugin use the default theme.
 
+## Looks
+
+Themes and extensions can also bring a **look**, and a look can change the
+whole interface: fonts (also its own), rounder or squarer corners, Glyph's
+icons, pictures for **Settings › Appearance › Background picture**, and a
+style sheet for every part of Glyph: the main window, settings, menus,
+dialogs, toasts and the mini player. Sizes, spacing, colours, what shows
+where, what is hidden.
+
+- A theme's look shows while you use that theme. An extension's look shows
+  while the extension is turned on.
+- **Settings › Plugins** always looks like Glyph: every look pauses while it
+  is open, so you can always turn a look off there. `Ctrl+Alt+P` (`⌘⌥P` on a
+  Mac) opens it, even when a look hides everything else.
+- A look only uses its own files (fonts, pictures, icons from its
+  repository). It can't load anything from the internet.
+- The plugin's page lists what its look changes under **What it does**.
+
+Want to change Glyph yourself? A look is a folder with a
+`glyph-plugin.json` and a style sheet; put it into the plugins folder and it
+works without publishing anything. See [Looks](../plugins/looks.md).
+
 ## Extensions
 
 Besides themes, plugins can be **extensions**. They can rename texts, hide

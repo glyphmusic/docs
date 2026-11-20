@@ -165,9 +165,9 @@ later Glyph should set it.
 
 Required. What the plugin is:
 
-- `"theme"`: colours only (`theme`), nothing else allowed.
+- `"theme"`: colours (`theme`) and optionally a [`look`](#look), nothing else.
 - `"extension"`: anything below (needs `"schema": 2`). An extension may bring a
-  `theme` too.
+  `theme` and a `look` too.
 
 Glyph shows unknown kinds as **Needs a newer Glyph**, so new kinds can appear
 without breaking older apps.
@@ -188,10 +188,40 @@ text in light ink. A bright base would make text unreadable, so Glyph refuses
 it instead of shipping a broken theme. What each colour does on screen, with
 advice, is in [Designing a theme](themes.md).
 
+### `look`
+
+Optional, for themes and extensions, no code needed. Changes more than
+colours. All fields are optional, but give at least one.
+
+| Field | Meaning |
+| --- | --- |
+| `font` | `"inter"` (Glyph's), `"system"`, `"rounded"`, `"serif"` or `"mono"`. System fonts; for your own font use `@font-face` with an asset. |
+| `radius` | corner roundness from `0` (square) over `1` (Glyph's) to `2` (very round). |
+| `backgrounds` | up to 8 pictures (`.png`, `.jpg`, `.webp`, at most 8 MB each), paths in the repository. They show up in **Settings › Appearance › Background picture**. |
+| `css` | path of a style sheet (`.css`, at most 128 KB) for the whole interface. |
+| `assets` | up to 40 files the style sheet may use with `url()`: fonts (`.woff2`, `.woff`, `.ttf`, `.otf`) and pictures (`.png`, `.jpg`, `.webp`, `.gif`, `.svg`), at most 2 MB each. |
+| `icons` | Glyph icons to replace, up to 400: `{"heart": "icons/heart.svg"}`. Each `.svg` at most 32 KB. |
+
+All files of one look together may have 32 MB.
+
+```json
+"look": {
+  "font": "rounded",
+  "radius": 1.6,
+  "backgrounds": ["backgrounds/dunes.webp", "backgrounds/night.jpg"],
+  "css": "look.css",
+  "assets": ["fonts/Outfit.woff2", "textures/grain.png"],
+  "icons": { "heart": "icons/heart.svg", "heart-fill": "icons/heart-fill.svg" }
+}
+```
+
+Glyph downloads the files from the same commit as the manifest. How to write
+the style sheet, and what it may not do: [Looks](looks.md).
+
 ## Extension fields
 
 All optional, but an extension needs at least one of `main`, `strings`,
-`hide` or `theme`. `settings`, `menus` and `permissions` need `main`.
+`hide`, `theme` or `look`. `settings`, `menus` and `permissions` need `main`.
 
 ### `main`
 

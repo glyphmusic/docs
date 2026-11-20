@@ -40,13 +40,26 @@ Start it from a terminal to see the error:
 ```
 
 * **Missing library** (`error while loading shared libraries`): install the
-  packages from the
-  [build instructions](https://github.com/glyphmusic/apps#build-from-source),
-  in particular Vulkan, Wayland/X11, ALSA and WebKitGTK.
-* **No window, a GPU error**: Glyph draws with Vulkan. Install your GPU's Vulkan
-  driver (`mesa-vulkan-drivers` on Debian/Ubuntu for Intel and AMD).
+  packages from [Development](../contributing/development.md#desktop-app), in
+  particular WebKitGTK (`libwebkit2gtk-4.1`), GTK 3, libayatana-appindicator
+  and ALSA.
+* **Blank window, flickering or black background**: WebKitGTK's GPU compositing
+  can fail on some graphics drivers. Switch **Settings › Appearance ›
+  Animations** to **Processor (CPU)** (or start with
+  `WEBKIT_DISABLE_DMABUF_RENDERER=1 ./glyph`).
 * **No sound**: Glyph plays through ALSA; with PipeWire or PulseAudio install
   their ALSA plugin (`pipewire-alsa` or `pulseaudio-alsa`).
+
+## "Update Glyph" covers the whole app
+
+When the Glyph server introduces a change that older app versions can no longer
+talk to, the server answers API requests with HTTP `426` (`app_outdated`).
+Glyph then shows **Update Glyph** across the window instead of half-working
+screens.
+
+Click **Update now** to install the new signed release in place, or open the
+[download page](https://glyph.my/download) if you installed Glyph manually or
+through a package manager.
 
 ## "Update failed: …"
 

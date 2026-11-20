@@ -20,6 +20,11 @@ folders on your computer. See [Local files](local-files.md).
   right-click menu, or drag music files from your computer into a playlist
   (Glyph copies them; to play files where they are, use
   [Local files](local-files.md)).
+* **Right-click a heart** (on a phone: press and hold it) to save the song
+  where you want: *Liked Songs* and every playlist get a round tick. A filled
+  tick means the song is in there; click to add or take it out. The menu stays
+  open, so you can pick several. **New playlist** at the bottom makes one with
+  the song in it.
 * Names can be up to 100 characters. A cover image is optional.
 * **Share**: copy a short `glyph.my` link (signed in) or a `glyph:playlist:` code.
 * **Download all** saves the playlist for offline use where the source allows it;

@@ -33,6 +33,24 @@ each song.
 **Colour** row lets you choose it: the theme's own colour, a few dark ones, or
 any colour you like.
 
+## Background picture
+
+Put your own picture behind Glyph instead of the glow:
+
+- **Add picture** picks a PNG, JPEG or WebP file. Glyph makes big pictures
+  smaller (at most 3840 pixels wide) and keeps a copy, so the original file can
+  move or go away.
+- Click a picture to show it, or **Glow** to go back to the glow. Picking a
+  glow shape also brings the glow back.
+- **Darken** makes the picture darker so text stays easy to read. **Blur**
+  makes it soft.
+- Hover a picture and click **×** to remove it. Up to 40 pictures.
+- [Plugins](plugins.md) can bring pictures too; they show the plugin's name
+  below them and go away with the plugin.
+
+Pictures stay on this device and are not synced. In the browser player they
+are kept in the browser.
+
 ## Text size
 
 Text size changes the text, not the layout: buttons, covers and spacing keep
@@ -45,11 +63,12 @@ battery and phones:
 
 * the background moves at half the frame rate and is drawn on a coarser grid,
 * the ASCII characters in the background are redrawn less often,
-* text and pictures no longer decode in, loading placeholders are plain boxes,
+* text and pictures no longer decode in, and ASCII loading placeholders stand still instead of animating,
 * panels and dialogs no longer blur what is behind them.
 
-The colours and shapes stay the same. Each device keeps its own choice; it is
-not synced.
+The colours and shapes stay the same. On first start, Glyph checks your device
+and recommends either full effects or performance mode. Each device keeps its
+own choice; it is not synced.
 
 ## Animations
 
@@ -62,6 +81,11 @@ not synced.
 * **Processor (CPU)**: the processor draws everything, without the graphics
   card. Pick this when the background flickers, stays black or looks wrong. It
   uses more power.
+
+When GPU rendering starts, Glyph runs a quick self-check against the processor's
+result. If a graphics driver draws a black or broken frame, Glyph switches to
+**Processor (CPU)** automatically, tells you, and locks GPU mode on that device
+until you click **Try again** under **Settings › Appearance › Animations**.
 
 Both look the same, and the change takes effect at once. It works together
 with performance mode. Each device keeps its own choice; it is not synced.

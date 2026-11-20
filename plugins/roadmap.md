@@ -16,11 +16,12 @@ manifest with schema 2 shows as **Needs a newer Glyph** in older versions.
 
 ## Where new APIs are needed
 
-The current API exposes specific app actions and declarative controls. A
-plugin cannot replace arbitrary GPUI widgets, draw a custom canvas,
-process raw audio or register a music catalog provider. Spectrum analysis,
-local equalizer control, live progress rows and song-scoped lyrics candidates
-are available through the [current API](api.md).
+The current API exposes specific app actions, declarative settings controls and
+[Looks](looks.md) to restyle the interface. A plugin cannot mount arbitrary
+custom UI components, draw a custom canvas, process raw audio or register a
+music catalog provider. Spectrum analysis, local equalizer control, live
+progress rows and song-scoped lyrics candidates are available through the
+[current API](api.md).
 
 Those features need dedicated host interfaces: for example an audio callback
 with a bounded processing budget, a drawing surface, or a provider contract

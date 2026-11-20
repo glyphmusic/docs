@@ -17,21 +17,26 @@ crate. Errors are JSON `ApiError` objects with a `code`.
 | `X-Glyph-Server-Authorization: Bearer <token>` | on a [private server](limits.md#private-server) |
 
 Rate-limited answers are HTTP 429 with `retry_after_s` and `Retry-After`.
+When the server configures `min_app_version`, older Glyph apps (identified by
+their `User-Agent`) receive HTTP 426 with code `app_outdated` on API routes;
+`/v1/health`, site pages and `/web` stay open.
 
 ## Music
 
 | Method | Path | Does |
 | --- | --- | --- |
-| GET | `/v1/health` | version, protocol, active sources, `accounts`, `account_required`, `server_auth_required`, `capabilities` (feature names such as `jam`, `mcp_relay`, `youtube_audio`, `youtube_account_required`) |
+| GET | `/v1/health` | version, protocol, `min_app_version`, active sources, `accounts`, `account_required`, `server_auth_required`, `capabilities` (feature names such as `jam`, `mcp_relay`, `youtube_audio`, `youtube_account_required`, `ratings`, `pair_keys`, `e2e_sync`) |
 | GET | `/v1/search?q=` | NDJSON stream of `results`, `provider_error` and `done` events |
-| POST | `/v1/resolve` | `ResolveRequest` → playback source |
+| POST | `/v1/resolve` | `ResolveRequest` → playback source (`?direct=1` returns direct provider URLs without proxying) |
 | GET | `/v1/audio/:provider/:id` | audio stream with byte ranges; `?quality=low\|standard\|high` |
 | POST | `/v1/download` | track → download reference, or `null` if not allowed |
 | GET | `/v1/download/:provider/:id` | download stream |
 | GET | `/v1/lyrics?title=&artist=&album=&duration=` | lyrics from LRCLIB; duration in seconds |
 | GET | `/v1/similar?artist=&title=` | similar songs (Last.fm) |
+| GET | `/v1/artist?name=` | whole artist page (bio, photo, banner, top songs, discography, similar artists), cached 14 days |
+| GET | `/v1/chart` | public popular tracks chart |
 | POST | `/v1/import/spotify` | `{url}` of a public Spotify, Deezer or YouTube playlist, a SoundCloud link (set, likes, tracks, song) or a Last.fm profile |
-| POST | `/v1/cover` | track → cover URL |
+| POST | `/v1/cover` | track → `{ url, album }` (cover URL from allowed image hosts plus cached album name) |
 
 A search result keeps its `source` and `id`. If another source finds the same
 song later, the track is sent again with more ids; replace it by
@@ -57,7 +62,8 @@ on GitHub). On a `docs.` host the paths have no `/docs` prefix
 | --- | --- | --- |
 | POST | `/v1/share` | signed in: create a short link |
 | GET / DELETE | `/v1/share/:id` | read; the owner can delete |
-| GET | `/p/:id` | landing page of a short link |
+| GET | `/p/:id` | short link: redirects browsers to `/web/p/:id` when the web player is served; bots and servers without `/web` receive the preview page |
+| GET | `/p/:id/audio/:n` | direct audio stream for song `n` of a shared link (also accepts a filename or extension like `/audio/3.m4a`); no listener account needed |
 
 ## Accounts and sync
 
@@ -68,12 +74,16 @@ on GitHub). On a `docs.` host the paths have no `/docs` prefix
 | POST | `/v1/account/token/refresh` | new access token |
 | GET | `/v1/account/handle/:h` | is a handle free |
 | GET / PATCH / DELETE | `/v1/account` | read, change handle, delete account |
+| GET | `/v1/account/storage` | account storage usage and limit in bytes |
 | GET / PATCH / DELETE | `/v1/devices`, `/v1/devices/:id` | list, rename, remove devices |
+| GET / POST | `/v1/devices/playback/*` | Connect: list online devices, report state, poll and send playback commands |
 | POST | `/v1/sync/push` | send changed items |
 | GET | `/v1/sync/pull?since=&limit=` | items newer than a revision |
 | GET | `/v1/sync/export` | all items as JSON (end-to-end encrypted items stay encrypted) |
-| GET / PATCH | `/v1/profile` | own profile settings |
+| GET / PATCH | `/v1/profile` | own profile settings (public flag, section order, visible playlists) |
 | GET | `/v1/profiles/:handle` | another user's public profile (signed in) |
+| GET | `/v1/profiles/:handle/images/:sha256` | stored profile or playlist image (accessible for `<img>` tags without auth) |
+| GET / POST / PATCH / DELETE | `/v1/mcp/*`, `/mcp` | server-relay MCP endpoint, OAuth pairing, long-polling (`/v1/mcp/pull`, `/v1/mcp/result`) and session management |
 
 ## Jam
 

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add dedicated pages for the web player (`glyph.my/web`), the Android app (touch gestures, share sheet, notifications) and the repository architecture.
+- Update the settings reference (Overview, Advanced switch, four Account tabs with Profile & storage, Notifications, Skip unplayable, Search longer, Performance, Animations, Introduction), AI assistants (Settings/Plugins permissions, active MCP sessions, web player), Sound (per-song volume levelling and bass boost), Sharing (shared links opening in the web player), config file, and self-hosting docs (R2 split, `web_dir`, `min_app_version`, new `/v1/*` routes).
+- Replace outdated GPUI/Vulkan build and troubleshooting references with the current Tauri 2 + Svelte setup.
+- Document saving a song to playlists from the heart, background pictures, and plugin looks that restyle the whole interface (new page: Looks, shortcut to Settings › Plugins).
 - Document the share menu on phones, sending songs to Glyph, copied music links and "Open with Glyph" (app 0.12.9).
 - The local docs preview shows the navigation like the site (group labels, sub-pages).
 

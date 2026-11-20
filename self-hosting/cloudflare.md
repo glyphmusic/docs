@@ -11,10 +11,13 @@ npm install --global glyph-server
 glyph setup cloudflare
 ```
 
-The setup uses **your** account: it creates a Worker and a D1 database
-(optionally an R2 bucket), applies the database migrations, asks for an admin
-password (hashed on your computer) and deploys. Your project is
-`glyph-cloudflare/wrangler.json`.
+The setup uses **your** account: it creates a Worker, a D1 database, a KV
+namespace and optionally R2 buckets (`GLYPH_CACHE` for cached covers and audio,
+`GLYPH_USERS` for user avatars, banners and playlist covers; a single legacy
+`GLYPH_COVERS` binding still works as fallback), applies the database
+migrations, asks for an admin password (hashed on your computer) and deploys.
+The Worker also serves the [web player](../using-glyph/web-player.md) at
+`/web`. Your project is `glyph-cloudflare/wrangler.json`.
 
 ## Change options
 
@@ -42,13 +45,19 @@ sign up; password sign-in keeps working after a change.
 | `RATE_LIMIT_PER_MIN` | anonymous requests per minute and IP (60) |
 | `YOUTUBE_DAILY_BUDGET_UNITS` | YouTube Data API units per day (9000) |
 | `REQUIRE_ACCOUNT` | only signed-in apps may use the API |
+| `YOUTUBE_REQUIRE_ACCOUNT` | keep YouTube audio and downloads for signed-in accounts only |
+| `ACCOUNT_MAX_MB` | space per account in MB: synced data and pictures (1–10000, default 50) |
+| `MAX_ACCOUNTS` | maximum total accounts allowed on this server (`0` = no limit) |
+| `MIN_APP_VERSION` | oldest app version still accepted (older apps receive `426 app_outdated` and show *Update Glyph*) |
 | `PUBLIC_ORIGIN` | the HTTPS origin of your server |
 | `SHARE_ORIGIN` | origin of short `/p/` playlist links |
 | `YTDLP_SERVICE_URL` | your companion, for YouTube |
 
 Secrets: `YOUTUBE_API_KEY`, `JAMENDO_CLIENT_ID`, `SOUNDCLOUD_CLIENT_ID`,
 `SOUNDCLOUD_CLIENT_SECRET`, `SPOTIFY_CLIENT_ID`, `SPOTIFY_CLIENT_SECRET`,
-`LASTFM_API_KEY`, `YTDLP_SERVICE_TOKEN`, `GLYPH_SERVER_BEARER`.
+`LASTFM_API_KEY`, `YTDLP_SERVICE_TOKEN`, `COMPANION_ADMIN_TOKEN`,
+`COMPANION_ACCESS_CLIENT_ID`, `COMPANION_ACCESS_CLIENT_SECRET`,
+`GLYPH_SERVER_BEARER`.
 
 ## Live settings
 

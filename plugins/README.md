@@ -83,6 +83,7 @@ commit. It is no review of quality or safety. See [Trust and safety](security.md
 | [How plugins work](how-it-works.md) | discovery, catalog, install, how Glyph applies a theme, updates, deep links |
 | [Manifest reference](manifest.md) | every field of `glyph-plugin.json` and every rule |
 | [Designing a theme](themes.md) | where each colour shows up, readability, palettes that work |
+| [Looks](looks.md) | restyle the whole interface: fonts, corners, icons, background pictures, a style sheet |
 | [Test your plugin](testing.md) | local themes and extensions, logs, validation and the edit loop |
 | [Publish and update](publishing.md) | the topic, getting listed, versions, sharing links |
 | [Troubleshooting](troubleshooting.md) | "my plugin does not show up" and other problems |
