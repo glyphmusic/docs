@@ -7,6 +7,6 @@
     "start": "node server.mjs"
   },
   "dependencies": {
-    "marked": "18.2.0"
+    "marked": "18.2.1"
   }
 }
