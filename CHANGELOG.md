@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Document "Pause when other apps play" and "Play on afterwards" (Android) in the settings reference.
 - Plugins: app icon limits per system, "Add to home screen" on Android, the list of look parts that don't work, and corners that now also round covers.
 - Describe the new first start (app 0.13.7): taste picker, first playlist, speed and colour, instead of the old welcome tour.
 - Plugins: people can now solve a plugin conflict with "Use this one" on a plugin's page; Glyph remembers who wins.
