@@ -1,5 +1,5 @@
 ---
-description: Restyle all of Glyph with a theme or extension: fonts, corners, icons, the app icon, background pictures and a style sheet for every window, menu and dialog.
+description: Restyle all of Glyph with a theme or extension: fonts, corners, icons, the app icon, the order of the home page and sidebar, background pictures and a style sheet for every window, menu and dialog.
 ---
 
 # Looks
@@ -97,6 +97,33 @@ The icon shows while the look is in use: a theme's while that theme is picked,
 an extension's while it is on. Turn the plugin off and Glyph's icon comes back.
 If two plugins bring an app icon, the first one by name wins. `app_icon` needs
 Glyph 0.13.6 or newer.
+
+## Home page, sidebar and tabs
+
+`home`, `sidebar` and `tabs` put parts of Glyph in a new order or hide them:
+
+```json
+"look": {
+  "home": { "order": ["mixes", "recent"], "hide": ["trending", "greeting"] },
+  "sidebar": { "order": ["lists"], "hide": ["now_playing"] },
+  "tabs": { "order": ["library", "home", "search"] }
+}
+```
+
+`order` lists the parts that come first; the others follow in Glyph's order.
+`hide` lists the parts that go away. Both are optional.
+
+| Area | Parts |
+| --- | --- |
+| `home` (the home page) | `greeting`, `cards` (the big cards at the top), `recent`, `new_releases`, `mixes`, `recs` (recommended), `trending` (popular) |
+| `sidebar` (computer) | `home`, `search`, `library`, `now_playing`, `lists` (your recent lists and artists) |
+| `tabs` (the tabs at the bottom on phones) | `home`, `search`, `library` |
+
+Settings always stays in the sidebar, and a look never hides every tab, so
+people can always reach **Settings › Plugins**. A name Glyph does not know is
+skipped, so a layout made for a newer Glyph still works. If two plugins change
+the same area, the first one by name wins. These fields need Glyph 0.13.6 or
+newer.
 
 ## Corners
 

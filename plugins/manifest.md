@@ -197,6 +197,7 @@ colours. All fields are optional, but give at least one.
 | --- | --- |
 | `font` | the font for all text: `"inter"` (Glyph's), `"system"`, `"rounded"`, `"serif"` or `"mono"` (system fonts), or the path of your own font file (`.woff2`, `.woff`, `.ttf`, `.otf`, at most 2 MB). Own font files need Glyph 0.13.6 or newer. |
 | `mono` | the monospaced font (numbers, ASCII art), like `font`. Glyph 0.13.6 or newer. |
+| `home`, `sidebar`, `tabs` | parts of the home page, the sidebar and the phone tabs to put first (`order`) or hide (`hide`). See [Looks](looks.md#home-page-sidebar-and-tabs). Glyph 0.13.6 or newer. |
 | `app_icon` | path of your own app icon: a square `.png`, 64 to 1024 pixels, at most 1 MB. Glyph 0.13.6 or newer. |
 | `radius` | corner roundness from `0` (square) over `1` (Glyph's) to `2` (very round). |
 | `backgrounds` | up to 8 pictures (`.png`, `.jpg`, `.webp`, at most 8 MB each), paths in the repository. They show up in **Settings › Appearance › Background picture**. |
