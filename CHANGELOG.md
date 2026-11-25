@@ -15,6 +15,7 @@
 - The local docs preview shows the navigation like the site (group labels, sub-pages).
 - Document new look fields for plugins: `app_icon` (own app icon), `font` with an own font file, and `mono` (app 0.13.6).
 - Document the look fields `home`, `sidebar` and `tabs`: plugins can put parts of the home page, sidebar and phone tabs in order or hide them (app 0.13.6).
+- Document the look fields `sidebar_position` (sidebar on the right) and `splash` (own startup animation) (app 0.13.6).
 
 ## 0.10.0 - 2026-11-15
 

@@ -125,6 +125,52 @@ skipped, so a layout made for a newer Glyph still works. If two plugins change
 the same area, the first one by name wins. These fields need Glyph 0.13.6 or
 newer.
 
+## Sidebar on the right
+
+`sidebar_position` puts the sidebar on the right side of the window on
+computers:
+
+```json
+"look": { "sidebar_position": "right" }
+```
+
+The side panel with the queue, lyrics and devices then opens on the left.
+Dragging the edges to resize and the tooltips follow. `"left"` is Glyph's
+normal layout. Phones are not changed. Glyph 0.13.6 or newer.
+
+## Startup animation
+
+`splash` replaces the Glyph note that the characters fly together into when
+Glyph starts:
+
+```json
+"look": {
+  "splash": {
+    "art": [
+      "  .--.  ",
+      " ( ** ) ",
+      "  `--'  "
+    ],
+    "tint": [
+      "        ",
+      "   pp   ",
+      "        "
+    ],
+    "speed": 1
+  }
+}
+```
+
+- `art`: up to 40 rows of up to 60 characters. Use printable ASCII
+  characters (letters, digits, `.-*#@/\|` and so on); spaces stay empty.
+- `tint` (optional): the same rows again. A `p` draws the character at that
+  place in the accent colour, anything else in white.
+- `speed` (optional): from `0.5` (slow) to `2` (fast); `1` is Glyph's.
+
+Glyph learns about a look only after it has started, so the new animation
+shows from the next start on. People who turned the startup animation off in
+**Settings › Appearance** see none. Glyph 0.13.6 or newer.
+
 ## Corners
 
 `radius` scales Glyph's corner radius (`--radius`, 10 px): `0.5` gives 5 px,
