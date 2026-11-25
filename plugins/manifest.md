@@ -218,6 +218,7 @@ colours. All fields are optional, but give at least one.
 | `splash` | own startup animation: ASCII `art`, optional `tint` and `speed`. See [Looks](looks.md#startup-animation). Glyph 0.13.6 or newer. |
 | `app_icon` | path of your own app icon: a square `.png`, 64 to 1024 pixels, at most 1 MB. Glyph 0.13.6 or newer. |
 | `radius` | corner roundness from `0` (square) over `1` (Glyph's) to `2` (very round). |
+| `radii` | corner roundness of single parts, like `radius`: `covers`, `buttons`, `fields`, `cards`, `menus`, `dialogs`, `player`. Parts not named follow `radius`. Glyph 0.14.0 or newer. |
 | `backgrounds` | up to 8 pictures (`.png`, `.jpg`, `.webp`, at most 8 MB each), paths in the repository. They show up in **Settings › Appearance › Background picture**. |
 | `css` | path of a style sheet (`.css`, at most 128 KB) for the whole interface. |
 | `assets` | up to 40 files the style sheet may use with `url()`: fonts (`.woff2`, `.woff`, `.ttf`, `.otf`) and pictures (`.png`, `.jpg`, `.webp`, `.gif`, `.svg`), at most 2 MB each. |

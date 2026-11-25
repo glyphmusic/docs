@@ -61,6 +61,9 @@ channels directly in Android's app notification settings.
 * Audio plays through a native Android media service, so music keeps playing
   with the screen off and responds to lock-screen, Bluetooth and headphone
   controls. The Glyph note icon appears in the status bar while music plays.
+* Drag the bar in the media player to jump in the song. Under **Settings ›
+  Playback**, **Media player buttons** swaps "Add to Liked Songs" for Shuffle
+  and Repeat.
 * When you lose your connection, the offline bar links straight to
   **Downloads**. Downloaded songs, local files and cached audio keep playing;
   previously opened artist pages and albums still show their cached copy.

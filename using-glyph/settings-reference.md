@@ -54,7 +54,8 @@ filter.
 | Skip songs that can't play | Automatically skips a song that cannot be played instead of stopping (on by default). |
 | Search longer | Tries more videos and alternate search wordings before marking a song as not found (app only). |
 | Pause when other apps play | Android only, on by default. Glyph pauses when another app starts playing sound, like a YouTube video or a voice message. |
-| Play on afterwards | Android only, on by default. When the other sound stops, Glyph plays on. It stays paused after a music app (like Spotify) and when the other sound played longer than 5 minutes. |
+| Play on afterwards | Android only, on by default. When the other sound stops, Glyph plays on. It stays paused after a music app (like Spotify) and when the other sound played longer than 2 minutes. |
+| Media player buttons | Android only. The extra buttons in the phone's media player: *Add to Liked Songs* or *Shuffle + Repeat*. |
 | Listening statistics | Off by default. Counts listening time, plays, top artists and songs; turning it off deletes them. See [Accounts, sync and stats](accounts.md). |
 | Hide explicit songs | Leaves out songs marked explicit and YouTube songs without a rating (**?**). |
 | Radio when the queue ends | Keeps playing similar songs (needs Last.fm on the server or your own key). |

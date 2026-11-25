@@ -41,6 +41,13 @@ folders on your computer. See [Local files](local-files.md).
   *Account + offline* also downloads it. The playlist page shows which one it
   is. Without an account every playlist is local.
 
+## Folders
+
+Sort your playlists into folders (Glyph 0.14.0 or newer). Make one with
+**Library › More › New folder**. Drag a playlist onto it, or use **Move to
+folder** in the playlist's menu. Deleting a folder keeps its playlists.
+Folders sync between your devices.
+
 ## Queue
 
 The queue has three parts:

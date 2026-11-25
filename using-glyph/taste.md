@@ -17,6 +17,13 @@ Music taste & Daily Mixes**.
 *Right now* (fits the time of day) and *Discovery* (new artists close to your
 favourites). Open a mix to play it, or press **Save as playlist** to keep it.
 
+## Good or not?
+
+**Your taste** opens in the **Easy** view. Press **Start**: Glyph plays songs
+one after another and you answer **Good**, **Not for me** or **Skip**. Good
+songs only shape your taste; they land in no playlist. Everything described
+below is under **Advanced**.
+
 ## Your taste profile
 
 Open **Your taste** from *Made for you* on Home, from the Library, or with

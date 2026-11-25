@@ -210,6 +210,19 @@ factor as `var(--radius-k)`, or set any corner itself; the corners in your
 style sheet are not scaled. Before Glyph 0.13.7, `radius` only changed a few
 panels; before 0.13.8, covers, loading boxes and some menus kept their corners.
 
+`radii` sets single parts on their own, with the same `0` to `2` scale:
+
+```json
+"radii": { "covers": 0, "buttons": 2, "dialogs": 1.4 }
+```
+
+Parts: `covers` (covers, artist pictures), `buttons` (buttons, chips,
+toggles, tabs), `fields` (search and input fields), `cards` (cards, panels,
+rows and everything else), `menus` (menus, tooltips), `dialogs` (sheets,
+dialogs, toasts) and `player` (player bar, mini player, Now Playing). Parts
+not named follow `radius`. Glyph 0.14.0 or newer; older versions ignore
+`radii` and use `radius` only.
+
 ## Icons
 
 `icons` replaces Glyph's icons by name: `"heart": "icons/heart.svg"`. Glyph
