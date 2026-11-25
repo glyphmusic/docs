@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Plugins: document the look preview on a plugin's page, the "replaces your own settings" list, plugin conflicts (the plugin whose name comes first wins), corners that scale the whole interface, and that looks using 0.13.6 parts need `"min_app": "0.13.6"`.
 - Add a page on Taste, Daily Mixes and Glyph Drift (app 0.13.4 and later), with the new Playback › Content settings, the taste profile page and what the server gets.
 - Document music videos in Now Playing, the lyric line under the cover on phones, "Not the right one?" for wrong song versions, cancelling downloads, Quick jump and typo-tolerant search, library filter and sort, saving the queue as a playlist, the select bar for any list, batch transfers with TXT files, Send feedback (`Ctrl+Shift+F`, shake on phones) and the web player's install steps.
 - Document the Server dashboard's Jam rooms, API blocks, per-device sign-out and profile reset, `glyph remote accounts reset-profile`, the new `/v1/match`, `/v1/video`, `/v1/taste` and `/v1/youtube/hint` routes, and the gentler pace limit for playlist imports.

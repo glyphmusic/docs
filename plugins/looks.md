@@ -33,6 +33,14 @@ installs from **Community** too.
 
 Every field is described in the [manifest reference](manifest.md#look).
 
+## Which Glyph a look needs
+
+Set [`min_app`](manifest.md#min_app) to the newest version your look needs:
+`0.12.11` for a look at all, `0.13.6` if it uses `app_icon`, an own font file,
+`mono`, `home`, `sidebar`, `tabs`, `sidebar_position` or `splash`. An older
+Glyph ignores parts it doesn't know and would install the plugin without
+them, so the index check refuses a lower `min_app`.
+
 ## When a look shows
 
 - A **theme's** look shows while people use that theme, together with its
@@ -45,7 +53,20 @@ Every field is described in the [manifest reference](manifest.md#look).
   install warning) is open, every look pauses: the plugin warnings stay
   readable, and people can always turn a look off. `Ctrl+Alt+P` (`⌘⌥P` on a
   Mac) opens it from anywhere, so even a look that hides everything can be
-  undone.
+  undone. The plugin's page there shows a **preview** instead: its app icon,
+  the icons it replaces, its background pictures and its startup animation
+  (loaded from GitHub at the listed commit).
+- The plugin's page also lists what the look **replaces of people's own
+  settings** (background and colours for a style sheet, font, corners, app
+  icon, layout, startup animation, icons, texts), and shows **Plugin
+  conflict** when another plugin in use changes the same thing.
+
+### Two plugins, one thing
+
+Only one plugin can set the font, the corners, the app icon, an icon, a text,
+the layout, the sidebar position or the startup animation. The plugin whose
+**name comes first** wins (style sheets all apply, one after another). Glyph
+tells both sides which one wins; people turn one off to choose.
 
 ## Fonts
 
@@ -173,9 +194,13 @@ shows from the next start on. People who turned the startup animation off in
 
 ## Corners
 
-`radius` scales Glyph's corner radius (`--radius`, 10 px): `0.5` gives 5 px,
+`radius` scales every corner of the interface: `0.5` makes them half as
+round, `2` twice as round, `0` square. Round shapes (circles, pills) stay
+round. Glyph's base radius (`--radius`, 10 px) follows too: `0.5` gives 5 px,
 `2` gives 20 px. Your style sheet can read it as `var(--radius)` and the
-factor as `var(--radius-k)`, or set any corner itself.
+factor as `var(--radius-k)`, or set any corner itself; the corners in your
+style sheet are not scaled. Before Glyph 0.13.7, `radius` only changed a few
+panels.
 
 ## Icons
 
