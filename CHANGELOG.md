@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Describe the new first start (app 0.13.7): taste picker, first playlist, speed and colour, instead of the old welcome tour.
 - Plugins: people can now solve a plugin conflict with "Use this one" on a plugin's page; Glyph remembers who wins.
 - Plugins: document the look preview on a plugin's page, the "replaces your own settings" list, plugin conflicts (the plugin whose name comes first wins), corners that scale the whole interface, and that looks using 0.13.6 parts need `"min_app": "0.13.6"`.
 - Add a page on Taste, Daily Mixes and Glyph Drift (app 0.13.4 and later), with the new Playback › Content settings, the taste profile page and what the server gets.

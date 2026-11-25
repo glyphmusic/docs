@@ -33,7 +33,7 @@ Open **Your taste** from *Made for you* on Home, from the Library, or with
 * picks *From similar listeners*.
 
 **Tune taste** lets you pick three or more favourite artists or songs, so Glyph
-knows you from the start. The same picker shows once after the welcome tour; it
+knows you from the start. The same picker is the first step of the first start; it
 is optional. **Reset taste profile** forgets what Glyph learned (skips, picks,
 disliked songs, genre choices); your liked songs and playlists stay.
 

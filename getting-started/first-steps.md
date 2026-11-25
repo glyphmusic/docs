@@ -4,10 +4,12 @@ description: Search, play, like and collect songs, and the right-click menus of 
 
 # First steps
 
-On a fresh install, Glyph opens with a short **welcome tour** that introduces
-search, your library, sound, lyrics, sync, performance settings (picking full
-effects or performance mode based on your device) and colour themes. You can
-reopen it any time under **Settings › About › Introduction**.
+On a fresh install, Glyph opens with a short **first start**. It asks which
+artists or songs you like, then helps you make your first playlist right away
+(give it a name, tick songs Glyph picked for you or search for others), then
+lets you pick speed (full effects or performance mode) and a colour theme. At
+the end your new playlist opens. You can reopen it any time under
+**Settings › About › Introduction**.
 
 1. **Search.** Press `Ctrl+K` (or click Search) and type a song, an artist or
    even a line of the lyrics. Pasting a playlist or song link adds or imports it.
