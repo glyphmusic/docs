@@ -20,6 +20,7 @@ glyph remote limits --rate 120 --import-pages 3
 | signed-in device | 4× that, per account and device |
 | everyone | a shared ceiling of 8× per IP |
 | audio, seeks, covers | separate budgets, 20× |
+| new playlist imports | 20 per minute and IP signed in, 8 for guests; over that a soft 429 `rate_limited`, never a ban |
 
 Twelve rejected requests within 15 minutes ban that IP, account or device for 15
 minutes. Answers are HTTP 429 with `Retry-After`. Guests behind one router share

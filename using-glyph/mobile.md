@@ -23,6 +23,11 @@ to download the APK and keep it updated.
   at the top to open that playlist, album, Liked Songs or artist.
 * **Bulk remove:** in Liked Songs or your own playlists, tap the select button
   (circle with a check) to pick several songs and remove them in one step.
+* **Lyrics under cover:** the menu of the full-screen player switches the
+  lyric line below the cover on or off.
+* **Shake to send feedback:** shake your phone to open **Send feedback**. Tick
+  **Don't show again** in it, or switch it off under **Settings › About ›
+  Support › Shake to send feedback**.
 
 ## Share menu and opening files
 

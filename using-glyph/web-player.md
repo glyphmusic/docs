@@ -10,13 +10,18 @@ the desktop and Android apps, adapted for both desktop and mobile screens.
 
 ## Install as an app (PWA)
 
-The web player includes a web app manifest, so you can install it from your
-browser for an app icon and its own window:
+The web player can be installed from your browser, for an app icon and its own
+window without browser bars. Glyph offers it with a banner on Home (on small
+screens), with **Install App** in the menu, and under **Settings › About ›
+Install as app**.
+Where the browser allows it, **Install Glyph** does it in one step; otherwise
+Glyph shows the steps:
 
-* **Desktop (Chrome, Edge, Brave):** click the install icon in the address bar.
-* **Android:** open the browser menu and tap **Add to Home screen** or
-  **Install app**.
-* **iOS (Safari):** tap **Share › Add to Home Screen**.
+* **Chrome, Edge, Brave, Android:** open the browser menu and choose **Install
+  app** or **Add to Home screen**.
+* **iPhone and iPad (Safari):** tap **Share**, then **Add to Home Screen**, then
+  **Add**. In other browsers on iOS, Glyph asks you to open the link in Safari.
+* **Safari on a Mac:** **File › Add to Dock**, then open Glyph from the Dock.
 
 ## What works in the browser
 
@@ -39,6 +44,10 @@ browser for an app icon and its own window:
 * **AI assistants (MCP):** signed in, you can turn on server-relay MCP under
   **Settings › Integrations** so remote assistants can control playback and read
   your library while the tab is open.
+* **Music videos:** the *Video* view in Now Playing, see
+  [Music videos](now-playing.md#music-videos).
+* **Taste and Daily Mixes:** see [Taste](taste.md). Glyph Drift is not in the
+  web player.
 * **Appearance:** colour themes, background visualizer, background pictures
   (stored in the browser), performance mode and GPU/CPU animations.
 

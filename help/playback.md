@@ -33,7 +33,7 @@ Mention it when you [ask for help](README.md#still-stuck).
 ## It stops, pauses or stutters
 
 * **Slow connection.** With quality *Auto*, Glyph steps down when playback
-  stalls; a fixed *High* does not. Under **Settings › Audio** choose *Auto* or
+  stalls; a fixed *High* does not. Under **Settings › Playback › General** choose *Auto* or
   *Standard*. See [Quality](../using-glyph/downloads-and-quality.md#quality).
 * **Switching quality** during a song can cause one short pause. That is
   normal with *Auto*.

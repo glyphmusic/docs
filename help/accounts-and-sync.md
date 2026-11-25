@@ -66,7 +66,7 @@ and set a new one under **Settings › Account**:
 
 {% hint style="warning" %}
 Without any of these, the account cannot be recovered. Keep the recovery code
-(**Settings › Account › Recovery code**) somewhere safe; making a new one
+(**Settings › Account › Security › Recovery code**) somewhere safe; making a new one
 voids the old.
 {% endhint %}
 

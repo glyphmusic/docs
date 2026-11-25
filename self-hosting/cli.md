@@ -233,6 +233,7 @@ The last login is the default server. `glyph remote use <url>` picks another,
 | `glyph remote accounts limit <handle> <n\|default>` | one account's own device limit |
 | `glyph remote accounts revoke <handle> [device]` | sign out one device, or all of them |
 | `glyph remote accounts admin <handle> [--off]` | admin role: the account sees the server dashboard in the app |
+| `glyph remote accounts reset-profile <handle> [--avatar] [--banner]` | remove the account's profile picture and/or banner (default: both) |
 | `glyph remote logs [-n 100] [--follow]` | recent log lines |
 | `glyph remote update [--apply]` | look for a server update, `--apply` installs it |
 

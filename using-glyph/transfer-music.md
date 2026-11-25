@@ -10,12 +10,6 @@ list and are tried again when you play them.
 
 Open **Settings › Transfer music** or **Library › Transfer music**.
 
-{% hint style="info" %}
-No login, no API key, no app to register. Glyph only reads public pages and
-what you hand it (copied links, files). Nothing of yours goes to a Glyph
-server except public links it reads for you.
-{% endhint %}
-
 ## Whole libraries
 
 | From | What comes over | How |
@@ -32,6 +26,18 @@ list you transfer twice only gets its new songs.
 
 When it is done, Glyph shows **unsure matches** (found, but maybe a live or
 remastered version) and songs **not found yet**. Both stay in your lists.
+
+### Many lists at once
+
+* **Paste again** to add more lists; all links collect on the page. You can
+  also drop playlist files on it (CSV, JSON, M3U, XSPF, TXT).
+* Before you start, **Filter lists…** finds a list by name. Each list can be
+  renamed and sent to a new playlist, Liked Songs or a playlist you have.
+* While it runs, every list shows its own progress (*Reading*, *Matching*,
+  *Done*), and a banner keeps showing it when you leave the page.
+* **Retry failed** tries the lists that did not work again.
+* Very large lists are saved right away; their songs are matched when you play
+  them (*Matched on playback*).
 
 ### Spotify
 
@@ -104,6 +110,7 @@ Tidal and Apple Music libraries: paste public playlist links or use a file.
 * **CSV** from Exportify, TuneMyMusic and similar tools
 * the **Spotify data export** (JSON)
 * **M3U / M3U8** and **XSPF**
+* **TXT**: one song per line (`Artist - Title`), or CSV text with a header
 * **Google Takeout** CSVs of YouTube playlists
 
 You can also drag music files from your computer into a playlist.

@@ -69,10 +69,14 @@ the user remove a device first.
 ## Admins in the app
 
 `glyph remote accounts admin alice` lets `@alice` open the **Server** dashboard
-in the app sidebar while signed in. She sees all accounts with their storage,
-how much space the server uses, charts over time, and can change limits, sign
-out devices and ban people. Keys, updates, logs and handing out the role stay
-with you (the admin password). An admin cannot touch another admin's account.
+in the app sidebar while signed in. The dashboard shows all accounts with their
+storage, how much space the server uses, charts over time and the Jam rooms
+running right now (listeners, queue length, how long they run). Admins can
+change limits, sign out one device or all of them, see each device's Glyph
+version, ban people, remove a profile picture or banner, and see and lift
+**API blocks** (abuse blocks, rate limits, YouTube daily limits and login
+lockouts, with the time left). Keys, updates, logs and handing out the role
+stay with you (the admin password). An admin cannot touch another admin's account.
 `--off` takes the role away; banning the account does too.
 
 ## Only signed-in users

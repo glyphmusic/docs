@@ -39,6 +39,12 @@ This setting is about online sources. Music files on your computer are under
   marked *In lyrics*.
 * Glyph waits until you stop typing before it searches, so typing fast does not
   send a request per key.
+* Small typos still find the song (`beleiver`, `metalica`), and songs you
+  picked from search before rank higher.
+* **Quick jump** shows matches from your library while you type: playlists,
+  artists, albums, local songs and app pages (Settings, Stats, ...). Pick one
+  with `Up` / `Down` and `Enter`. An empty search field shows your recent
+  searches.
 * Paste a playlist, album or profile link from Spotify, Deezer, SoundCloud,
   YouTube, Apple Music, Bandcamp or Last.fm to import it. See
   [Transfer music](transfer-music.md).
@@ -71,8 +77,8 @@ them freely.
 ## YouTube
 
 YouTube needs a resolver. Glyph includes **r-dlp**, its own fast resolver, and
-can also use **yt-dlp** if it is installed (**Settings › Playback › YouTube
-extractor**). *Local* resolves on your computer; *Server* lets your Glyph server
+can also use **yt-dlp** if it is installed (**Settings › Playback › Sources ›
+YouTube extractor**). *Local* resolves on your computer; *Server* lets your Glyph server
 (and its companion) do it. *Use YouTube only* never falls back to other sources
 or previews.
 

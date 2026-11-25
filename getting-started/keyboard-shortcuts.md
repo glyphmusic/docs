@@ -59,6 +59,7 @@ The A-B loop repeats one part of a song, for example to learn a passage.
 
 | Default | Does |
 | --- | --- |
+| `Ctrl+Shift+F` | open **Send feedback** |
 | `Ctrl+Q` | quit |
 | `Ctrl+Alt+P` | open **Settings › Plugins**, where plugin looks are paused: works even when a look hides the rest |
 
@@ -82,8 +83,8 @@ Keys without `Ctrl`, `Alt` or `Cmd` only work while no text field is focused.
 | Wheel over the volume | louder (up) or quieter (down), 5 % per notch |
 | Right-click a player button | more options, see [First steps](first-steps.md#handy-controls) |
 
-Change the wheel steps, or switch them off, under **Settings › Playback ›
-Player**.
+Change the wheel steps, or switch them off, under **Settings › About ›
+Shortcuts**.
 
 ## Text fields
 

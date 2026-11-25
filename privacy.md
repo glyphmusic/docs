@@ -26,7 +26,7 @@ bans.
 | handle | your password |
 | password salt and a hash of a key derived on your device | IP addresses |
 | passkey public keys, recovery-code hash | user agents |
-| device name, platform, first and last seen, approximate country | listening history |
+| device name, platform, Glyph version, first and last seen, approximate country | listening history |
 | per device, for bans: a salted hash of the IP address last used and the hardware id | |
 | synced items: liked songs, playlists, artists, albums, searches, download list, settings and API keys, **end-to-end encrypted** | audio |
 | playlists you show on your profile, readable (the server shows them) | |
@@ -54,16 +54,28 @@ and technical data such as your IP address. Glyph works this out from what it
 sends, never from what the server says about itself, and warns when a server
 does something that only makes sense to read your data.
 
+## Taste and song reports
+
+With the [server-powered Taste engine](using-glyph/taste.md#server-or-only-this-device)
+on (the default), the app sends taste signals to the server: top and skipped
+artists and the last songs of the session. The server keeps a shared map of
+which artists go together, with each listener only as a hashed id. Turn it off
+under **Settings › Playback › Content** to keep your taste on your device.
+
+When you report the right version of a song (**Not the right one?**), the
+server stores the vote with a hashed listener id, so one person cannot change a
+match alone.
+
 ## Profiles
 
 Profiles are only visible to signed-in users. Playlists and recently played
-songs appear only when you turn them on under **Settings › Profile & privacy**.
+songs appear only when you turn them on under **Settings › Account › Profile**.
 Turning *recently played* off deletes it on the server.
 
 ## Export and delete
 
 * `GET /v1/sync/export` returns all your synced items as JSON.
-* **Settings › Account › Delete** removes your account, devices, synced items,
+* **Settings › Account › Security › Delete account** removes your account, devices, synced items,
   profile, images and short links at once. The handle is held for 30 days. The
   library on each device stays.
 

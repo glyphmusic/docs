@@ -10,6 +10,9 @@ description: Liked songs, playlists, sorting, sharing codes, the three-part queu
 and downloads. Everything can be pinned to the sidebar; right-click a sidebar
 entry to hide it again.
 
+**Filter library…** at the top finds a list by name. The sort button orders
+the lists: **Pinned first** (default), **A–Z** or **Most songs**.
+
 **Local files** (button at the top of the Library) plays music files from
 folders on your computer. See [Local files](local-files.md).
 
@@ -48,9 +51,10 @@ The queue has three parts:
 | Up next | songs you added with *Play next* or *Add to queue*; they always come first |
 | Next from: *playlist* | the rest of the list you started |
 
-Click any song in the queue to continue from there. When the queue ends, radio
+Click any song in the queue to continue from there. **Save queue as playlist**
+(the button at the top of the queue) makes a new playlist from it. When the queue ends, radio
 can continue with similar songs (needs a Last.fm key on the server or in your
-settings). They are based on the last few songs, join the end of the queue (so
+settings), or [Glyph Drift](taste.md#glyph-drift-beta) if you turned it on. They are based on the last few songs, join the end of the queue (so
 *Previous* still goes back into the list) and leave out what just played.
 
 A song that cannot play is skipped with a short note; after five in a row Glyph
@@ -60,10 +64,20 @@ Removing a song from a playlist, *Liked songs*, *Recently played* or
 *Downloads*, or deleting a playlist, shows a toast with **Undo** for a few
 seconds.
 
-To remove many songs at once, open *Liked songs* or one of your playlists and
-press the select button (a circle with a check). Tap the songs, then
-**Remove**; **Select all** picks every song. In *Liked songs*, **Clear Liked
-Songs** empties it after asking you first.
+To act on many songs at once, open a list and press the select button (a
+circle with a check). Tap the songs, then pick **Add to queue**, **Add to
+playlist** or **Download**; **Select all** picks every song. In *Liked songs*
+and your own playlists there is also **Remove**. In *Liked songs*, **Clear
+Liked Songs** empties it after asking you first.
+
+## Wrong version of a song?
+
+If a song plays or downloads the wrong version (a cover, a live take, another
+song), open its menu and pick **Not the right one?**. Glyph shows other
+versions: listen to a 30-second preview, refine the search (for example
+*official audio* or *acoustic*) and press **Use & download**. Your choice is
+saved for you and downloaded right away. The match only changes for everyone
+once enough listeners pick the same version.
 
 ## Radio
 
@@ -85,7 +99,7 @@ Two shuffle styles (**Settings › Playback** or right-click the shuffle button)
 
 * **Smart** feels random: songs by the same artist are spread out and songs you
   just heard move to the end.
-* **Fully random** gives every order the same chance, repeats included.
+* **True random** gives every order the same chance, clusters included.
 
 With *Repeat all*, every round is shuffled anew and never starts with the song
 that just ended.

@@ -59,7 +59,7 @@ press the new key. See [Keyboard shortcuts](getting-started/keyboard-shortcuts.m
 <details>
 <summary>Where are my settings and library stored?</summary>
 
-In Glyph's data folder (**Settings › Support › Data folder** opens it). See
+In Glyph's data folder (**Settings › About › Support › Data folder** opens it). See
 [Settings file](using-glyph/config-file.md).
 </details>
 
@@ -74,6 +74,6 @@ Yes, on Cloudflare or your own machine. Start with the
 <summary>How do I report a bug?</summary>
 
 Open an issue on [GitHub](https://github.com/glyphmusic/apps/issues/new).
-**Settings › Support › Copy diagnostic info** adds version and system details
+**Settings › About › Support › Copy diagnostic info** adds version and system details
 without keys or personal data.
 </details>
