@@ -119,7 +119,27 @@ installs keep the old one.
 
 An update that introduces code, adds permissions or adds network hosts needs
 the user's confirmation. It stays pending even when automatic updates are
-enabled. Explain those changes in your changelog.
+enabled. Explain those changes in your changelog, and in short in
+[`changes`](manifest.md#changes): Glyph shows that text with the update.
+
+### Earlier versions
+
+For **Listed** plugins the index keeps up to 10 earlier versions: every `rev`
+it pinned before (for plugins inside `glyphmusic/plugins`, every commit that
+changed the manifest). Glyph 0.13.6 and newer use them in two ways:
+
+- **The newest doesn't fit.** If your newest version needs another Glyph
+  ([`min_app`](manifest.md#min_app), [`max_app`](manifest.md#max_app)),
+  Glyph offers the newest earlier version that fits instead. So raising
+  `min_app` doesn't leave people on an older Glyph without your plugin.
+- **Going back.** A plugin's page in Glyph lists its versions. People can
+  install an earlier one; Glyph then turns on **Keep this version** (no
+  automatic updates, none from **Update all**) until they turn it off or
+  pick the newest again.
+
+Plugins Glyph's version doesn't fit stay installed but **paused**
+(Settings › Plugins › Paused) until an update fits. Community plugins have no
+earlier versions: Glyph only sees their `HEAD`.
 
 ### Things you can't change later
 

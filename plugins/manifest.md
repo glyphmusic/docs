@@ -161,6 +161,22 @@ version (`0.7.0`). Older Glyph versions show the plugin as **Needs a newer
 Glyph**. Themes rarely need this; extensions that use a function added in a
 later Glyph should set it.
 
+### `max_app`
+
+Optional (Glyph 0.13.6 or newer). The newest Glyph version your plugin works
+with. Write a version (`0.14.2`) or a whole minor line (`0.14` or `0.14.x`,
+any patch of it). It must not be older than `min_app`.
+
+A newer Glyph doesn't offer the plugin (**Made for an older Glyph**). If it
+is installed already, it stays installed but is **paused** (Settings ›
+Plugins › Paused): it doesn't run until an update of the plugin fits. Only
+set `max_app` when you know a later Glyph breaks your plugin.
+
+### `changes`
+
+Optional (Glyph 0.13.6 or newer), up to 300 characters. What changed in this
+version. Glyph shows it with the update and in the plugin's list of versions.
+
 ### `kind`
 
 Required. What the plugin is:
@@ -291,6 +307,9 @@ The complete list, with the message `validate.mjs` and the index CI print:
 | `description` ≤ 200 characters | `description may have at most 200 characters` |
 | `version` is semantic | `version must be a semantic version like 1.0.0` |
 | `min_app` is semantic | `min_app must be a semantic version like 0.7.0` |
+| `max_app` format | `max_app must be a version like 0.14.2, 0.14 or 0.14.x` |
+| `max_app` not below `min_app` | `min_app must not be newer than max_app` |
+| `changes` ≤ 300 characters | `changes may have at most 300 characters` |
 | `kind` is known | `kind must be one of: theme, extension (got …)` |
 | theme object present | `a theme plugin needs a "theme" object` |
 | a theme has nothing else | `a theme has colours only; use "kind": "extension" for more` |
@@ -322,7 +341,8 @@ The complete list, with the message `validate.mjs` and the index CI print:
 
 In Glyph, a manifest that fails shows as **Invalid** (or is left out of the
 community list). A future `schema`, unknown `kind`, permission, settings page
-or row type, or a too-high `min_app` shows as **Needs a newer Glyph** instead.
+or row type, or a too-high `min_app` shows as **Needs a newer Glyph** instead,
+and a `max_app` below the running Glyph as **Made for an older Glyph**.
 
 ## Several plugins in one repository
 
