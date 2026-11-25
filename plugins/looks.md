@@ -1,12 +1,12 @@
 ---
-description: Restyle all of Glyph with a theme or extension: fonts, corners, icons, background pictures and a style sheet for every window, menu and dialog.
+description: Restyle all of Glyph with a theme or extension: fonts, corners, icons, the app icon, background pictures and a style sheet for every window, menu and dialog.
 ---
 
 # Looks
 
 A theme changes colours. A **look** can change the whole interface: the
-font (also your own), how round corners are, Glyph's icons, pictures for the
-background, and a style sheet that reaches every part of Glyph: the main
+font (also your own), how round corners are, Glyph's icons, the app icon,
+pictures for the background, and a style sheet that reaches every part of Glyph: the main
 window, settings, menus, dialogs, toasts, tooltips and the mini player. A look
 is pure data, so it works in themes and in extensions without code, and
 installs from **Community** too.
@@ -20,10 +20,12 @@ installs from **Community** too.
   "kind": "theme",
   "theme": { "accent": "#f2c14e", "base": "#0a0806" },
   "look": {
+    "font": "fonts/Literata.woff2",
+    "app_icon": "icon.png",
     "radius": 0.4,
     "backgrounds": ["backgrounds/paper.webp"],
     "css": "look.css",
-    "assets": ["fonts/Literata.woff2", "textures/grain.png"],
+    "assets": ["textures/grain.png"],
     "icons": { "heart": "icons/heart.svg", "heart-fill": "icons/heart-fill.svg" }
   }
 }
@@ -47,10 +49,23 @@ Every field is described in the [manifest reference](manifest.md#look).
 
 ## Fonts
 
-`font` picks one of Glyph's font stacks: `inter` (the default), `system`,
-`rounded`, `serif` or `mono`. These come from the system.
+`font` picks the font for all text in Glyph. It is one of Glyph's font
+stacks, `inter` (the default), `system`, `rounded`, `serif` or `mono`, which
+come from the system, or the path of your own font file:
 
-For your own font, put the file into `assets` and load it in the style sheet:
+```json
+"look": { "font": "fonts/Literata.woff2", "mono": "fonts/Code.woff2" }
+```
+
+`mono` is the same for the monospaced font (numbers, ASCII art). A font file
+is a `.woff2`, `.woff`, `.ttf` or `.otf`, at most 2 MB; `.woff2` is the
+smallest. Glyph uses it everywhere, also in menus, dialogs and the mini
+player. A variable font gives every weight from one file; a font with only one
+weight shows all text in that weight. Own font files and `mono` need Glyph 0.13.6 or newer;
+older versions wait with the plugin until they are updated.
+
+For more control (several weights, italics), put the files into `assets` and
+load them in the style sheet:
 
 ```css
 @font-face {
@@ -63,6 +78,25 @@ For your own font, put the file into `assets` and load it in the style sheet:
 
 Glyph uses `--font` everywhere. `--mono` is the monospaced font (ASCII art,
 numbers).
+
+## App icon
+
+`app_icon` replaces Glyph's app icon with your own:
+
+```json
+"look": { "app_icon": "icon.png" }
+```
+
+The file is a square `.png`, 64 to 1024 pixels (512 × 512 is a good size), at
+most 1 MB. Glyph shows it on the window, the taskbar, the tray and the Dock on
+a Mac, and on Android in the app overview. The icon on the Android home screen
+and the Windows Start menu stays Glyph's, because the system only lets apps
+pick from icons they ship with.
+
+The icon shows while the look is in use: a theme's while that theme is picked,
+an extension's while it is on. Turn the plugin off and Glyph's icon comes back.
+If two plugins bring an app icon, the first one by name wins. `app_icon` needs
+Glyph 0.13.6 or newer.
 
 ## Corners
 

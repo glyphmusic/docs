@@ -195,7 +195,9 @@ colours. All fields are optional, but give at least one.
 
 | Field | Meaning |
 | --- | --- |
-| `font` | `"inter"` (Glyph's), `"system"`, `"rounded"`, `"serif"` or `"mono"`. System fonts; for your own font use `@font-face` with an asset. |
+| `font` | the font for all text: `"inter"` (Glyph's), `"system"`, `"rounded"`, `"serif"` or `"mono"` (system fonts), or the path of your own font file (`.woff2`, `.woff`, `.ttf`, `.otf`, at most 2 MB). Own font files need Glyph 0.13.6 or newer. |
+| `mono` | the monospaced font (numbers, ASCII art), like `font`. Glyph 0.13.6 or newer. |
+| `app_icon` | path of your own app icon: a square `.png`, 64 to 1024 pixels, at most 1 MB. Glyph 0.13.6 or newer. |
 | `radius` | corner roundness from `0` (square) over `1` (Glyph's) to `2` (very round). |
 | `backgrounds` | up to 8 pictures (`.png`, `.jpg`, `.webp`, at most 8 MB each), paths in the repository. They show up in **Settings › Appearance › Background picture**. |
 | `css` | path of a style sheet (`.css`, at most 128 KB) for the whole interface. |
@@ -206,11 +208,13 @@ All files of one look together may have 32 MB.
 
 ```json
 "look": {
-  "font": "rounded",
+  "font": "fonts/Outfit.woff2",
+  "mono": "mono",
+  "app_icon": "icon.png",
   "radius": 1.6,
   "backgrounds": ["backgrounds/dunes.webp", "backgrounds/night.jpg"],
   "css": "look.css",
-  "assets": ["fonts/Outfit.woff2", "textures/grain.png"],
+  "assets": ["textures/grain.png"],
   "icons": { "heart": "icons/heart.svg", "heart-fill": "icons/heart-fill.svg" }
 }
 ```
