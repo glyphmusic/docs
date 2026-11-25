@@ -44,12 +44,12 @@ Settings and menus need code: nothing else would answer them.
 | `playback` | Settings › Playback › General |
 | `playback.content` | Settings › Playback › Content |
 | `playback.sources` | Settings › Playback › Sources |
-| `audio` | Settings › Audio |
+| `audio` | Settings › Equalizer |
 | `appearance` | Settings › Appearance |
 | `integrations` | Settings › Integrations |
-| `storage` | Settings › Cache & storage |
+| `storage` | Settings › Cache & Storage |
 | `system` | Settings › System (desktop only) |
-| `about` | Settings › About › Version |
+| `about` | Settings › About › Version & updates |
 
 On Glyph's pages a section sits at the end of the page, or right under the
 row whose label key you give in `after`. Its heading reads

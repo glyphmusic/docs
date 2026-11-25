@@ -13,6 +13,7 @@
 
 * [Search and sources](using-glyph/search-and-sources.md)
 * [Library, playlists and queue](using-glyph/library-and-queue.md)
+* [Taste, Daily Mixes and Drift](using-glyph/taste.md)
 * [Local files](using-glyph/local-files.md)
 * [Now Playing and the player bar](using-glyph/now-playing.md)
 * [Transfer music](using-glyph/transfer-music.md)

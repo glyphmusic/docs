@@ -34,7 +34,11 @@ automatically. Downloads are never removed by the limit.
 
 ## Still stuck?
 
-**Settings › Support › Copy diagnostic info** copies version and system details
-without keys or personal data. Paste it into a
+**Settings › About › Support › Send feedback** (or `Ctrl+Shift+F`, or shake
+your phone) opens a short form. Write what happened; Glyph opens a GitHub issue
+with your text, the version and the platform already filled in.
+
+**Settings › About › Support › Copy diagnostic info** copies version and system
+details without keys or personal data. Paste it into a
 [GitHub issue](https://github.com/glyphmusic/apps/issues/new) together with what
 you did and what you expected.

@@ -25,7 +25,7 @@ their `User-Agent`) receive HTTP 426 with code `app_outdated` on API routes;
 
 | Method | Path | Does |
 | --- | --- | --- |
-| GET | `/v1/health` | version, protocol, `min_app_version`, active sources, `accounts`, `account_required`, `server_auth_required`, `capabilities` (feature names such as `jam`, `mcp_relay`, `youtube_audio`, `youtube_account_required`, `ratings`, `pair_keys`, `e2e_sync`) |
+| GET | `/v1/health` | version, protocol, `min_app_version`, active sources, `accounts`, `account_required`, `server_auth_required`, `capabilities` (feature names such as `jam`, `mcp_relay`, `youtube_audio`, `youtube_account_required`, `ratings`, `pair_keys`, `e2e_sync`, `wrong_song`, `video`, `taste`, `taste_engine`) |
 | GET | `/v1/search?q=` | NDJSON stream of `results`, `provider_error` and `done` events |
 | POST | `/v1/resolve` | `ResolveRequest` → playback source (`?direct=1` returns direct provider URLs without proxying) |
 | GET | `/v1/audio/:provider/:id` | audio stream with byte ranges; `?quality=low\|standard\|high` |
@@ -37,6 +37,16 @@ their `User-Agent`) receive HTTP 426 with code `app_outdated` on API routes;
 | GET | `/v1/chart` | public popular tracks chart |
 | POST | `/v1/import/spotify` | `{url}` of a public Spotify, Deezer or YouTube playlist, a SoundCloud link (set, likes, tracks, song) or a Last.fm profile |
 | POST | `/v1/cover` | track → `{ url, album }` (cover URL from allowed image hosts plus cached album name) |
+| POST | `/v1/youtube/hint` | share a found YouTube video id for a song, so other apps find it faster (`youtube_hints`) |
+| POST | `/v1/match/alternatives` | other versions of a song, ranked, with 30-second previews (`wrong_song`) |
+| POST | `/v1/match/report` | report the right version; the shared match only changes once enough listeners agree (`wrong_song`) |
+| GET | `/v1/video/search` | music videos for a song (`video`) |
+| GET | `/v1/video/resolve` | a video stream in a chosen quality, 720p by default (`video`) |
+| GET | `/v1/video/youtube/:id` | the video stream itself, with byte ranges (`video`) |
+| POST | `/v1/taste/tags` | genre, mood and era tags for artists (`taste`) |
+| POST | `/v1/taste/collab` | artists that similar listeners like (`taste`) |
+| GET | `/v1/taste/onboarding` | starter artists for the taste picker (`taste`) |
+| POST | `/v1/taste/recommend` | recommendations, Daily Mixes and radio from taste signals (`taste_engine`) |
 
 A search result keeps its `source` and `id`. If another source finds the same
 song later, the track is sent again with more ids; replace it by

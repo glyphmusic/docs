@@ -44,12 +44,20 @@ wheel_seek_s = 5          # seek bar: seconds per wheel notch, 0 = off
 wheel_volume_pct = 5      # volume: percent per wheel notch, 0 = off
 np_lyrics = true          # lyrics next to the cover in Now Playing
 np_download = true        # download button in Now Playing
+np_lyric_line = true      # phones: lyric line under the cover
+shake_feedback = true     # phones: shake to send feedback
 reveal_downloads = true   # "Show in folder" after a download
 text_scale = 1.0          # 0.9 .. 1.3
 
 [ui.keys]                 # changed shortcuts; "" = no key
 zen = "f11"
 download = ""
+
+[taste]                    # see Taste, Daily Mixes and Drift
+enabled = true
+server_collab = true       # false = taste only on this device
+metadata_enrichment = true
+drift_radio = false        # Glyph Drift (beta)
 
 [local]
 folders = ["D:/Music"]    # Library > Local files
@@ -61,8 +69,8 @@ download_dir = "D:/Music/Glyph"   # empty = Glyph's data folder
 Shortcut names: `play`, `seek_back`, `seek_forward`, `prev`, `next`,
 `volume_up`, `volume_down`, `mute`, `like`, `shuffle`, `repeat`, `download`,
 `loop_start`, `loop_end`, `loop_clear`, `search`, `lyrics`, `zen`, `queue`,
-`settings`, `quit`. Keys are written like `ctrl-shift-z`, `alt-1`, `f11` or
-`space`; change them more easily under **Settings › About › Shortcuts**.
+`settings`, `plugins`, `feedback`, `quit`. Keys are written like
+`ctrl-shift-z`, `alt-1`, `f11` or `space`; change them more easily under **Settings › About › Shortcuts**.
 
 An empty `server_url` switches to direct mode: the app asks the sources itself
 with your own API keys. See
@@ -71,6 +79,6 @@ for every option.
 
 ## Backup and sharing
 
-**Settings › Backup and sharing** copies your settings as one line of text or a
+**Settings › Backup & share** copies your settings as one line of text or a
 file, and applies someone else's. API keys, the server address and device
 specific options (audio output, folders) are never included.

@@ -8,8 +8,8 @@ Open the settings with the gear at the bottom of the sidebar or `Ctrl+0`. The
 search field at the top of the settings finds pages, tabs and single options;
 picking an option jumps to it and lights it up.
 
-Paths on this page are written like **Settings › Playback › Player › Mouse
-wheel on the seek bar**: page, tab (if the page has tabs), option. Options
+Paths on this page are written like **Settings › Playback › Content ›
+Shuffle**: page, tab (if the page has tabs), option. Options
 marked *device* stay on this computer; the others
 [sync with your account](accounts.md) and travel in
 [shared settings](sharing.md).
@@ -56,7 +56,12 @@ filter.
 | Listening statistics | Off by default. Counts listening time, plays, top artists and songs; turning it off deletes them. See [Accounts, sync and stats](accounts.md). |
 | Hide explicit songs | Leaves out songs marked explicit and YouTube songs without a rating (**?**). |
 | Radio when the queue ends | Keeps playing similar songs (needs Last.fm on the server or your own key). |
+| Glyph Drift (beta) | When the queue ends, keeps going from Glyph's own taste instead of Last.fm. Needs *Music taste & Daily Mixes*. Off by default (app only). See [Taste](taste.md#glyph-drift-beta). |
 | Song suggestions | Shows *Recommended* songs under your playlists and on the home page. Off: no suggestions. |
+| Music taste & Daily Mixes | Learns your taste from plays, replays, skips and likes for Home, Daily Mixes, radio and search. On by default. See [Taste](taste.md). |
+| Server-powered Taste engine | The Glyph server helps with recommendations and mixes (on by default). Off: everything stays on this device. |
+| Genre, mood & era tags | Looks up tags for your top artists, so mixes and your taste profile can group music by vibe. |
+| Your taste profile | Opens the **Your taste** page. |
 | Hidden artists | Artists you hid with *Don't show this artist* (artist page menu); they do not show in search and radio. Show them again here. |
 
 ### Sources
@@ -73,15 +78,13 @@ filter.
 
 ### Player
 
-All *device*.
+Not on phones. All *device*.
 
 | Option | What it does |
 | --- | --- |
-| Mouse wheel on the seek bar | Off, 1, 5, 10, 15 or 30 seconds per wheel notch (default 5). |
-| Mouse wheel on the volume | Off, 1, 2, 5 or 10 % per notch (default 5). |
 | Lyrics in Now Playing | Lyrics next to the cover; `Ctrl+L` switches them too. |
 | Download button in Now Playing | A button that downloads the playing song. |
-| Keyboard shortcuts | Opens **About › Shortcuts**, where every shortcut can get any key. |
+| Keyboard shortcuts | Opens **About › Shortcuts**, where every shortcut can get any key and the mouse wheel steps are set. |
 
 More in [Now Playing and the player bar](now-playing.md).
 
@@ -198,8 +201,8 @@ More in [Downloads and audio quality](downloads-and-quality.md).
 ## Transfer music
 
 Bring a library over from Spotify, YouTube Music, SoundCloud, Deezer, Last.fm,
-Apple Music or Bandcamp: by link, by playlist file (CSV, JSON, M3U, XSPF) or by
-service. See [Transfer music](transfer-music.md).
+Apple Music or Bandcamp: by link, by copied songs, by playlist file (CSV,
+JSON, M3U, XSPF, TXT) or by service. See [Transfer music](transfer-music.md).
 
 ## Backup & share
 
@@ -217,9 +220,9 @@ API keys, the server address and *device* options are never included. See
 
 | Tab | Options |
 | --- | --- |
-| Version & updates | Version, *Check for updates*, *Install updates automatically*, Channel (**Stable** gets tested versions, **Latest** gets every new version first), *Introduction* (reopen the welcome tour). See [Install and updates](../help/install-and-updates.md). |
-| Support | Report a problem (GitHub), Copy diagnostic info (no keys, no personal data), Docs, Data folder. |
-| Shortcuts | Every keyboard shortcut and mouse gesture; click one to change its key. See [Keyboard shortcuts](../getting-started/keyboard-shortcuts.md). |
+| Version & updates | Version, *Check for updates*, *Install updates automatically*, Channel (**Stable** gets tested versions, **Latest** gets every new version first), *Introduction* (reopen the welcome tour). In the web player also *Install as app*. See [Install and updates](../help/install-and-updates.md). |
+| Support | *Send feedback* (a short note that opens a filled-in GitHub issue), *Shake to send feedback* (phones), Report a problem (GitHub), Copy diagnostic info (no keys, no personal data), Docs, GitHub repository, Data folder (desktop). |
+| Shortcuts | Every keyboard shortcut and mouse gesture; click one to change its key. Also *Mouse wheel on the seek bar* (off, 1, 5, 10, 15 or 30 seconds per notch, default 5) and *Mouse wheel on the volume* (off, 1, 2, 5 or 10 % per notch, default 5). Desktop only, *device*. See [Keyboard shortcuts](../getting-started/keyboard-shortcuts.md). |
 
 ## Only in the settings file
 

@@ -11,6 +11,8 @@ allow downloads can be saved. The playing song downloads with the button in
 [Now Playing](now-playing.md) or `Ctrl+D`.
 
 * Playlists can **download new songs automatically**.
+* **Cancel download** stops a running download. It is in the song's or
+  playlist's menu, on the download badge and in the select bar.
 * The download button's tooltip shows how many songs of a list are saved and how
   a running download is going.
 * Downloaded songs always play from disk first, even online. Glyph checks for a
@@ -42,7 +44,7 @@ never your own files.
 
 ## Quality
 
-**Settings › Audio** has separate choices for streaming and for downloads.
+**Settings › Playback › General** has separate choices for streaming and for downloads.
 
 | Quality | YouTube audio | Good for |
 | --- | --- | --- |

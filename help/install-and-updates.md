@@ -50,6 +50,14 @@ Start it from a terminal to see the error:
 * **No sound**: Glyph plays through ALSA; with PipeWire or PulseAudio install
   their ALSA plugin (`pipewire-alsa` or `pulseaudio-alsa`).
 
+## Black screen right after start (0.13.4)
+
+Glyph 0.13.4 could stop at a black screen after launch on Android, desktop and
+in the web player. Update to 0.13.5 or newer: download it from the
+[releases page](https://github.com/glyphmusic/apps/releases) if the app does
+not get far enough to update itself. The web player updates when you reload the
+page.
+
 ## "Update Glyph" covers the whole app
 
 When the Glyph server introduces a change that older app versions can no longer

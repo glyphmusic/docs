@@ -55,7 +55,7 @@ app, switch to Glyph, and a message offers **Add**. Turn it off under
 
 Signed-in users see each other's picture and banner under `@handle`. Playlists
 and recently played songs are visible only when you switch them on under
-**Settings › Profile & privacy**. See [Accounts](accounts.md#profile).
+**Settings › Account › Profile**. See [Accounts](accounts.md#profile).
 
 ## Settings
 
