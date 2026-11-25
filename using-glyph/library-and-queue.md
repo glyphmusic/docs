@@ -87,7 +87,10 @@ list Glyph takes up to five songs spread over it, so the radio fits the whole
 list; songs already in it are left out and artists are spread out.
 
 A radio from one song stays close to that song: songs with the same genre and
-mood come first, and your overall taste only nudges the order. When the last
+mood come first, and your overall taste only nudges the order. It empties the
+queue (also songs you queued by hand) and saves its songs as a playlist
+"Song radio · <song>", with the song first. Keep it or delete it like any
+playlist; starting the radio again for the same song refills it. When the last
 song of the queue plays, Glyph already finds the radio songs, so the radio
 starts the moment the queue ends.
 
