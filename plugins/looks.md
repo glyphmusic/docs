@@ -112,13 +112,19 @@ numbers).
 
 The file is a square `.png`, 64 to 1024 pixels (512 × 512 is a good size), at
 most 1 MB. Glyph shows it on the window, the taskbar, the tray and the Dock on
-a Mac, and on Android in the app overview. The icon on the Android home screen
-and the Windows Start menu stays Glyph's, because the system only lets apps
-pick from icons they ship with.
+a Mac, and on Android in the app overview. Glyph scales big icons down to
+256 pixels for the window and tray. The icon on the Android home screen, the
+desktop, the Windows Start menu and a pinned taskbar stays Glyph's, because
+the system only lets apps pick from icons they ship with. On Android, the
+plugin's page has **Add to home screen**: it puts a Glyph shortcut with your
+icon on the home screen (Android asks first).
+
+If the icon has the wrong size or is missing, the plugin's page says so under
+"These parts of the look don't work", and Glyph keeps its own icon.
 
 The icon shows while the look is in use: a theme's while that theme is picked,
 an extension's while it is on. Turn the plugin off and Glyph's icon comes back.
-If two plugins bring an app icon, the first one by name wins. `app_icon` needs
+If two plugins bring an app icon, the one that wins the conflict is used. `app_icon` needs
 Glyph 0.13.6 or newer.
 
 ## Home page, sidebar and tabs
@@ -202,7 +208,7 @@ round. Glyph's base radius (`--radius`, 10 px) follows too: `0.5` gives 5 px,
 `2` gives 20 px. Your style sheet can read it as `var(--radius)` and the
 factor as `var(--radius-k)`, or set any corner itself; the corners in your
 style sheet are not scaled. Before Glyph 0.13.7, `radius` only changed a few
-panels.
+panels; before 0.13.8, covers, loading boxes and some menus kept their corners.
 
 ## Icons
 
