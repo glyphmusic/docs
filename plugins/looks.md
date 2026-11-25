@@ -64,9 +64,11 @@ them, so the index check refuses a lower `min_app`.
 ### Two plugins, one thing
 
 Only one plugin can set the font, the corners, the app icon, an icon, a text,
-the layout, the sidebar position or the startup animation. The plugin whose
-**name comes first** wins (style sheets all apply, one after another). Glyph
-tells both sides which one wins; people turn one off to choose.
+the layout, the sidebar position or the startup animation. Glyph shows
+"Plugin conflict" on both plugins' pages and says which one wins. People
+pick the winner there with **Use this one**, and Glyph remembers it. Until
+they pick, the plugin whose **name comes first** wins.
+Style sheets all apply, one after another.
 
 ## Fonts
 
