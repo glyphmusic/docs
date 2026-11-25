@@ -127,6 +127,7 @@ The result is one of three:
 | --- | --- | --- |
 | valid | **Install** | everything fine |
 | needs a newer Glyph | **Needs a newer Glyph** | `schema` higher than this Glyph knows, a `kind`, permission, settings page or row type it doesn't know yet, or `min_app` above the running version |
+| made for an older Glyph | **Made for an older Glyph** | `max_app` below the running version; installed copies are paused until an update fits |
 | broken | **Invalid** | a rule is broken (bad id, colour, version, too long, …) |
 
 One more rule depends on the source: **community plugins may only be
