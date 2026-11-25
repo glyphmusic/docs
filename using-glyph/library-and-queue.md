@@ -86,6 +86,11 @@ once enough listeners pick the same version.
 list Glyph takes up to five songs spread over it, so the radio fits the whole
 list; songs already in it are left out and artists are spread out.
 
+A radio from one song stays close to that song: songs with the same genre and
+mood come first, and your overall taste only nudges the order. When the last
+song of the queue plays, Glyph already finds the radio songs, so the radio
+starts the moment the queue ends.
+
 ## Sleep timer
 
 The timer button (player bar and Now Playing) pauses playback after 15, 30, 45,
