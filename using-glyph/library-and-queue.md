@@ -48,6 +48,10 @@ Sort your playlists into folders (Glyph 0.14.0 or newer). Make one with
 folder** in the playlist's menu. Deleting a folder keeps its playlists.
 Folders sync between your devices.
 
+On a phone (Glyph 0.14.2 or newer), tap the **folder button** at the top of the
+Library, next to **+**. To move a playlist, press and hold it and choose
+**Move to folder**.
+
 ## Queue
 
 The queue has three parts:

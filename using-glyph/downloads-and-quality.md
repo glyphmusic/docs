@@ -20,6 +20,14 @@ allow downloads can be saved. The playing song downloads with the button in
   verified download.
 * Signed in, the *list* of downloads syncs; each device downloads the files
   itself.
+
+### When you have no internet
+
+After a few seconds without a connection, a thin **No connection** bar shows
+at the very bottom. It shows your downloaded songs and a button that plays
+them. On a phone, a sheet also comes up once with **Downloads** and every
+playlist that has downloaded songs. Tap one to play its saved songs. The bar
+goes away as soon as you are back online.
 * When a download is done, its message has a **Show in folder** button that
   opens your file manager at the file. Switch it off under **Settings › Cache &
   Storage › “Show in folder” after downloads**.
